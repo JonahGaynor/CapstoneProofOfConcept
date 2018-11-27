@@ -1,0 +1,41 @@
+﻿<Properties StartupConfiguration="{2A4404BB-6BE6-6815-107E-F87E7093CAF3}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scene4HandScript.cs">
+    <Files>
+      <File FileName="Assets/Scripts/GenDiceScript.cs" Line="28" Column="8" />
+      <File FileName="Assets/Scripts/BaseDiceScript.cs" Line="7" Column="1" />
+      <File FileName="Assets/Scripts/EnemyDiceScript.cs" Line="22" Column="3" />
+      <File FileName="Assets/Scripts/BaseAiEnemy.cs" Line="61" Column="1" />
+      <File FileName="Assets/Scripts/GrabNPlaceScript.cs" Line="62" Column="1" />
+      <File FileName="Assets/Scripts/TeaCupScript.cs" Line="39" Column="102" />
+      <File FileName="Assets/Scripts/CallButtonScript.cs" Line="4" Column="22" />
+      <File FileName="Assets/Scripts/BidButtonScript.cs" Line="19" Column="1" />
+      <File FileName="Assets/TurnIndicatorScript.cs" Line="21" Column="52" />
+      <File FileName="Assets/Scripts/BattleManager.cs" Line="157" Column="30" />
+      <File FileName="Assets/CurrentBidText.cs" Line="15" Column="1" />
+      <File FileName="Assets/CurrentBidSlotScript.cs" Line="49" Column="38" />
+      <File FileName="Assets/Scene1Manager.cs" Line="23" Column="46" />
+      <File FileName="Assets/Scene1Agent1Script.cs" Line="62" Column="26" />
+      <File FileName="Assets/Scene1Agent2.cs" Line="50" Column="31" />
+      <File FileName="Assets/Scene1MayaScript.cs" Line="22" Column="13" />
+      <File FileName="Assets/Scene2Manager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scene1Elevator.cs" Line="30" Column="10" />
+      <File FileName="Assets/Scene3Manager.cs" Line="54" Column="57" />
+      <File FileName="Assets/MayaIDCardScript.cs" Line="11" Column="5" />
+      <File FileName="Assets/Scene1NEWManager.cs" Line="46" Column="40" />
+      <File FileName="Assets/Scene3AgentWallace.cs" Line="43" Column="45" />
+      <File FileName="Assets/Scene3TextScript.cs" Line="25" Column="210" />
+      <File FileName="Assets/Scene3TextFace.cs" Line="17" Column="74" />
+      <File FileName="Assets/Scene4TextScript.cs" Line="70" Column="96" />
+      <File FileName="Assets/Scene4BidButtonScript.cs" Line="34" Column="86" />
+      <File FileName="Assets/Scene4CallButtonScript.cs" Line="26" Column="10" />
+      <File FileName="Assets/Scene4HandScript.cs" Line="7" Column="27" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

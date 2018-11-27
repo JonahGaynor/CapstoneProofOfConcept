@@ -49,9 +49,12 @@ public class BattleManager : MonoBehaviour {
     }
 
     void Roll () {
+        GameObject.Find ("teacup").GetComponent<TeaCupScript>().myNumber = 0;
         myCurrentDice.Clear();
         enemyCurrentDice.Clear();
         actualAmount = 0;
+        battleDice = GameObject.FindGameObjectsWithTag("Dice");
+        enemyBattleDice = GameObject.FindGameObjectsWithTag("EnemyDice");
         foreach (GameObject d in battleDice){
             d.GetComponent<BaseDiceScript>().Roll();
         }
@@ -60,11 +63,11 @@ public class BattleManager : MonoBehaviour {
         }
         for (int i = 0; i < myDice; i++){
             int temp = Random.Range(0, 6);
-            myCurrentDice.Add(temp);
+          //  myCurrentDice.Add(temp);
         }
         for (int j = 0; j < enemyDice; j++){
             int temp = Random.Range(0, 6);
-            enemyCurrentDice.Add(temp);
+            //enemyCurrentDice.Add(temp);
         }
     }
 
@@ -150,6 +153,8 @@ public class BattleManager : MonoBehaviour {
         myCurrentDice.Clear();
         enemyCurrentDice.Clear();
         actualAmount = 0;
+        currentBidAmount = 0;
+        currentBidNumber = 0;
         yield return new WaitForSeconds (1f);
         foreach (GameObject e in enemyBattleDice) {
             e.GetComponent<EnemyDiceScript>().shouldShow = false;

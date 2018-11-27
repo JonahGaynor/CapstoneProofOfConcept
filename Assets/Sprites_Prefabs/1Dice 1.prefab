@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 212504072316319170}
   - component: {fileID: 61333956775314892}
   - component: {fileID: 50082827871977338}
-  - component: {fileID: 114491622233896602}
   m_Layer: 0
   m_Name: 1Dice 1
   m_TagString: BiddingDice
@@ -88,17 +87,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0101638, y: 1.0101109}
   m_EdgeRadius: 0
---- !u!114 &114491622233896602
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1460250410045928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6596809e5910246ad81588e537843ba6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212504072316319170
 SpriteRenderer:
   m_ObjectHideFlags: 1

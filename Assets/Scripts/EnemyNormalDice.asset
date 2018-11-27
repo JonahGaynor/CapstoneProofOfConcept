@@ -13,10 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   faces: 010000000200000003000000040000000500000006000000
   mySprites:
-  - {fileID: 21300000, guid: c2a2643b02ab048699b35e51580a47a4, type: 3}
-  - {fileID: 21300000, guid: cc278010f23294a5f8513442c9f1c587, type: 3}
-  - {fileID: 21300000, guid: 3b2b56958e46d4a1eb5d951d731ad2d7, type: 3}
-  - {fileID: 21300000, guid: 0b3676275a21b44478c4a3c8f18b7f63, type: 3}
-  - {fileID: 21300000, guid: 3194956262b9f4f70b3eca0f21c75e95, type: 3}
-  - {fileID: 21300000, guid: 2ca8d956e33ee4c81a4effc4e3c59cda, type: 3}
+  - {fileID: 21300000, guid: 4f3034dc98810447dba96bf7cbef3fd4, type: 3}
+  - {fileID: 21300000, guid: 224f38d01fa324291a01b8a0b5f2ef19, type: 3}
+  - {fileID: 21300000, guid: 1f352c58c861c442db753c568f77d5b2, type: 3}
+  - {fileID: 21300000, guid: 427c0f1b6c9a04d7b908012759b70e94, type: 3}
+  - {fileID: 21300000, guid: 02a27ab65d9b74876940b8efa087fee1, type: 3}
+  - {fileID: 21300000, guid: 10c32e99b76b242d09afab1498c6e9fd, type: 3}
   - {fileID: 21300000, guid: 29443ec1a7c574054a5211964e1abfa8, type: 3}

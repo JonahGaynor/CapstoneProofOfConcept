@@ -12,6 +12,7 @@ TagManager:
   - Dice
   - EnemyDice
   - BiddingDice
+  - DestroyMe
   layers:
   - Default
   - TransparentFX

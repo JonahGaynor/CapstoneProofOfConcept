@@ -5,7 +5,7 @@ using UnityEngine;
 public class TeaCupScript : MonoBehaviour {
 
 	public int myNumber = 0;
-	bool haveHit = false;
+	public bool haveHit = false;
 	public bool destroyOthers = false;
 	bool startCoroutine = false;
     GameObject[] myDice;
@@ -26,16 +26,20 @@ public class TeaCupScript : MonoBehaviour {
             myDice = GameObject.FindGameObjectsWithTag("BiddingDice");
             foreach (GameObject m in myDice)
             {
-                Destroy(m);
+                m.transform.position = new Vector3 (7.01f, 4.01f, 0);
+               // Destroy(m);
             }
+            destroyOthers = false;
             //  Destroy (col.gameObject);
             //  col.gameObject.SetActive (false);
         }
     }
 
 	void OnCollisionEnter2D (Collision2D col){
+        GameObject.Find ("CurrentBidSlot").GetComponent<CurrentBidSlotScript>().shouldDestroy = true;
 
-		if (!destroyOthers) {
+        if (!destroyOthers) {
+            GameObject.Find ("CurrentBidSlot").GetComponent<CurrentBidSlotScript>().shouldDestroy = true;
 			if (col.gameObject.name == "1Dice 1(Clone)" && !haveHit) {
 				myNumber = 1;
 				haveHit = true;
@@ -63,7 +67,8 @@ public class TeaCupScript : MonoBehaviour {
 		if (destroyOthers) {
             myDice = GameObject.FindGameObjectsWithTag("BiddingDice");
             foreach (GameObject m in myDice){
-                Destroy (m);
+                m.transform.position = new Vector3 (7.01f, 4.01f, 0);
+                //Destroy (m);
             }
 		//	Destroy (col.gameObject);
 		//	col.gameObject.SetActive (false);
@@ -75,6 +80,7 @@ public class TeaCupScript : MonoBehaviour {
 		destroyOthers = false;
 		startCoroutine = false;
 		haveHit = false;
+        myNumber = 0;
 	}
 
 }

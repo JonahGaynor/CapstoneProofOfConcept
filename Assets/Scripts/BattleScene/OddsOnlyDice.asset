@@ -9,8 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d280f74fa332543d49b5359bb3b1183b, type: 3}
-  m_Name: OnesOnlyDice
+  m_Name: OddsOnlyDice
   m_EditorClassIdentifier: 
-  faces: 010000000100000001000000010000000100000001000000
+  faces: 010000000300000005000000010000000300000005000000
   mySprites: []
-  lifeSpan: 3

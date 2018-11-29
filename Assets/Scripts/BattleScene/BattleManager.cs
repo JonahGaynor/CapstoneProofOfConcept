@@ -17,6 +17,7 @@ public class BattleManager : MonoBehaviour {
 
     public GameObject[] battleDice;
     public GameObject[] enemyBattleDice;
+    public GameObject[] currentBidDice;
 
     public Transform boxPos;
 
@@ -31,9 +32,9 @@ public class BattleManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	//void Update () {
 		
-	}
+	//}
 
     public void EnemyTurn (){
         for (int i = 0; i < enemyCurrentDice.Count; i++){
@@ -55,12 +56,17 @@ public class BattleManager : MonoBehaviour {
         actualAmount = 0;
         battleDice = GameObject.FindGameObjectsWithTag("Dice");
         enemyBattleDice = GameObject.FindGameObjectsWithTag("EnemyDice");
+        currentBidDice = GameObject.FindGameObjectsWithTag("BiddingDice");
         foreach (GameObject d in battleDice){
             d.GetComponent<BaseDiceScript>().Roll();
         }
         foreach (GameObject e in enemyBattleDice){
             e.GetComponent<EnemyDiceScript>().Roll();
         }
+        foreach (GameObject b in currentBidDice){
+            Destroy(b);
+        }
+        GameObject.Find ("CurrentBidSlot").GetComponent<CurrentBidSlotScript>().shouldDestroy = true;
         for (int i = 0; i < myDice; i++){
             int temp = Random.Range(0, 6);
           //  myCurrentDice.Add(temp);

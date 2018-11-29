@@ -15,33 +15,33 @@ public class Scene1NEWManager : MonoBehaviour {
 
 
     IEnumerator TheBigOne (){
-        yield return new WaitForSeconds (1f);
+        yield return new WaitForSeconds (2f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[1];
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.3f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[2];
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.3f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[3];
         yield return new WaitForSeconds(1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[4];
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.3f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[5];
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[6];
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[7];
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[8];
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[9];
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[10];
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[11];
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[12];
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[13];
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[14];
         yield return new WaitForSeconds(1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[15];

@@ -15,15 +15,15 @@ public class Scene1NEWManager : MonoBehaviour {
 
 
     IEnumerator TheBigOne (){
-        yield return new WaitForSeconds (2f);
+        yield return new WaitForSeconds (1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[1];
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[2];
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[3];
         yield return new WaitForSeconds(1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[4];
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[5];
         yield return new WaitForSeconds(.1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[6];
@@ -41,15 +41,25 @@ public class Scene1NEWManager : MonoBehaviour {
         this.GetComponent<SpriteRenderer>().sprite = mySprites[12];
         yield return new WaitForSeconds(.1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[13];
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[14];
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[15];
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[16];
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[17];
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(.2f);
+        this.GetComponent<SpriteRenderer>().sprite = mySprites[18];
+        yield return new WaitForSeconds(1.5f);
+        this.GetComponent<SpriteRenderer>().sprite = mySprites[19];
+        yield return new WaitForSeconds(1.5f);
+        this.GetComponent<SpriteRenderer>().sprite = mySprites[20];
+        yield return new WaitForSeconds(1.5f);
+        this.GetComponent<SpriteRenderer>().sprite = mySprites[21];
+        yield return new WaitForSeconds(2f);
+        GameObject.Find("TitleCard").GetComponent<SpriteRenderer>().enabled = true;
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("ProofofConcept_Scene2");
     }
 }

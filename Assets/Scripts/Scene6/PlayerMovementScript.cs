@@ -1,31 +1,45 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerMovementScript : MonoBehaviour {
 
+    //TODO: make input buffer
+
     Animator myAnimator;
    // Rigidbody2D rb;
-    bool moveUp = false;
-    bool moveLeft = false;
-    bool moveRight = false;
-    bool moveDown = false;
+    public bool moveUp = false;
+    public bool moveLeft = false;
+    public bool moveRight = false;
+    public bool moveDown = false;
+    public bool canMove = true;
+
+    public bool stunned = false;
+
+    public Tilemap walls;
 
     Vector2 upPos;
     Vector2 leftPos;
     Vector2 rightPos;
     Vector2 downPos;
     Vector2 targetPos;
+    Vector2 checkWallPos;
+
+    float xOffset;
+    float yOffset;
 
 	// Use this for initialization
-	//void Start () {
+	void Start () {
      //   myAnimator = this.GetComponent<Animator>();
        // rb = this.GetComponent<Rigidbody2D>();
-	//}
+        xOffset = GameObject.Find ("Grid").GetComponent<Transform>().position.x;
+        yOffset = GameObject.Find ("Grid").GetComponent<Transform>().position.y;
+	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (!moveUp && !moveLeft && !moveRight && !moveDown){
+        if (!moveUp && !moveLeft && !moveRight && !moveDown && canMove){
             if (Input.GetKeyUp(KeyCode.UpArrow)){
                 moveUp = true;
                 //myAnimator.SetTrigger("MoveUp");
@@ -47,8 +61,9 @@ public class PlayerMovementScript : MonoBehaviour {
             }
         }
 
+        checkWallPos = new Vector2 (targetPos.x - xOffset, targetPos.y - yOffset);
 
-        if (Physics2D.OverlapPoint(targetPos) == null){
+        if (!walls.HasTile(Vector3Int.RoundToInt(targetPos))){
             if (moveUp){
                 transform.position = upPos;
                 upPos = new Vector2(transform.position.x, transform.position.y + 0.1f);
@@ -84,5 +99,17 @@ public class PlayerMovementScript : MonoBehaviour {
             moveLeft = false;
             moveRight = false;
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision) {
+        if (stunned){
+            stunned = false;
+        }
+        if (collision.gameObject.tag == "LeftTile" || collision.gameObject.tag == "RightTile" || collision.gameObject.tag == "UpTile" || collision.gameObject.tag == "DownTile"){
+            stunned = true;
+        } 
+        //else if (collider.gameObject.tag == "Wall"){
+        //    stunned = false;
+        //}
     }
 }

@@ -100,7 +100,10 @@ public class GrabNPlaceScript : MonoBehaviour {
 //			for (int i = 0; i < currentBidAmount + 1; i++) {
 		Debug.Log ("instantiate please");
 				//Instantiate (myDice, boxPos);
-		Instantiate (myDice, boxPos.position, Quaternion.identity);
+        float randX = Random.Range(-.5f, .5f);
+        float randY = Random.Range(-.5f, .5f);
+        Vector3 instantiatePos = new Vector3 (boxPos.position.x + randX, boxPos.position.y + randY, 0);
+        Instantiate (myDice, instantiatePos, Quaternion.identity);
         float temp = Random.Range(-1f, 1f);
       //AAAAARGH wtf
 //        myDice.GetComponent<RigidBody2D>().velocity = new Vector3(0, temp, 0);

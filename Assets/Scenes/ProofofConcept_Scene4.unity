@@ -3987,6 +3987,7 @@ MonoBehaviour:
   enemyToCall: 0
   battleDice: []
   enemyBattleDice: []
+  currentBidDice: []
   boxPos: {fileID: 0}
 --- !u!4 &1749002752
 Transform:

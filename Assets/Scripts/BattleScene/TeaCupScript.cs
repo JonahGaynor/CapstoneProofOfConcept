@@ -26,7 +26,9 @@ public class TeaCupScript : MonoBehaviour {
             myDice = GameObject.FindGameObjectsWithTag("BiddingDice");
             foreach (GameObject m in myDice)
             {
-                m.transform.position = new Vector3 (7.01f, 4.01f, 0);
+                float randX = Random.Range (-.5f, .5f);
+               // float randY = Random.Range (-.5f, .5f);
+                m.transform.position = new Vector3 (7.01f + randX, 4.01f, 0);
                // Destroy(m);
             }
             destroyOthers = false;

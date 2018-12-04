@@ -1,10 +1,20 @@
 ﻿<Properties StartupConfiguration="{2A4404BB-6BE6-6815-107E-F87E7093CAF3}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BattleScene/CurrentBidSlotScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Scene3/MayaIDCardScript.cs">
     <Files>
-      <File FileName="Assets/Scripts/Scene6/PlayerMovementScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/BattleScene/TeaCupScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/BattleScene/BattleManager.cs" Line="69" Column="102" />
+      <File FileName="Assets/Scripts/BattleScene/TeaCupScript.cs" Line="31" Column="73" />
+      <File FileName="Assets/Scripts/BattleScene/BattleManager.cs" Line="182" Column="1" />
       <File FileName="Assets/Scripts/BattleScene/CurrentBidSlotScript.cs" Line="32" Column="10" />
+      <File FileName="Assets/Scripts/Scene1/Scene1NEWManager.cs" Line="65" Column="2" />
+      <File FileName="Assets/Scripts/BattleScene/GrabNPlaceScript.cs" Line="104" Column="44" />
+      <File FileName="Assets/Scripts/BattleScene/BidButtonScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BattleScene/BaseAiEnemy.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Scene6/PlayerMovementScript.cs" Line="66" Column="59" />
+      <File FileName="Assets/DirectionalFloorTiles.cs" Line="26" Column="17" />
+      <File FileName="Assets/Scripts/Scene3/Scene3TextFace.cs" Line="17" Column="1" />
+      <File FileName="Assets/Scripts/Scene3/NOT in use/Scene3Manager.cs" Line="21" Column="1" />
+      <File FileName="Assets/Scripts/Scene3/Scene3TextScript.cs" Line="64" Column="42" />
+      <File FileName="Assets/Scene5TextScript.cs" Line="50" Column="2" />
+      <File FileName="Assets/Scripts/Scene3/MayaIDCardScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

@@ -23,15 +23,15 @@ public class Scene1NEWManager : MonoBehaviour {
         this.GetComponent<SpriteRenderer>().sprite = mySprites[3];
         yield return new WaitForSeconds(1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[4];
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.2f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[5];
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.2f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[6];
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.2f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[7];
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.2f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[8];
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.2f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[9];
         yield return new WaitForSeconds(.1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[10];
@@ -60,6 +60,8 @@ public class Scene1NEWManager : MonoBehaviour {
         yield return new WaitForSeconds(2f);
         GameObject.Find("TitleCard").GetComponent<SpriteRenderer>().enabled = true;
         yield return new WaitForSeconds(2f);
+        this.GetComponent<SpriteRenderer>().sprite = mySprites[22];
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene("ProofofConcept_Scene2");
     }
 }

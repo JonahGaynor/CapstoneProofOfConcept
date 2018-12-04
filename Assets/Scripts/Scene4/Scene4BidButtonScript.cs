@@ -34,7 +34,10 @@ public class Scene4BidButtonScript : MonoBehaviour {
         GameObject.Find("EnterButton").GetComponent<SpriteRenderer>().enabled = true;
         
         GameObject.Find ("Scene4Text").GetComponent<Text>().text = "Excellent, now it’s my turn. I can only bid higher than you, meaning I have to increase the dice face of your bid or increase the amount of your bid. Here is an incorrect bid.";
-           
+
+        GameObject.Find("BiddingFist").GetComponent<SpriteRenderer>().enabled = true;
+        GameObject.Find("IncorrectText").GetComponent<Text>().enabled = true;
+
         GameObject.Find ("Scene4Text").GetComponent<Scene4TextScript>().StartCoroutine("OpenFist");
 
         Instantiate(fakeDice, myTransform, Quaternion.identity);

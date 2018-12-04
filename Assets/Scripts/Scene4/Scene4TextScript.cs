@@ -42,6 +42,7 @@ public class Scene4TextScript : MonoBehaviour {
             else if (enterCount == 3){
                 //GameObject.Find("BidButton").SetActive(false);
                 this.GetComponent<Text>().text = "And another incorrect bid.";
+                GameObject.Find("IncorrectText").GetComponent<Text>().enabled = true;
                 StartCoroutine(OpenFist());
                 biddingDice = GameObject.FindGameObjectsWithTag("BiddingDice");
                 foreach (GameObject b in biddingDice){

@@ -14,8 +14,8 @@ public class SpeechBubbleScript : MonoBehaviour {
     {
         if (Input.GetKeyUp(KeyCode.Return)){
             GameObject.Find("Player").GetComponent<PlayerMovementScript>().canMove = true;
-            gameObject.SetActive(false);
             GameObject.Find("EnterButton").SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 }

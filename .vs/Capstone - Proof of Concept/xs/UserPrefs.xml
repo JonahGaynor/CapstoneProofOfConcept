@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{2A4404BB-6BE6-6815-107E-F87E7093CAF3}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Scene3/NOT in use/Scene3Manager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Scene6/PlayerMovementScript.cs">
     <Files>
       <File FileName="Assets/Scripts/BattleScene/TeaCupScript.cs" Line="31" Column="73" />
       <File FileName="Assets/Scripts/BattleScene/BattleManager.cs" Line="179" Column="1" />
@@ -8,7 +8,7 @@
       <File FileName="Assets/Scripts/BattleScene/GrabNPlaceScript.cs" Line="104" Column="44" />
       <File FileName="Assets/Scripts/BattleScene/BidButtonScript.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/BattleScene/BaseAiEnemy.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Scene6/PlayerMovementScript.cs" Line="132" Column="1" />
+      <File FileName="Assets/Scripts/Scene6/PlayerMovementScript.cs" Line="462" Column="53" />
       <File FileName="Assets/DirectionalFloorTiles.cs" Line="26" Column="17" />
       <File FileName="Assets/Scripts/Scene3/Scene3TextFace.cs" Line="17" Column="1" />
       <File FileName="Assets/Scripts/Scene3/NOT in use/Scene3Manager.cs" Line="21" Column="1" />
@@ -28,7 +28,7 @@
       <File FileName="Assets/RPGCamera.cs" Line="17" Column="60" />
       <File FileName="Assets/RPGBackground.cs" Line="14" Column="96" />
       <File FileName="Assets/Scripts/BattleScene/CurrentBidText.cs" Line="15" Column="1" />
-      <File FileName="Assets/SpeechBubbleScript.cs" Line="16" Column="91" />
+      <File FileName="Assets/SpeechBubbleScript.cs" Line="18" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

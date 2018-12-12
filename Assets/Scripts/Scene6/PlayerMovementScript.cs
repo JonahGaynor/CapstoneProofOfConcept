@@ -113,8 +113,35 @@ public class PlayerMovementScript : MonoBehaviour {
 
 
         checkWallPos = new Vector2(targetPos.x, targetPos.y);
-        if (!Physics2D.OverlapPoint(targetPos) && (moveUp || moveLeft || moveRight || moveDown)) {
-            spriteCounterTimer += Time.deltaTime;
+        if (Physics2D.OverlapPoint(targetPos + (Vector2.down/2)))
+        {
+            //Debug.Log("WORK PLEASE");
+            targetPos = new Vector2(transform.position.x, transform.position.y);
+        }
+        if (moveUp && Physics2D.OverlapPoint(targetPos))
+        {
+            Debug.Log("we out here");
+            myDoors = GameObject.FindGameObjectsWithTag("Door");
+            foreach (GameObject d in myDoors)
+            {
+
+                if ((Vector2)d.transform.position == (Vector2)transform.position + Vector2.up)
+                {
+                    d.GetComponent<DoorSprites>().myNumber = 1;
+                    d.GetComponent<BoxCollider2D>().enabled = false;
+                    //d.SetActive(false);
+                    // d.tag = "";
+                }
+                else
+                {
+                    Debug.Log(d.transform.position);
+                    Debug.Log(targetPos);
+                }
+            }
+        }
+        if (!Physics2D.OverlapPoint(targetPos + (Vector2.down/2)) && (moveUp || moveLeft || moveRight || moveDown)) {
+            //Debug.Log(targetPos);
+             spriteCounterTimer += Time.deltaTime;
             if (spriteCounterTimer >= 0.12f)
             {
                 spriteCounterTimer = 0;
@@ -371,7 +398,7 @@ public class PlayerMovementScript : MonoBehaviour {
                 }
             } else if (moveDown){
                 this.GetComponent<SpriteRenderer>().sprite = downSprites[spriteCounter];
-
+                //Debug.Log(targetPos);
                 transform.position = downPos;
                 downPos = new Vector2(transform.position.x, transform.position.y - 0.1f);
                 if (transform.position.y <= targetPos.y){
@@ -450,19 +477,7 @@ public class PlayerMovementScript : MonoBehaviour {
         } else if (moveUp || moveLeft || moveRight || moveDown){
             //Debug.Log(targetPos);
             //Debug.Log(Physics2D.OverlapPoint(targetPos));
-            myDoors = GameObject.FindGameObjectsWithTag("Door");
-            foreach (GameObject d in myDoors) {
 
-                if ((Vector2)d.transform.position == targetPos) {
-                    d.GetComponent<DoorSprites>().myNumber = 1;
-                    d.GetComponent<BoxCollider2D>().enabled = false;
-                    //d.SetActive(false);
-                   // d.tag = "";
-                } else {
-                    Debug.Log(d.transform.position);
-                    Debug.Log(targetPos);
-                }
-            }
             // Debug.Log(myColliders[0]);
             moveUp = false;
             moveDown = false;

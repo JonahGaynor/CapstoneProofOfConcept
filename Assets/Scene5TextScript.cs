@@ -9,6 +9,8 @@ public class Scene5TextScript : MonoBehaviour
 
     int enterCounter = 0;
 
+    public Sprite agentSecondSprite;
+
     // Use this for initialization
     void Start()
     {
@@ -35,6 +37,7 @@ public class Scene5TextScript : MonoBehaviour
             }
             else if (enterCounter == 4)
             {
+                GameObject.Find("AgentSprite").GetComponent<SpriteRenderer>().sprite = agentSecondSprite;
                 this.GetComponent<Text>().text = "...";
             }
             else if (enterCounter == 5)

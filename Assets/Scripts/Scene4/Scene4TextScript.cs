@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Scene4TextScript : MonoBehaviour {
 
-    int enterCount = 0;
+    public int enterCount = 0;
 
     public GameObject spawnDice;
     public GameObject correctDice;
@@ -13,6 +13,8 @@ public class Scene4TextScript : MonoBehaviour {
     Vector3 myPos; 
 
     public GameObject[] biddingDice;
+
+    public bool madeBid = false;
 
     // Use this for initialization
     void Start () {
@@ -24,10 +26,12 @@ public class Scene4TextScript : MonoBehaviour {
         if (Input.GetKeyUp(KeyCode.Return)){   
             enterCount++;
             if (enterCount == 1){
+                Scene4Pulse.instance.IncreaseStep();
                 this.GetComponent<Text>().text = "And these are my dice.";
                 GameObject.Find("MyDiceBoarder").SetActive(false);
                 GameObject.Find("EnemyDiceBoarder").GetComponent<SpriteRenderer>().enabled = true;;
             } else if (enterCount == 2){
+                Scene4Pulse.instance.IncreaseStep();
                 this.GetComponent<Text>().text = "How many 2s are there between our 10 dice? Use the bidding area to make a bid.";
                 GameObject.Find ("EnterButton").GetComponent<SpriteRenderer>().enabled = false;
                 GameObject.Find("EnemyDiceBoarder").SetActive(false);
@@ -39,7 +43,7 @@ public class Scene4TextScript : MonoBehaviour {
                 GameObject.Find("4DiceGen").GetComponent<SpriteRenderer>().color = Color.gray;
                 GameObject.Find("5DiceGen").GetComponent<SpriteRenderer>().color = Color.gray;
             }
-            else if (enterCount == 3){
+            else if (enterCount == 3 && madeBid){
                 //GameObject.Find("BidButton").SetActive(false);
                 this.GetComponent<Text>().text = "And another incorrect bid.";
                 GameObject.Find("IncorrectText").GetComponent<Text>().enabled = true;
@@ -50,13 +54,18 @@ public class Scene4TextScript : MonoBehaviour {
                 }
                 Instantiate(spawnDice, myPos, Quaternion.identity);
                 Instantiate(spawnDice, myPos, Quaternion.identity);
+            } else if (enterCount == 3 && !madeBid)
+            {
+                enterCount--;
             }
             else if (enterCount == 4){
                 biddingDice = GameObject.FindGameObjectsWithTag("BiddingDice");
                 foreach (GameObject b in biddingDice) {
                     Destroy(b);
                 }
-                this.GetComponent<Text>().text = "Now I'll bid correctly.";
+                this.GetComponent<Text>().text = "Now this would be a correct bid:";
+                //GameObject.Find("CurrentBid1").SetActive(false);
+                //GameObject.Find("CurrentBid2").SetActive(false);
                 StartCoroutine(OpenFist());
                 Instantiate(correctDice, myPos, Quaternion.identity);
                 Instantiate(correctDice, myPos, Quaternion.identity);
@@ -66,6 +75,8 @@ public class Scene4TextScript : MonoBehaviour {
                     Destroy(b);
                 }
                 this.GetComponent<Text>().text = "You also have the ability to call the opponent if their bid doesn’t match up to the total dice. So try calling this bid:";
+                GameObject.Find("CallButton").GetComponent<Image>().enabled = true;
+                Scene4Pulse.instance.IncreaseStep();
                 Instantiate(correctDice, myPos, Quaternion.identity);
                 Instantiate(correctDice, myPos, Quaternion.identity);
                 Instantiate(correctDice, myPos, Quaternion.identity);

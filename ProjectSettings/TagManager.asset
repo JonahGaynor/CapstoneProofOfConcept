@@ -13,6 +13,12 @@ TagManager:
   - EnemyDice
   - BiddingDice
   - DestroyMe
+  - Door
+  - BaseTile
+  - TileDown
+  - TileLeft
+  - TileRight
+  - TileUp
   layers:
   - Default
   - TransparentFX

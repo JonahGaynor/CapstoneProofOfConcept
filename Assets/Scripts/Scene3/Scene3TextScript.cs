@@ -20,9 +20,9 @@ public class Scene3TextScript : MonoBehaviour {
             if (enterCounter == 1) {
                 this.GetComponent<Text>().text = "As you know, the Central Computer is vital to our freedom. Our government will collapse without it.";
             } else if (enterCounter == 2) {
-                this.GetComponent<Text>().text = "When it was set up a decade ago, the scientists and engineers on the job set up a series of obstacles and artificial intelligence robots to ensure that breaking in would be impossible without codeword level clearance that only a handful of people on the planet had.";
+                this.GetComponent<Text>().text = "When it was set up, the scientists and engineers set up a series of obstacles and artificial intelligence to ensure that breaking in would be impossible without codeword level clearance.";
             } else if (enterCounter == 3) {
-                this.GetComponent<Text>().text = "Well, earlier today, some unidentified individuals tried to break into the computer. This isn’t unusual. We get at least a dozen of these every year and once they are rebuked by the computer’s security, we deal with them.";
+                this.GetComponent<Text>().text = "Earlier today, some unidentified individuals tried to break into the computer. This isn’t unusual. We get at least a dozen of these every year and once they are rebuked by the computer’s security, we deal with them.";
             } else if (enterCounter == 4) {
                 this.GetComponent<Text>().text = "Today, however, was different. This latest attempt was successful, and these intruders have made it all the way to the center, putting our freedom in danger.";
             } else if (enterCounter == 5) {
@@ -41,7 +41,7 @@ public class Scene3TextScript : MonoBehaviour {
                 this.GetComponent<Text>().text = "It does.";
                 GameObject.Find("TextFace").GetComponent<Scene3TextFace>().myNumber = 1;
             } else if (enterCounter == 10) {
-                this.GetComponent<Text>().text = "At every layer of the Central Computer, you’ll face various challenges that you’ll need to overcome in order to reach the end of the layer, and face increasingly complex AI players. They play an ancient game using a tool from the early 21st century...";
+                this.GetComponent<Text>().text = "At every layer of the Central Computer, you’ll face various challenges that you’ll need to overcome in order to reach the end of the layer, and face the artificial intelligence. They play an ancient game using a tool from the early 21st century...";
                 GameObject.Find("TextFace").GetComponent<Scene3TextFace>().myNumber = 0;
             } else if (enterCounter == 11) {
                 this.GetComponent<Text>().text = "DYCE";
@@ -61,7 +61,7 @@ public class Scene3TextScript : MonoBehaviour {
 	}
 
     IEnumerator MovetoNextScene(){
-        this.gameObject.SetActive(false);
+        this.GetComponent<Text>().text = "";
         yield return new WaitForSeconds (3f);
         SceneManager.LoadScene("ProofofConcept_Scene4");
     }

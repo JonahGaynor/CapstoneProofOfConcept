@@ -7,9 +7,14 @@ public class Scene1NEWManager : MonoBehaviour {
 
     public Sprite[] mySprites;
 
+    AudioSource myAudio;
+    public AudioClip gasp;
+    public AudioClip titleBoom;
+
 	// Use this for initialization
 	void Start () {
         this.GetComponent<SpriteRenderer>().sprite = mySprites[0];
+        myAudio = this.GetComponent<AudioSource>();
         StartCoroutine(TheBigOne());
 	}
 
@@ -49,16 +54,19 @@ public class Scene1NEWManager : MonoBehaviour {
         this.GetComponent<SpriteRenderer>().sprite = mySprites[16];
         yield return new WaitForSeconds(.1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[17];
+        GameObject.Find("AudioManager").GetComponent<AudioSource>().Stop();
+        myAudio.PlayOneShot(gasp);
         yield return new WaitForSeconds(.2f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[18];
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[19];
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[20];
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[21];
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         GameObject.Find("TitleCard").GetComponent<SpriteRenderer>().enabled = true;
+        GameObject.Find("TitleCard").GetComponent<AudioSource>().PlayOneShot(titleBoom);
         yield return new WaitForSeconds(2f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[22];
         yield return new WaitForSeconds(1.5f);

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Scene4CallButtonScript : MonoBehaviour {
 
     public GameObject[] biddingDice;
+    public Sprite mayaHappy;
 
 	// Use this for initialization
 	void Start () {
@@ -28,8 +29,11 @@ public class Scene4CallButtonScript : MonoBehaviour {
     }
 
     IEnumerator ToExit(){
-        GameObject.Find ("CallButtonBoarder").SetActive(false);
-        GameObject.Find ("CallButton").SetActive(false);
+        GameObject.Find("Border").SetActive(false);
+        //GameObject.Find("CallButton").SetActive(false);
+        GameObject.Find("playerPortrait").GetComponent<SpriteRenderer>().sprite = mayaHappy;
+        //GameObject.Find ("CallButtonBoarder").SetActive(false);
+        this.GetComponent<Image>().enabled = false;
         yield return new WaitForSeconds (1f);
         SceneManager.LoadScene("ProofofConcept_Scene5");
     }

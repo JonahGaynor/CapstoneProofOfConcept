@@ -25,6 +25,10 @@ public class Scene4BidButtonScript : MonoBehaviour {
         foreach (GameObject b in biddingDice){
             Destroy(b);
         }
+        Scene4Pulse.instance.IncreaseStep();
+        GameObject.Find("Scene4Text").GetComponent<Scene4TextScript>().madeBid = true;
+        GameObject.Find("CurrentBid1").GetComponent<SpriteRenderer>().enabled = true;
+        GameObject.Find("CurrentBid2").GetComponent<SpriteRenderer>().enabled = true;
         GameObject.Find("1DiceGen").GetComponent<SpriteRenderer>().color = Color.white;
         GameObject.Find("6DiceGen").GetComponent<SpriteRenderer>().color = Color.white;
         GameObject.Find("3DiceGen").GetComponent<SpriteRenderer>().color = Color.white;
@@ -44,6 +48,7 @@ public class Scene4BidButtonScript : MonoBehaviour {
         this.gameObject.SetActive(false);
         GameObject.Find("BiddingAreaBoarder").GetComponent<SpriteRenderer>().enabled = false; ;
         GameObject.Find("BidButtonBoarder").GetComponent<SpriteRenderer>().enabled = false;
+
         //Instantiate(fakeDice, GameObject.Find("teacup").GetComponent<Transform>().position, Quaternion.identity);
     }
 }

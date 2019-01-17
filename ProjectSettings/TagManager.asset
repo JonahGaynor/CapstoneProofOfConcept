@@ -19,6 +19,7 @@ TagManager:
   - TileLeft
   - TileRight
   - TileUp
+  - TileFinal
   layers:
   - Default
   - TransparentFX

@@ -16,7 +16,10 @@ public class CallButtonScript : MonoBehaviour {
 	}
 
     public void OnClick () {
-        GameObject.Find("BattleManager").GetComponent<BattleManager>().PlayerCall();
-        GameObject.Find("teacup").GetComponent<TeaCupScript>().destroyOthers = true;
+        if (GameObject.Find("BattleManager").GetComponent<BattleManager>().myTurn)
+        {
+            GameObject.Find("BattleManager").GetComponent<BattleManager>().PlayerCall();
+            GameObject.Find("teacup").GetComponent<TeaCupScript>().destroyOthers = true;
+        }
     }
 }

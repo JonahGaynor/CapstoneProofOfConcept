@@ -18,12 +18,18 @@ public class MayaIDCardScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (FindObjectOfType<DialogueManager>().done)
+        {
+            active = true;
+        }
         if (active){
+            if (!startCoroutine)
+            {
+                StartCoroutine(Move());
+                startCoroutine = true;
+            }
             if (moveDown) {
-                if (!startCoroutine) {
-                    StartCoroutine(Move());
-                    startCoroutine = true;
-                }
+
                 targetY = -10f;
                 transform.position = new Vector3(transform.position.x, ((transform.position.y * 9) + targetY) / 10, 0);
             } else if (transform.position.y > targetY){
@@ -33,7 +39,7 @@ public class MayaIDCardScript : MonoBehaviour {
                 moveDown = true;
             }
             if (this.transform.position.y < -9f){
-                this.gameObject.SetActive(false);
+                //this.gameObject.SetActive(false);
             }
         }
     }
@@ -41,6 +47,8 @@ public class MayaIDCardScript : MonoBehaviour {
     IEnumerator Move() {
         Debug.Log("we in");
         yield return new WaitForSeconds(1f);
+        //Debug.Log("move scenes now plz");
         SceneManager.LoadScene("ProofofConcept_Scene4");
+        yield return new WaitForSeconds(0.1f);
     }
 }

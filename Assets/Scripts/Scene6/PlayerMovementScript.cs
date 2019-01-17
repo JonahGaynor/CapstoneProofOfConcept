@@ -41,6 +41,9 @@ public class PlayerMovementScript : MonoBehaviour {
     GameObject[] rightTiles;
     GameObject[] downTiles;
 
+    GameObject lastTile;
+    bool moveToNext = false;
+
     float xOffset;
     float yOffset;
 
@@ -53,6 +56,7 @@ public class PlayerMovementScript : MonoBehaviour {
         leftTiles = GameObject.FindGameObjectsWithTag("TileLeft");
         rightTiles = GameObject.FindGameObjectsWithTag("TileRight");
         downTiles = GameObject.FindGameObjectsWithTag("TileDown");
+        lastTile = GameObject.FindGameObjectWithTag("TileFinal");
      //   myAnimator = this.GetComponent<Animator>();
        // rb = this.GetComponent<Rigidbody2D>();
   //      xOffset = GameObject.Find ("Grid").GetComponent<Transform>().position.x;
@@ -88,16 +92,21 @@ public class PlayerMovementScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (transform.position.y > lastTile.transform.position.y && !moveToNext)
+        {
+            moveToNext = true;
+        }
+
         fixedTargetPos = new Vector2(transform.position.x, transform.position.y - 0.5f);
-        if (transform.position.y >= -3 && !firstWallaceText) {
-            canMove = false;
-            firstWallaceText = true;
-            GameObject.Find("WallaceSpeech1").GetComponent<SpriteRenderer>().enabled = true;
-            GameObject.Find("EnterButton").GetComponent<SpriteRenderer>().enabled = true;
+        //if (transform.position.y >= -3 && !firstWallaceText) {
+       //     canMove = false;
+       //     firstWallaceText = true;
+//            GameObject.Find("WallaceSpeech1").GetComponent<SpriteRenderer>().enabled = true;
+  //          GameObject.Find("EnterButton").GetComponent<SpriteRenderer>().enabled = true;
             //GameObject.Find("tempSpeechBubble").GetComponent<SpriteRenderer>().enabled = true;
             //GameObject.Find("TextFace").GetComponent<SpriteRenderer>().enabled = true;
             //GameObject.Find("FirstWallaceText").GetComponent<Text>().enabled = true;
-        }
+       // }
 
         if (!moveUp && !moveLeft && !moveRight && !moveDown && canMove) {
             if (Input.GetKeyUp(KeyCode.UpArrow)) {

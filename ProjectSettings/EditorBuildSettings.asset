@@ -26,4 +26,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ProofofConcept_Scene6.unity
     guid: 23c60fc6e9e1241c28dd5feaa33f833f
+  - enabled: 0
+    path: Assets/Scenes/BattleScene.unity
+    guid: dba474a011b294e7ea17014d78ee3500
+  - enabled: 1
+    path: Assets/Scenes/BattleSceneNew.unity
+    guid: 520faeb9514a74f90919c0a3da4bbbf1
+  - enabled: 1
+    path: Assets/Scenes/ProofofConcept_End.unity
+    guid: 222a8f19609634df486fa1369f215097
   m_configObjects: {}

@@ -41,7 +41,7 @@ public class Scene3TextScript : MonoBehaviour {
                 this.GetComponent<Text>().text = "It does.";
                 GameObject.Find("TextFace").GetComponent<Scene3TextFace>().myNumber = 1;
             } else if (enterCounter == 10) {
-                this.GetComponent<Text>().text = "At every layer of the Central Computer, you’ll face various challenges that you’ll need to overcome in order to reach the end of the layer, and face the artificial intelligence. They play an ancient game using a tool from the early 21st century...";
+                this.GetComponent<Text>().text = "At every layer of the Central Computer, you’ll face various challenges that you’ll need to overcome in order to reach the end of the layer, and face the artificial intelligence. They play an ancient game using a tool last seen in the early 21st century...";
                 GameObject.Find("TextFace").GetComponent<Scene3TextFace>().myNumber = 0;
             } else if (enterCounter == 11) {
                 this.GetComponent<Text>().text = "DYCE";

@@ -7,6 +7,7 @@ public class DialogueContinue : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyUp(KeyCode.Return))
         {
+            Debug.Log("trigger");
             NextSentence();
         }
 	}

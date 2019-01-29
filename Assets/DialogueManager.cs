@@ -21,6 +21,7 @@ public class DialogueManager : MonoBehaviour {
 	
     public void StartDialogue(Dialogue dialogue)
     {
+        Debug.Log("start dialogue");
         //Debug.Log("Starting dialogue with " + dialogue.name);
 
         myAnim.SetBool("isOpen", true);
@@ -41,6 +42,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void NextSentence()
     {
+        Debug.Log("next sentence");
         if (sentences.Count == 0)
         {
             EndDialogue();

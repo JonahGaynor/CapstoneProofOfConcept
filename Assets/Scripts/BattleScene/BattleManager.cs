@@ -36,7 +36,7 @@ public class BattleManager : MonoBehaviour {
     IEnumerator BeginBattle() {
 
         //TODO: THESE ARE NOT NECESARILY TRUE // figure out how to get that info
-        myDice = 5;
+        myDice = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().myDice;
         enemyDice = 5;
 
         battleDice = GameObject.FindGameObjectsWithTag("Dice");
@@ -56,6 +56,7 @@ public class BattleManager : MonoBehaviour {
 	//}
 
     public void EnemyTurn (){
+        counter = 0;
         for (int i = 0; i < enemyCurrentDice.Count; i++){
             if (enemyCurrentDice[i] == currentBidNumber){
                 counter++;
@@ -66,6 +67,7 @@ public class BattleManager : MonoBehaviour {
         } else {
             GameObject.Find ("Enemy").GetComponent<BaseAiEnemy>().Turn();
         }
+        myTurn = true;
     }
 
     void Roll () {
@@ -180,6 +182,7 @@ public class BattleManager : MonoBehaviour {
             StartCoroutine(PauseForRoll(false));
            //Roll();
         }
+        myTurn = true;
     }
 
     void EnemyLoses () {
@@ -197,7 +200,7 @@ public class BattleManager : MonoBehaviour {
             StartCoroutine(PauseForRoll(true));
           //  Roll ();
         }
-
+        myTurn = false;
     }
     
     IEnumerator PauseForRoll (bool shouldPause) {
@@ -262,6 +265,11 @@ public class BattleManager : MonoBehaviour {
         enemyBattleDice = GameObject.FindGameObjectsWithTag("EnemyDice");
         playerLose = false;
         Roll();
+        yield return new WaitForSeconds(1.5f);
+        if (!myTurn)
+        {
+            EnemyTurn();
+        }
     }
 
     //TODO: is this used?

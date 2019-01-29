@@ -15,7 +15,6 @@ public class BaseDiceScript : MonoBehaviour {
   //     if (this.GetComponent<GenDiceScript>().lifeSpan <= 0){
     //        Destroy(gameObject);
       //  }
-        this.GetComponent<SpriteRenderer>().sprite = diceProfile.mySprites[myFace - 1];
 	}
 
     public void Roll () {
@@ -26,5 +25,7 @@ public class BaseDiceScript : MonoBehaviour {
         } else if (this.tag == "EnemyDice"){
             GameObject.Find ("BattleManager").GetComponent<BattleManager>().enemyCurrentDice.Add(myFace);
         }
+        this.GetComponent<SpriteRenderer>().sprite = diceProfile.mySprites[myFace - 1];
+
     }
 }

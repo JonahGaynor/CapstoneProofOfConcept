@@ -7,8 +7,27 @@ public class BaseDiceScript : MonoBehaviour {
     public int myFace;
 	// Use this for initialization
 	void Start () {
-		
-	}
+        if (this.name == "PlayerDice0")
+        {
+            diceProfile = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().diceProfile1;
+        }
+        else if (this.name == "PlayerDice1")
+        {
+            diceProfile = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().diceProfile2;
+        }
+        else if (this.name == "PlayerDice2")
+        {
+            diceProfile = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().diceProfile3;
+        }
+        else if (this.name == "PlayerDice3")
+        {
+            diceProfile = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().diceProfile4;
+        }
+        else if (this.name == "PlayerDice4")
+        {
+            diceProfile = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().diceProfile5;
+        }
+    }
 	
 	// Update is called once per frame
     void Update () {

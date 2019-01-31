@@ -10,6 +10,12 @@ public class PlayerStatsTracker : MonoBehaviour {
     public Vector2[] firstBids;
     public Vector2[] calledBids;
 
+    public GenDiceScript diceProfile1;
+    public GenDiceScript diceProfile2;
+    public GenDiceScript diceProfile3;
+    public GenDiceScript diceProfile4;
+    public GenDiceScript diceProfile5;
+
     public Vector2 myPos;
 
     Scene lastScene;
@@ -22,6 +28,7 @@ public class PlayerStatsTracker : MonoBehaviour {
 
     public void EnterBattle() {
         lastScene = SceneManager.GetActiveScene();
+
     }
 
     public void ExitBattle(int dice) {

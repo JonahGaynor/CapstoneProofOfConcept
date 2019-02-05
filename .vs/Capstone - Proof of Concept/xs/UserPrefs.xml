@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{2A4404BB-6BE6-6815-107E-F87E7093CAF3}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/UIDiceInUse.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/EndTileScript.cs">
     <Files>
       <File FileName="Assets/Scripts/BattleScene/TeaCupScript.cs" Line="31" Column="73" />
       <File FileName="Assets/Scripts/BattleScene/CurrentBidSlotScript.cs" Line="32" Column="10" />
       <File FileName="Assets/Scripts/Scene1/Scene1NEWManager.cs" Line="16" Column="65" />
       <File FileName="Assets/Scripts/BattleScene/GrabNPlaceScript.cs" Line="104" Column="44" />
       <File FileName="Assets/Scripts/BattleScene/BidButtonScript.cs" Line="21" Column="14" />
-      <File FileName="Assets/Scripts/BattleScene/BaseAiEnemy.cs" Line="36" Column="14" />
+      <File FileName="Assets/Scripts/BattleScene/BaseAiEnemy.cs" Line="27" Column="24" />
       <File FileName="Assets/Scripts/Scene6/PlayerMovementScript.cs" Line="109" Column="10" />
       <File FileName="Assets/DirectionalFloorTiles.cs" Line="26" Column="17" />
       <File FileName="Assets/Scripts/Scene3/Scene3TextFace.cs" Line="17" Column="1" />
@@ -28,11 +28,11 @@
       <File FileName="Assets/RPGBackground.cs" Line="14" Column="96" />
       <File FileName="Assets/Scripts/BattleScene/CurrentBidText.cs" Line="15" Column="1" />
       <File FileName="Assets/SpeechBubbleScript.cs" Line="17" Column="61" />
-      <File FileName="Assets/EndTileScript.cs" Line="19" Column="1" />
+      <File FileName="Assets/EndTileScript.cs" Line="21" Column="99" />
       <File FileName="Assets/SparkScript.cs" Line="115" Column="49" />
       <File FileName="Assets/Scripts/BattleScene/CallButtonScript.cs" Line="19" Column="1" />
       <File FileName="Assets/Dialogue.cs" Line="10" Column="18" />
-      <File FileName="Assets/Scripts/BattleScene/BattleManager.cs" Line="39" Column="1" />
+      <File FileName="Assets/Scripts/BattleScene/BattleManager.cs" Line="84" Column="76" />
       <File FileName="Assets/Scripts/BattleScene/BattleManager_v3.cs" Line="32" Column="20" />
       <File FileName="Assets/DialogueManager.cs" Line="64" Column="10" />
       <File FileName="Assets/DialogueTrigger.cs" Line="11" Column="41" />
@@ -46,6 +46,9 @@
       <File FileName="Assets/Scripts/BattleScene/BaseDiceScript.cs" Line="9" Column="17" />
       <File FileName="Assets/UIDiceNotInUse.cs" Line="19" Column="1" />
       <File FileName="Assets/UIDiceInUse.cs" Line="48" Column="77" />
+      <File FileName="Assets/Scripts/BattleScene/GenDiceScript.cs" Line="5" Column="34" />
+      <File FileName="Assets/Scripts/BattleScene/NOT in use/GenEnemyScript.cs" Line="25" Column="13" />
+      <File FileName="Assets/Scripts/Scene6/PlayerStatsTracker.cs" Line="13" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

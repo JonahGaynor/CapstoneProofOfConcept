@@ -15,6 +15,9 @@ public class BattleManager : MonoBehaviour {
     public int counter = 0;
     public bool enemyToCall = false;
     bool playerLose = false;
+    public int turnCount = 0;
+
+    int enemyType;
 
     public GameObject[] battleDice;
     public GameObject[] enemyBattleDice;
@@ -44,6 +47,11 @@ public class BattleManager : MonoBehaviour {
 
         //TODO: This naming sucks
         boxPos = GameObject.Find("teacup").GetComponent<Transform>();
+
+        GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().enemyNumber = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().enemyHit;
+
+        enemyType = GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().enemyNumber;
+
         yield return new WaitForSeconds(0.2f);
         GameObject.Find("RollArrow").GetComponent<RollForPlay>().Spin();
         yield return new WaitForSeconds(5f);
@@ -56,16 +64,24 @@ public class BattleManager : MonoBehaviour {
 	//}
 
     public void EnemyTurn (){
+        turnCount++;
         counter = 0;
         for (int i = 0; i < enemyCurrentDice.Count; i++){
             if (enemyCurrentDice[i] == currentBidNumber){
                 counter++;
             }
         }
-        if (counter > currentBidAmount + 1){
+        if (counter > currentBidAmount + 1)
+        {
             EnemyCall();
-        } else {
-            GameObject.Find ("Enemy").GetComponent<BaseAiEnemy>().Turn();
+        }
+        else if (enemyType == 0)
+        {
+            GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().Turn();
+        }
+        else if (enemyType == 1)
+        {
+            GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().TurnAi2();
         }
         myTurn = true;
     }

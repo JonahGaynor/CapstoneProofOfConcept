@@ -10,6 +10,8 @@ public class PlayerStatsTracker : MonoBehaviour {
     public Vector2[] firstBids;
     public Vector2[] calledBids;
 
+    public int enemyHit = 1;
+
     public GenDiceScript diceProfile1;
     public GenDiceScript diceProfile2;
     public GenDiceScript diceProfile3;

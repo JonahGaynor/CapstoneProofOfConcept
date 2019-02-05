@@ -7,6 +7,8 @@ public class EndTileScript : MonoBehaviour {
 
     public Transform player;
 
+    public int myEnemy;
+
 	// Use this for initialization
 	void Start () {
         player = GameObject.Find("Player").transform;
@@ -16,6 +18,7 @@ public class EndTileScript : MonoBehaviour {
 	void Update () {
         if (player.position.y >= this.transform.position.y + 0.4f)
         {
+            GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().enemyHit = myEnemy;
             GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().myPos = player.position;
             StartCoroutine(PauseToChangeLevel());
         }

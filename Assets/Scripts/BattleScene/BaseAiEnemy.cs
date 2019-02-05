@@ -11,6 +11,8 @@ public class BaseAiEnemy : MonoBehaviour {
     public GameObject[] myDice;
     public Transform boxPos;
 
+    public int enemyNumber;
+
 
 	// Use this for initialization
 	void Start () {
@@ -51,6 +53,70 @@ public class BaseAiEnemy : MonoBehaviour {
             StartCoroutine (PauseToSpawn());
         }
 
+    }
+
+    public void TurnAi2()
+    {
+        currentBidAmount = GameObject.Find("BattleManager").GetComponent<BattleManager>().currentBidAmount;
+        currentBidNumber = GameObject.Find("BattleManager").GetComponent<BattleManager>().currentBidNumber;
+        foreach (GameObject d in GameObject.Find("BattleManager").GetComponent<BattleManager>().enemyBattleDice)
+        {
+            if (d.GetComponent<EnemyDiceScript>().myFace == currentBidNumber)
+            {
+                counter++;
+            }
+        }
+        if (currentBidAmount == 0 && currentBidNumber == 0)
+        {
+            StartCoroutine(Pause());
+            GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(1, 1);
+            //for (int i = 0; i < currentBidAmount; i++)
+            //{
+            //    Debug.Log("made another thing");
+            //    Instantiate(myDice[currentBidNumber - 1], boxPos.position, Quaternion.identity);
+            //}
+            StartCoroutine(PauseToSpawn());
+        }
+        else if (counter == 0 && GameObject.Find("BattleManager").GetComponent<BattleManager>().turnCount > 2)
+        {
+            GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyCall();
+        }
+        else if (currentBidNumber <= 3)
+        {
+            StartCoroutine(Pause());
+            GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 6);
+            StartCoroutine(PauseToSpawn());
+        }
+        else if (currentBidNumber <= 3)
+        {
+            StartCoroutine(Pause());
+            GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 6);
+            StartCoroutine(PauseToSpawn());
+        }
+        else
+        {
+            StartCoroutine(Pause());
+            GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, currentBidNumber);
+            StartCoroutine(PauseToSpawn());
+        }
+        //else if (GameObject.Find("BattleManager").GetComponent<BattleManager>().counter > 0)
+        //{
+        //    StartCoroutine(Pause());
+        //    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, currentBidNumber);
+        //    currentBidAmount = GameObject.Find("BattleManager").GetComponent<BattleManager>().currentBidAmount;
+        //    currentBidNumber = GameObject.Find("BattleManager").GetComponent<BattleManager>().currentBidNumber;
+        //    for (int i = 0; i < currentBidAmount; i++)
+        //    {
+        //        Debug.Log("made another thing");
+        //        Instantiate(myDice[currentBidNumber - 1], boxPos.position, Quaternion.identity);
+        //    }
+        //}
+        //else
+        //{
+        //    StartCoroutine(Pause());
+        //    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, currentBidNumber + 1);
+        //    StartCoroutine(PauseToSpawn());
+        //}
     }
 
     IEnumerator Pause(){

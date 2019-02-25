@@ -14,6 +14,6 @@ public class RPGCamera : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         playerPosY = GameObject.Find("Player").transform.position.y;
-        transform.position = new Vector3(0, playerPosY, -10);
+        transform.position = new Vector3(0.5f, playerPosY, -10);
 	}
 }

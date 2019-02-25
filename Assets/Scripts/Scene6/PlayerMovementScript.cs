@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovementScript : MonoBehaviour {
+
+    Scene activeScene;
 
     //TODO: make input buffer
 
@@ -17,6 +20,8 @@ public class PlayerMovementScript : MonoBehaviour {
     public bool canMove = true;
 
     public bool stunned = false;
+
+    public int myColor = 0;
 
     public Tilemap walls;
 
@@ -31,18 +36,26 @@ public class PlayerMovementScript : MonoBehaviour {
     Vector2 leftPos;
     Vector2 rightPos;
     Vector2 downPos;
-    Vector2 targetPos;
+    public Vector2 targetPos;
     Vector2 checkWallPos;
     Vector2 fixedTargetPos;
+
+    public List<Vector2> steppedOn;
 
     GameObject[] myDoors;
     GameObject[] upTiles;
     GameObject[] leftTiles;
     GameObject[] rightTiles;
     GameObject[] downTiles;
+    GameObject[] blueBoxes;
+    GameObject[] redBoxes;
+    GameObject[] yellowBoxes;
+    GameObject[] greenBoxes;
 
     GameObject lastTile;
+
     bool moveToNext = false;
+    public bool drawingWires = false;
 
     float xOffset;
     float yOffset;
@@ -57,6 +70,10 @@ public class PlayerMovementScript : MonoBehaviour {
         rightTiles = GameObject.FindGameObjectsWithTag("TileRight");
         downTiles = GameObject.FindGameObjectsWithTag("TileDown");
         lastTile = GameObject.FindGameObjectWithTag("TileFinal");
+        blueBoxes = GameObject.FindGameObjectsWithTag("BlueBox");
+        redBoxes = GameObject.FindGameObjectsWithTag("RedBox");
+        yellowBoxes = GameObject.FindGameObjectsWithTag("YellowBox");
+        greenBoxes = GameObject.FindGameObjectsWithTag("GreenBox");
      //   myAnimator = this.GetComponent<Animator>();
        // rb = this.GetComponent<Rigidbody2D>();
   //      xOffset = GameObject.Find ("Grid").GetComponent<Transform>().position.x;
@@ -65,33 +82,100 @@ public class PlayerMovementScript : MonoBehaviour {
 
     public void MoveUp()
     {
+
         moveUp = true;
         //myAnimator.SetTrigger("MoveUp");
         upPos = new Vector2(transform.position.x, transform.position.y + 0.1f);
         targetPos += Vector2.up;
+        if (drawingWires && !Physics2D.OverlapPoint(new Vector2 (transform.position.x, transform.position.y + 0.5f)))
+        {
+            if (!steppedOn.Contains(new Vector2(targetPos.x, targetPos.y - 0.5f))){
+                steppedOn.Add(new Vector2(targetPos.x, targetPos.y - 0.5f));
+            }
+        }
         //   rb.MovePosition(upPos);
     }
     public void MoveLeft()
     {
+        //foreach (GameObject b in blueBoxes)
+        //{
+        //    float dist = Vector2.Distance((Vector2)b.transform.position, fixedTargetPos);
+        //    if (dist < 0.1f)
+        //    {
+        //        b.GetComponent<WireBoxScript>().isOn = true;
+        //    }
+        //}
         moveLeft = true;
         leftPos = new Vector2(transform.position.x - 0.1f, transform.position.y);
         targetPos += Vector2.left;
+        if (drawingWires && !Physics2D.OverlapPoint(new Vector2 (transform.position.x - 1, transform.position.y - 0.5f)))
+        {
+            if (!steppedOn.Contains(new Vector2(targetPos.x, targetPos.y - 0.5f)))
+            {
+                steppedOn.Add(new Vector2(targetPos.x, targetPos.y - 0.5f));
+            }
+        }
     }
     public void MoveRight()
     {
+        //foreach (GameObject b in blueBoxes)
+        //{
+        //    float dist = Vector2.Distance((Vector2)b.transform.position, fixedTargetPos);
+        //    if (dist < 0.1f)
+        //    {
+        //        b.GetComponent<WireBoxScript>().isOn = true;
+        //    }
+        //}
         moveRight = true;
         rightPos = new Vector2(transform.position.x + 0.1f, transform.position.y);
         targetPos += Vector2.right;
+
+        if (drawingWires && !Physics2D.OverlapPoint(new Vector2(transform.position.x + 1, transform.position.y - 0.5f)))
+        {
+            if (!steppedOn.Contains(new Vector2(targetPos.x, targetPos.y - 0.5f)))
+            {
+                steppedOn.Add(new Vector2(targetPos.x, targetPos.y - 0.5f));
+            }
+        }
     }
     public void MoveDown()
     {
+        //foreach (GameObject b in blueBoxes)
+        //{
+        //    float dist = Vector2.Distance((Vector2)b.transform.position, fixedTargetPos);
+        //    if (dist < 0.1f)
+        //    {
+        //        b.GetComponent<WireBoxScript>().isOn = true;
+        //    }
+        //}
         moveDown = true;
         downPos = new Vector2(transform.position.x, transform.position.y - 0.1f);
         targetPos += Vector2.down;
+        if (drawingWires && !Physics2D.OverlapPoint(new Vector2(transform.position.x, transform.position.y - 1.5f)))
+        {
+            if (!steppedOn.Contains(new Vector2(targetPos.x, targetPos.y - 0.5f)))
+            {
+                steppedOn.Add(new Vector2(targetPos.x, targetPos.y - 0.5f));
+            }
+        }
     }
 
     // Update is called once per frame
     void Update() {
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            activeScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(activeScene.name);
+        }
+        if (Input.GetKeyUp(KeyCode.T))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+        if (Physics2D.OverlapPoint(fixedTargetPos))
+        {
+            //Debug.Log(fixedTargetPos);
+        }
         if (transform.position.y > lastTile.transform.position.y && !moveToNext)
         {
             moveToNext = true;
@@ -121,33 +205,33 @@ public class PlayerMovementScript : MonoBehaviour {
         }
 
 
-        checkWallPos = new Vector2(targetPos.x, targetPos.y);
+        //checkWallPos = new Vector2(targetPos.x, targetPos.y);
         if (Physics2D.OverlapPoint(targetPos + (Vector2.down/2)))
         {
             //Debug.Log("WORK PLEASE");
             targetPos = new Vector2(transform.position.x, transform.position.y);
         }
-        if (moveUp && Physics2D.OverlapPoint(targetPos))
-        {
-            Debug.Log("we out here");
-            myDoors = GameObject.FindGameObjectsWithTag("Door");
-            foreach (GameObject d in myDoors)
-            {
+        //if (moveUp && Physics2D.OverlapPoint(targetPos))
+        //{
+        //    Debug.Log("we out here");
+        //   // myDoors = GameObject.FindGameObjectsWithTag("Door");
+        //    //foreach (GameObject d in myDoors)
+        //    //{
 
-                if ((Vector2)d.transform.position == (Vector2)transform.position + Vector2.up)
-                {
-                    d.GetComponent<DoorSprites>().myNumber = 1;
-                    d.GetComponent<BoxCollider2D>().enabled = false;
-                    //d.SetActive(false);
-                    // d.tag = "";
-                }
-                else
-                {
-                    Debug.Log(d.transform.position);
-                    Debug.Log(targetPos);
-                }
-            }
-        }
+        //    //    if ((Vector2)d.transform.position == (Vector2)transform.position + Vector2.up)
+        //    //    {
+        //    //        d.GetComponent<DoorSprites>().myNumber = 1;
+        //    //        d.GetComponent<BoxCollider2D>().enabled = false;
+        //    //        //d.SetActive(false);
+        //    //        // d.tag = "";
+        //    //    }
+        //    //    else
+        //    //    {
+        //    //        Debug.Log(d.transform.position);
+        //    //        Debug.Log(targetPos);
+        //    //    }
+        //    //}
+        //}
         if (!Physics2D.OverlapPoint(targetPos + (Vector2.down/2)) && (moveUp || moveLeft || moveRight || moveDown)) {
             //Debug.Log(targetPos);
              spriteCounterTimer += Time.deltaTime;
@@ -187,8 +271,64 @@ public class PlayerMovementScript : MonoBehaviour {
                     moveLeft = false;
                     moveRight = false;
                     moveDown = false;
+
+                    if (HiddenRuleManager._instance != null && transform.position.y > -0.5f)
+                    {
+                        HiddenRuleManager.playerDir = 1;
+                    }
+
                     //targetPos = new Vector2(transform.position.x, transform.position.y);
                     this.GetComponent<SpriteRenderer>().sprite = upSprites[0];
+                    foreach (GameObject b in blueBoxes)
+                    {
+                        float dist = Vector2.Distance((Vector2)b.transform.position, fixedTargetPos);
+                        if (dist < 0.1f)
+                        {
+                            if (drawingWires && myColor == 1)
+                            {
+                                b.GetComponent<WireBoxScript>().isOn = true;
+                                b.GetComponent<WireBoxScript>().Check();
+                                drawingWires = false;
+                                myColor = 0;
+                                steppedOn.Clear();
+                            }
+                            else if (myColor == 0)
+                            {
+                                b.GetComponent<WireBoxScript>().isOn = true;
+                                drawingWires = true;
+                                myColor = 1;
+                                if (!Physics2D.OverlapPoint(fixedTargetPos))
+                                {
+                                    steppedOn.Add(new Vector2(transform.position.x, transform.position.y - 0.5f));
+                                }
+                            }
+                        }
+                    }
+                    foreach (GameObject r in redBoxes)
+                    {
+                        float dist = Vector2.Distance((Vector2)r.transform.position, fixedTargetPos);
+                        if (dist < 0.1f)
+                        {
+                            if (drawingWires && myColor == 2)
+                            {
+                                r.GetComponent<WireBoxScript>().isOn = true;
+                                r.GetComponent<WireBoxScript>().Check();
+                                drawingWires = false;
+                                myColor = 0;
+                                steppedOn.Clear();
+                            }
+                            else if (myColor == 0)
+                            {
+                                r.GetComponent<WireBoxScript>().isOn = true;
+                                drawingWires = true;
+                                myColor = 2;
+                                if (!Physics2D.OverlapPoint(fixedTargetPos))
+                                {
+                                    steppedOn.Add(new Vector2(transform.position.x, transform.position.y - 0.5f));
+                                }
+                            }
+                        }
+                    }
                     foreach (GameObject u in upTiles)
                     {
                         float dist = Vector2.Distance((Vector2)u.transform.position, fixedTargetPos);
@@ -245,6 +385,7 @@ public class PlayerMovementScript : MonoBehaviour {
                         //    targetPos = new Vector2(transform.position.x, transform.position.y - 1);
                         //}
                     }
+
                     if (!moveUp && !moveLeft && !moveRight && !moveDown)
                     {
                         //targetPos = new Vector2(transform.position.x, transform.position.y);
@@ -263,8 +404,63 @@ public class PlayerMovementScript : MonoBehaviour {
                     moveDown = false;
                     //targetPos = new Vector2(transform.position.x, transform.position.y);
 
-                    this.GetComponent<SpriteRenderer>().sprite = leftSprites[0];
+                    if (HiddenRuleManager._instance != null && transform.position.y > -0.5f)
+                    {
+                        HiddenRuleManager.playerDir = 0;
+                    }
 
+                    this.GetComponent<SpriteRenderer>().sprite = leftSprites[0];
+                    foreach (GameObject b in blueBoxes)
+                    {
+                        float dist = Vector2.Distance((Vector2)b.transform.position, fixedTargetPos);
+                        if (dist < 0.1f)
+                        {
+                            if (drawingWires && myColor == 1)
+                            {
+                                b.GetComponent<WireBoxScript>().isOn = true;
+                                b.GetComponent<WireBoxScript>().Check();
+                                drawingWires = false;
+                                myColor = 0;
+                                steppedOn.Clear();
+                            }
+                            else if (myColor == 0)
+                            {
+                                b.GetComponent<WireBoxScript>().isOn = true;
+                                drawingWires = true;
+                                myColor = 1;
+                                if (!Physics2D.OverlapPoint(fixedTargetPos))
+                                {
+                                    steppedOn.Add(new Vector2(transform.position.x, transform.position.y - 0.5f));
+                                }
+                            }
+                        
+                        }
+                    }
+                    foreach (GameObject r in redBoxes)
+                    {
+                        float dist = Vector2.Distance((Vector2)r.transform.position, fixedTargetPos);
+                        if (dist < 0.1f)
+                        {
+                            if (drawingWires && myColor == 2)
+                            {
+                                r.GetComponent<WireBoxScript>().isOn = true;
+                                r.GetComponent<WireBoxScript>().Check();
+                                drawingWires = false;
+                                myColor = 0;
+                                steppedOn.Clear();
+                            }
+                            else if (myColor == 0)
+                            {
+                                r.GetComponent<WireBoxScript>().isOn = true;
+                                drawingWires = true;
+                                myColor = 2;
+                                if (!Physics2D.OverlapPoint(fixedTargetPos))
+                                {
+                                    steppedOn.Add(new Vector2(transform.position.x, transform.position.y - 0.5f));
+                                }
+                            }
+                        }
+                    }
                     foreach (GameObject u in upTiles)
                     {
                         float dist = Vector2.Distance((Vector2)u.transform.position, fixedTargetPos);
@@ -344,10 +540,65 @@ public class PlayerMovementScript : MonoBehaviour {
                     moveLeft = false;
                     moveRight = false;
                     moveDown = false;
+
+                    if (HiddenRuleManager._instance != null && transform.position.y > -0.5f)
+                    {
+                        HiddenRuleManager.playerDir = 2;
+                    }
+                    //lastMoved = 2;
                     //targetPos = new Vector2(transform.position.x, transform.position.y);
 
                     this.GetComponent<SpriteRenderer>().sprite = rightSprites[0];
-
+                    foreach (GameObject b in blueBoxes)
+                    {
+                        float dist = Vector2.Distance((Vector2)b.transform.position, fixedTargetPos);
+                        if (dist < 0.1f)
+                        {
+                            if (drawingWires && myColor == 1)
+                            {
+                                b.GetComponent<WireBoxScript>().isOn = true;
+                                b.GetComponent<WireBoxScript>().Check();
+                                drawingWires = false;
+                                myColor = 0;
+                                steppedOn.Clear();
+                            }
+                            else if (myColor == 0)
+                            {
+                                b.GetComponent<WireBoxScript>().isOn = true;
+                                drawingWires = true;
+                                myColor = 1;
+                                if (!Physics2D.OverlapPoint(fixedTargetPos))
+                                {
+                                    steppedOn.Add(new Vector2(transform.position.x, transform.position.y - 0.5f));
+                                }
+                            }
+                        }
+                    }
+                    foreach (GameObject r in redBoxes)
+                    {
+                        float dist = Vector2.Distance((Vector2)r.transform.position, fixedTargetPos);
+                        if (dist < 0.1f)
+                        {
+                            if (drawingWires && myColor == 2)
+                            {
+                                r.GetComponent<WireBoxScript>().isOn = true;
+                                r.GetComponent<WireBoxScript>().Check();
+                                drawingWires = false;
+                                myColor = 0;
+                                steppedOn.Clear();
+                            }
+                            else if (myColor == 0)
+                            {
+                                r.GetComponent<WireBoxScript>().isOn = true;
+                                drawingWires = true;
+                                myColor = 2;
+                                if (!Physics2D.OverlapPoint(fixedTargetPos))
+                                {
+                                    steppedOn.Add(new Vector2(transform.position.x, transform.position.y - 0.5f));
+                                }
+                            }
+                        }
+                    }
                     foreach (GameObject u in upTiles)
                     {
                         float dist = Vector2.Distance((Vector2)u.transform.position, fixedTargetPos);
@@ -418,8 +669,62 @@ public class PlayerMovementScript : MonoBehaviour {
                     moveDown = false;
                     //targetPos = new Vector2(transform.position.x, transform.position.y);
 
-                    this.GetComponent<SpriteRenderer>().sprite = downSprites[0];
+                    if (HiddenRuleManager._instance != null && transform.position.y > -0.5f)
+                    {
+                        HiddenRuleManager.playerDir = 3;
+                    }
 
+                    this.GetComponent<SpriteRenderer>().sprite = downSprites[0];
+                    foreach (GameObject b in blueBoxes)
+                    {
+                        float dist = Vector2.Distance((Vector2)b.transform.position, fixedTargetPos);
+                        if (dist < 0.1f)
+                        {
+                            if (drawingWires && myColor == 1)
+                            {
+                                b.GetComponent<WireBoxScript>().isOn = true;
+                                b.GetComponent<WireBoxScript>().Check();
+                                drawingWires = false;
+                                myColor = 0;
+                                steppedOn.Clear();
+                            }
+                            else if (myColor == 0)
+                            {
+                                b.GetComponent<WireBoxScript>().isOn = true;
+                                drawingWires = true;
+                                myColor = 1;
+                                if (!Physics2D.OverlapPoint(fixedTargetPos))
+                                {
+                                    steppedOn.Add(new Vector2(transform.position.x, transform.position.y - 0.5f));
+                                }
+                            }
+                        }
+                    }
+                    foreach (GameObject r in redBoxes)
+                    {
+                        float dist = Vector2.Distance((Vector2)r.transform.position, fixedTargetPos);
+                        if (dist < 0.1f)
+                        {
+                            if (drawingWires && myColor == 2)
+                            {
+                                r.GetComponent<WireBoxScript>().isOn = true;
+                                r.GetComponent<WireBoxScript>().Check();
+                                drawingWires = false;
+                                myColor = 0;
+                                steppedOn.Clear();
+                            }
+                            else if (myColor == 0)
+                            {
+                                r.GetComponent<WireBoxScript>().isOn = true;
+                                drawingWires = true;
+                                myColor = 2;
+                                if (!Physics2D.OverlapPoint(fixedTargetPos))
+                                {
+                                    steppedOn.Add(new Vector2(transform.position.x, transform.position.y - 0.5f));
+                                }
+                            }
+                        }
+                    }
                     foreach (GameObject u in upTiles)
                     {
                         float dist = Vector2.Distance((Vector2)u.transform.position, fixedTargetPos);

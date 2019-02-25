@@ -20,6 +20,10 @@ TagManager:
   - TileRight
   - TileUp
   - TileFinal
+  - BlueBox
+  - RedBox
+  - YellowBox
+  - GreenBox
   layers:
   - Default
   - TransparentFX

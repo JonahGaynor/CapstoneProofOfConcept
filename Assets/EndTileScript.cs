@@ -9,6 +9,8 @@ public class EndTileScript : MonoBehaviour {
 
     public int myEnemy;
 
+    Scene thisScene;
+
 	// Use this for initialization
 	void Start () {
         player = GameObject.Find("Player").transform;
@@ -27,6 +29,14 @@ public class EndTileScript : MonoBehaviour {
     IEnumerator PauseToChangeLevel() {
         GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().EnterBattle();
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("BattleSceneNew");
+        thisScene = SceneManager.GetActiveScene();
+        if (thisScene.name == "Production_Scene8")
+        {
+            SceneManager.LoadScene("ProofofConcept_End");
+        }
+        else
+        {
+            SceneManager.LoadScene("BattleSceneNew");
+        }
     }
 }

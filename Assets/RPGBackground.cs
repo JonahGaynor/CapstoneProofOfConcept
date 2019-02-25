@@ -11,6 +11,6 @@ public class RPGBackground : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = new Vector3(0, GameObject.Find("Player").transform.position.y, 0);
+        transform.position = new Vector3(0.5f, GameObject.Find("Player").transform.position.y, 0);
 	}
 }

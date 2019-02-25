@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemies")]
+//[CreateAssetMenu(menuName = "Enemies")]
 
 public class GenEnemyScript : MonoBehaviour {
 
-    public int aitype;
+    //public int aitype;
 
 	//// Use this for initialization
 	//void Start () {
@@ -18,14 +18,14 @@ public class GenEnemyScript : MonoBehaviour {
 		
 	//}
 
-    public void Turn()
-    {
-        if (aitype == 0)
-        {
+    //public void Turn()
+    //{
+    //    if (aitype == 0)
+    //    {
 
 
 
-        }
+    //    }
 
-    }
+    //}
 }

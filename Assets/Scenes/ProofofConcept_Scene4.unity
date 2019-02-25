@@ -856,7 +856,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: b6d779aa9affd4edbb3a3047fdb2d271, type: 3}
+    m_Font: {fileID: 12800000, guid: 7d7380682e2e34efa97fa601582c7815, type: 3}
     m_FontSize: 60
     m_FontStyle: 1
     m_BestFit: 0
@@ -4541,6 +4541,7 @@ MonoBehaviour:
   - {fileID: 1117623063705776, guid: a8807ea9a8c614836b7a319498557e11, type: 2}
   - {fileID: 1322773164128334, guid: 5b929cc78f8e24803af816b7db323946, type: 2}
   boxPos: {fileID: 0}
+  enemyNumber: 0
 --- !u!4 &1624052389
 Transform:
   m_ObjectHideFlags: 0
@@ -4614,7 +4615,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: b6d779aa9affd4edbb3a3047fdb2d271, type: 3}
+    m_Font: {fileID: 12800000, guid: 7d7380682e2e34efa97fa601582c7815, type: 3}
     m_FontSize: 72
     m_FontStyle: 1
     m_BestFit: 0
@@ -4698,6 +4699,7 @@ MonoBehaviour:
   myTurn: 1
   counter: 0
   enemyToCall: 0
+  turnCount: 0
   battleDice: []
   enemyBattleDice: []
   currentBidDice: []
@@ -5016,7 +5018,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: b6d779aa9affd4edbb3a3047fdb2d271, type: 3}
+    m_Font: {fileID: 12800000, guid: 7d7380682e2e34efa97fa601582c7815, type: 3}
     m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0

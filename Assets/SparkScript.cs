@@ -19,6 +19,8 @@ public class SparkScript : MonoBehaviour {
     int mySpriteNumber = 0;
     float timer = 0;
     float maxTime = 0.2f;
+
+    public static int enemiesDefeated = 0;
    // bool haveMovedDown = false;
 
 	// Use this for initialization
@@ -99,7 +101,7 @@ public class SparkScript : MonoBehaviour {
     }
 
     public IEnumerator SparkMe() {
-        Debug.Log("Sparking now");
+        //Debug.Log("Sparking now");
         this.GetComponent<SpriteRenderer>().enabled = true;
         moveDown = true;
         yield return new WaitUntil(haveMovedDown);
@@ -112,8 +114,20 @@ public class SparkScript : MonoBehaviour {
         diceToSpark--;
         if (diceToSpark < 1)
         {
+            enemiesDefeated++;
             yield return new WaitForSeconds(1f);
-            SceneManager.LoadScene("ProofofConcept_End");
+            if (enemiesDefeated == 1)
+            {
+                SceneManager.LoadScene("Production_Scene7");
+            }
+            else if (enemiesDefeated == 2)
+            {
+                SceneManager.LoadScene("Production_Scene8");
+            }
+            else if (enemiesDefeated == 3)
+            {
+                SceneManager.LoadScene("Production_Scene10");
+            }
         }
         else
         {

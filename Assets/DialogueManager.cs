@@ -24,6 +24,8 @@ public class DialogueManager : MonoBehaviour {
         Debug.Log("start dialogue");
         //Debug.Log("Starting dialogue with " + dialogue.name);
 
+        GameObject.Find("Player").GetComponent<PlayerMovementScript>().canMove = false;
+
         myAnim.SetBool("isOpen", true);
 
         speakerSprite.sprite = dialogue.speakerSprite;
@@ -66,6 +68,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue()
     {
+        GameObject.Find("Player").GetComponent<PlayerMovementScript>().canMove = true;
         done = true;
         Debug.Log("we done");
         myAnim.SetBool("isOpen", false);

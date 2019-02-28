@@ -13,6 +13,8 @@ public class HiddenRuleManager : MonoBehaviour {
 
     static int _playerDir;
 
+    public Sprite[] teleportSprites;
+
     GameObject player;
 
     void Awake()
@@ -32,25 +34,28 @@ public class HiddenRuleManager : MonoBehaviour {
 
     public void Check(int step)
     {
-        GameObject.Find("ScoreboardNumber").GetComponent<Image>().enabled = true;
-        GameObject.Find("ScoreboardBase").GetComponent<Image>().enabled = true;
-        GameObject.Find("ScoreboardNumberBase").GetComponent<Image>().enabled = true;
-        lastMove = step;
-        if (step == myPath[myNumb])
+        if (myPath.Count >= myNumb)
         {
-            if (myNumb == myPath.Count - 1)
+            GameObject.Find("ScoreboardNumber").GetComponent<Image>().enabled = true;
+            GameObject.Find("ScoreboardBase").GetComponent<Image>().enabled = true;
+            GameObject.Find("ScoreboardNumberBase").GetComponent<Image>().enabled = true;
+            lastMove = step;
+            if (step == myPath[myNumb])
             {
-                Victory();
+                if (myNumb == myPath.Count - 1)
+                {
+                    Victory();
+                }
+                else
+                {
+                    myNumb++;
+                    GameObject.Find("ScoreboardNumber").GetComponent<ScoreboardNumberScript>().NewNumber(myPath[myNumb]);
+                }
             }
             else
             {
-                myNumb++;
-                GameObject.Find("ScoreboardNumber").GetComponent<ScoreboardNumberScript>().NewNumber(myPath[myNumb]);
+                Reset();
             }
-        }
-        else
-        {
-            Reset();
         }
     }
 
@@ -78,10 +83,35 @@ public class HiddenRuleManager : MonoBehaviour {
 
     IEnumerator ResetPause()
     {
-        yield return new WaitForSeconds(0.7f);
+        player.GetComponent<PlayerMovementScript>().canMove = false;
+        yield return new WaitForSeconds(0.2f);
+        player.GetComponent<SpriteRenderer>().sprite = teleportSprites[0];
+        yield return new WaitForSeconds(0.1f);
+        player.GetComponent<SpriteRenderer>().sprite = teleportSprites[1];
+        yield return new WaitForSeconds(0.1f);
+        player.GetComponent<SpriteRenderer>().sprite = teleportSprites[2];
+        yield return new WaitForSeconds(0.1f);
+        player.GetComponent<SpriteRenderer>().sprite = teleportSprites[3];
+        yield return new WaitForSeconds(0.1f);
+        player.GetComponent<SpriteRenderer>().sprite = teleportSprites[4];
+        yield return new WaitForSeconds(0.1f);
+        player.GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(0.2f);
         player.transform.position = new Vector2(-1, -0.5f);
         player.GetComponent<PlayerMovementScript>().targetPos = player.transform.position;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f);
+        player.GetComponent<SpriteRenderer>().enabled = true;
+        yield return new WaitForSeconds(0.1f);
+        player.GetComponent<SpriteRenderer>().sprite = teleportSprites[3];
+        yield return new WaitForSeconds(0.1f);
+        player.GetComponent<SpriteRenderer>().sprite = teleportSprites[2];
+        yield return new WaitForSeconds(0.1f);
+        player.GetComponent<SpriteRenderer>().sprite = teleportSprites[1];
+        yield return new WaitForSeconds(0.1f);
+        player.GetComponent<SpriteRenderer>().sprite = teleportSprites[0];
+        yield return new WaitForSeconds(0.1f);
+        player.GetComponent<SpriteRenderer>().sprite = teleportSprites[5];
+        player.GetComponent<PlayerMovementScript>().canMove = true;
         GameObject.Find("ScoreboardReset").GetComponent<Image>().enabled = false;
         GameObject.Find("ScoreboardNumber").GetComponent<Image>().enabled = false;
         GameObject.Find("ScoreboardNumberBase").GetComponent<Image>().enabled = false;

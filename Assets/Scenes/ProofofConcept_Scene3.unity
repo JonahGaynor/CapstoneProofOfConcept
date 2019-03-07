@@ -407,6 +407,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6998a7ea0ff649a0b865077d1710a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  downSprite: {fileID: 21300000, guid: e308203aa1a954a9ebbbae496bf7e318, type: 3}
+  upSprite: {fileID: 21300000, guid: df599bee0d3ac4d8d8ec71d11444b2fc, type: 3}
 --- !u!114 &569049908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1689,7 +1691,7 @@ GameObject:
   - component: {fileID: 1721033781}
   m_Layer: 5
   m_Name: TextBox-Scene3
-  m_TagString: Untagged
+  m_TagString: TextBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1754,7 +1756,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: e25f7d7fdf8ac40dba67a654a695bf71, type: 3}
+  m_Sprite: {fileID: 21300000, guid: df599bee0d3ac4d8d8ec71d11444b2fc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

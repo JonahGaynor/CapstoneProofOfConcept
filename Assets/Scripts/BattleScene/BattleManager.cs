@@ -19,6 +19,9 @@ public class BattleManager : MonoBehaviour {
 
     int enemyType;
 
+    public Dialogue happyDialogue;
+    public Dialogue sadDialogue;
+
     public GameObject[] battleDice;
     public GameObject[] enemyBattleDice;
     public GameObject[] currentBidDice;
@@ -196,7 +199,8 @@ public class BattleManager : MonoBehaviour {
         } else {
 
             StartCoroutine(PauseForRoll(false));
-           //Roll();
+            FindObjectOfType<DialogueManager>().StartDialogue(happyDialogue);
+            //Roll();
         }
         myTurn = true;
     }
@@ -214,7 +218,8 @@ public class BattleManager : MonoBehaviour {
             //TODO: same thing about not doing it with GameObject.Find every time
             StartCoroutine(GameObject.Find("Spark").GetComponent<SparkScript>().SparkMe());
             StartCoroutine(PauseForRoll(true));
-          //  Roll ();
+            FindObjectOfType<DialogueManager>().StartDialogue(sadDialogue);
+            //  Roll ();
         }
         myTurn = false;
     }
@@ -234,6 +239,8 @@ public class BattleManager : MonoBehaviour {
         foreach (GameObject e in enemyBattleDice) {
             e.GetComponent<EnemyDiceScript>().shouldShow = false;
         }
+
+
         yield return new WaitForSeconds (0.5f);
 
         //if (enemyDice < 1){

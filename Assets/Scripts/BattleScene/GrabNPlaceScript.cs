@@ -19,8 +19,9 @@ public class GrabNPlaceScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         currentDice = GameObject.FindGameObjectsWithTag("Dice");
-		boxPos = GameObject.Find ("teacup").GetComponent<Transform> ();
-		if (this.name == "1DiceGen") {
+        boxPos = GameObject.Find ("teacup").GetComponent<Transform> ();
+        //boxPos = GameObject.Find("3DPrinter").GetComponent<Transform>();
+        if (this.name == "1DiceGen") {
 			myNumber = 1;
 		} else if (this.name == "2DiceGen") {
 			myNumber = 2;
@@ -100,8 +101,8 @@ public class GrabNPlaceScript : MonoBehaviour {
 //			for (int i = 0; i < currentBidAmount + 1; i++) {
 		Debug.Log ("instantiate please");
 				//Instantiate (myDice, boxPos);
-        float randX = Random.Range(-.5f, .5f);
-        float randY = Random.Range(-.5f, .5f);
+        float randX = Random.Range(-.8f, .8f);
+        float randY = Random.Range(-.8f, .8f);
         Vector3 instantiatePos = new Vector3 (boxPos.position.x + randX, boxPos.position.y + randY, 0);
         Instantiate (myDice, instantiatePos, Quaternion.identity);
         float temp = Random.Range(-1f, 1f);

@@ -5,14 +5,11 @@ using UnityEngine.UI;
 
 public class CallButtonScript : MonoBehaviour {
 
+    GameObject eventSystem;
+
 	// Use this for initialization
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+        eventSystem = GameObject.Find("EventSystem");
 	}
 
     public void OnClick () {
@@ -21,5 +18,6 @@ public class CallButtonScript : MonoBehaviour {
             GameObject.Find("BattleManager").GetComponent<BattleManager>().PlayerCall();
             GameObject.Find("teacup").GetComponent<TeaCupScript>().destroyOthers = true;
         }
+        eventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
     }
 }

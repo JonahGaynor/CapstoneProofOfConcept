@@ -1768,6 +1768,11 @@ MonoBehaviour:
   - {fileID: 533848015}
   - {fileID: 1163597445}
   - {fileID: 1612983824}
+  needToLock:
+  - {fileID: 1892277035}
+  - {fileID: 1156255204}
+  - {fileID: 286734165}
+  - {fileID: 1389666555}
   myPair: {fileID: 1612983824}
   spawnLine: {fileID: 1139403197476180, guid: 5b57163f76f3149fa81ec5e0651fd3bc, type: 2}
 --- !u!212 &199525504
@@ -2810,6 +2815,11 @@ MonoBehaviour:
   - {fileID: 1892277035}
   - {fileID: 1156255204}
   - {fileID: 1389666555}
+  needToLock:
+  - {fileID: 533848015}
+  - {fileID: 1163597445}
+  - {fileID: 199525502}
+  - {fileID: 1612983824}
   myPair: {fileID: 1389666555}
   spawnLine: {fileID: 1139403197476180, guid: 5b57163f76f3149fa81ec5e0651fd3bc, type: 2}
 --- !u!212 &286734167
@@ -3345,6 +3355,9 @@ MonoBehaviour:
   onSprite: {fileID: 21300000, guid: 432406fee91f5424f8f0311f08fa5e5f, type: 3}
   possibleLinks:
   - {fileID: 1825167929}
+  needToLock:
+  - {fileID: 374297958}
+  - {fileID: 1148116284}
   myPair: {fileID: 1825167929}
   spawnLine: {fileID: 1139403197476180, guid: 5b57163f76f3149fa81ec5e0651fd3bc, type: 2}
 --- !u!61 &351114194
@@ -3700,6 +3713,9 @@ MonoBehaviour:
   onSprite: {fileID: 21300000, guid: 55d411e73c69a4bdb9caa0b7695c7494, type: 3}
   possibleLinks:
   - {fileID: 1148116284}
+  needToLock:
+  - {fileID: 1825167929}
+  - {fileID: 351114190}
   myPair: {fileID: 1148116284}
   spawnLine: {fileID: 1139403197476180, guid: 5b57163f76f3149fa81ec5e0651fd3bc, type: 2}
 --- !u!61 &374297962
@@ -5405,6 +5421,11 @@ MonoBehaviour:
   - {fileID: 1163597445}
   - {fileID: 199525502}
   - {fileID: 1612983824}
+  needToLock:
+  - {fileID: 1892277035}
+  - {fileID: 1156255204}
+  - {fileID: 286734165}
+  - {fileID: 1389666555}
   myPair: {fileID: 1163597445}
   spawnLine: {fileID: 1139403197476180, guid: 5b57163f76f3149fa81ec5e0651fd3bc, type: 2}
 --- !u!212 &533848017
@@ -7238,6 +7259,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e5abd9e36dd413aa2624d201a2f47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetPositions:
+  - {x: -1, y: 0.5}
+  - {x: 1, y: 5.5}
+  - {x: 5, y: 13.5}
+  upSprite: {fileID: 21300000, guid: bc4ee7158d92d42e5accdff86420032b, type: 3}
+  teleportSprites:
+  - {fileID: 21300000, guid: 374a48e4128924e76ae2cb704c7b533f, type: 3}
+  - {fileID: 21300000, guid: af10fddcb570f42c9b8b73edf8064a21, type: 3}
+  - {fileID: 21300000, guid: 1db395054d9dc48ff835b55348dcd430, type: 3}
+  - {fileID: 21300000, guid: dee459cee3c934f07b27a297edaa5dd7, type: 3}
+  - {fileID: 21300000, guid: 67f30adc626404258b14e39e57afd4fc, type: 3}
+  - {fileID: 21300000, guid: bc4ee7158d92d42e5accdff86420032b, type: 3}
+  blueSprite: {fileID: 21300000, guid: 4c5ffe1c6fc264efc94ce2b3a87b547a, type: 3}
+  redSprite: {fileID: 21300000, guid: 5017912478cde4a558d15055a55ad703, type: 3}
 --- !u!114 &755281689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7255,7 +7290,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -11163,6 +11198,9 @@ MonoBehaviour:
   onSprite: {fileID: 21300000, guid: 55d411e73c69a4bdb9caa0b7695c7494, type: 3}
   possibleLinks:
   - {fileID: 374297958}
+  needToLock:
+  - {fileID: 1825167929}
+  - {fileID: 351114190}
   myPair: {fileID: 374297958}
   spawnLine: {fileID: 1139403197476180, guid: 5b57163f76f3149fa81ec5e0651fd3bc, type: 2}
 --- !u!61 &1148116288
@@ -11228,6 +11266,11 @@ MonoBehaviour:
   - {fileID: 1892277035}
   - {fileID: 286734165}
   - {fileID: 1389666555}
+  needToLock:
+  - {fileID: 533848015}
+  - {fileID: 1163597445}
+  - {fileID: 199525502}
+  - {fileID: 1612983824}
   myPair: {fileID: 1892277035}
   spawnLine: {fileID: 1139403197476180, guid: 5b57163f76f3149fa81ec5e0651fd3bc, type: 2}
 --- !u!212 &1156255206
@@ -11352,6 +11395,11 @@ MonoBehaviour:
   - {fileID: 533848015}
   - {fileID: 199525502}
   - {fileID: 1612983824}
+  needToLock:
+  - {fileID: 1892277035}
+  - {fileID: 1156255204}
+  - {fileID: 286734165}
+  - {fileID: 1389666555}
   myPair: {fileID: 533848015}
   spawnLine: {fileID: 1139403197476180, guid: 5b57163f76f3149fa81ec5e0651fd3bc, type: 2}
 --- !u!212 &1163597447
@@ -13565,6 +13613,11 @@ MonoBehaviour:
   - {fileID: 1892277035}
   - {fileID: 1156255204}
   - {fileID: 286734165}
+  needToLock:
+  - {fileID: 533848015}
+  - {fileID: 1163597445}
+  - {fileID: 199525502}
+  - {fileID: 1612983824}
   myPair: {fileID: 286734165}
   spawnLine: {fileID: 1139403197476180, guid: 5b57163f76f3149fa81ec5e0651fd3bc, type: 2}
 --- !u!212 &1389666557
@@ -14700,7 +14753,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4266151139067904, guid: 0e8e475b6b30649c193ee2b90e074527, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 14
+      value: 13.67
       objectReference: {fileID: 0}
     - target: {fileID: 4266151139067904, guid: 0e8e475b6b30649c193ee2b90e074527, type: 2}
       propertyPath: m_LocalPosition.z
@@ -14725,19 +14778,6 @@ Prefab:
     - target: {fileID: 4266151139067904, guid: 0e8e475b6b30649c193ee2b90e074527, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114830234878782876, guid: 0e8e475b6b30649c193ee2b90e074527,
-        type: 2}
-      propertyPath: requiredNumber
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065699349048292, guid: 0e8e475b6b30649c193ee2b90e074527, type: 2}
-      propertyPath: m_Name
-      value: Door
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065699349048292, guid: 0e8e475b6b30649c193ee2b90e074527, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e8e475b6b30649c193ee2b90e074527, type: 2}
@@ -15416,7 +15456,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.1
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -15854,6 +15894,11 @@ MonoBehaviour:
   - {fileID: 533848015}
   - {fileID: 1163597445}
   - {fileID: 199525502}
+  needToLock:
+  - {fileID: 1892277035}
+  - {fileID: 1156255204}
+  - {fileID: 286734165}
+  - {fileID: 1389666555}
   myPair: {fileID: 199525502}
   spawnLine: {fileID: 1139403197476180, guid: 5b57163f76f3149fa81ec5e0651fd3bc, type: 2}
 --- !u!212 &1612983826
@@ -16071,7 +16116,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4266151139067904, guid: 0e8e475b6b30649c193ee2b90e074527, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 5.67
       objectReference: {fileID: 0}
     - target: {fileID: 4266151139067904, guid: 0e8e475b6b30649c193ee2b90e074527, type: 2}
       propertyPath: m_LocalPosition.z
@@ -18029,6 +18074,9 @@ MonoBehaviour:
   onSprite: {fileID: 21300000, guid: 432406fee91f5424f8f0311f08fa5e5f, type: 3}
   possibleLinks:
   - {fileID: 351114190}
+  needToLock:
+  - {fileID: 374297958}
+  - {fileID: 1148116284}
   myPair: {fileID: 351114190}
   spawnLine: {fileID: 1139403197476180, guid: 5b57163f76f3149fa81ec5e0651fd3bc, type: 2}
 --- !u!61 &1825167933
@@ -18998,6 +19046,11 @@ MonoBehaviour:
   - {fileID: 1156255204}
   - {fileID: 286734165}
   - {fileID: 1389666555}
+  needToLock:
+  - {fileID: 533848015}
+  - {fileID: 1163597445}
+  - {fileID: 199525502}
+  - {fileID: 1612983824}
   myPair: {fileID: 1156255204}
   spawnLine: {fileID: 1139403197476180, guid: 5b57163f76f3149fa81ec5e0651fd3bc, type: 2}
 --- !u!212 &1892277037
@@ -19166,7 +19219,7 @@ Transform:
   m_GameObject: {fileID: 1899371056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5, y: 0, z: 0}
-  m_LocalScale: {x: 5.6, y: 5.6, z: 1}
+  m_LocalScale: {x: 5.7, y: 5.7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3

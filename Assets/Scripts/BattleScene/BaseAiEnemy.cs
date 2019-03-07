@@ -23,7 +23,8 @@ public class BaseAiEnemy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        boxPos = GameObject.Find ("teacup").GetComponent<Transform>();
+        //boxPos = GameObject.Find ("teacup").GetComponent<Transform>();
+        boxPos = GameObject.Find("3DPrinter").GetComponent<Transform>();
 	}
 	
 	// Update is called once per frame
@@ -38,10 +39,10 @@ public class BaseAiEnemy : MonoBehaviour {
         {
             int face = Random.Range(1, 7);
             GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(1, face);
-            for (int i = 0; i < currentBidAmount; i++)
+            for (int i = 0; i < 1; i++)
             {
                 Debug.Log("made another thing");
-                Instantiate(myDice[currentBidNumber - 1], boxPos.position, Quaternion.identity);
+                Instantiate(myDice[face - 1], boxPos.position, Quaternion.identity);
             }
         } else if (currentBidAmount > 3){
             GameObject.Find ("BattleManager").GetComponent<BattleManager>().EnemyCall();
@@ -82,7 +83,7 @@ public class BaseAiEnemy : MonoBehaviour {
             //    Debug.Log("made another thing");
             //    Instantiate(myDice[currentBidNumber - 1], boxPos.position, Quaternion.identity);
             //}
-            StartCoroutine(PauseToSpawn());
+            Instantiate(myDice[0], boxPos.position, Quaternion.identity);
         }
         else if (counter == 0 && GameObject.Find("BattleManager").GetComponent<BattleManager>().turnCount > 2)
         {
@@ -364,13 +365,16 @@ public class BaseAiEnemy : MonoBehaviour {
     }
 
     IEnumerator PauseToSpawn (){
-        Debug.Log ("Hit coroutine");
+        Debug.Log ("Hit coroutine to spawn");
         yield return new WaitForSeconds (0.4f);
         currentBidAmount = GameObject.Find("BattleManager").GetComponent<BattleManager>().currentBidAmount;
         currentBidNumber = GameObject.Find("BattleManager").GetComponent<BattleManager>().currentBidNumber;
+
         for (int i = 0; i < currentBidAmount; i++) {
-            Debug.Log("made a thing");
+            float randX = Random.Range(-0.8f, 0.8f);
+            float randY = Random.Range(-0.8f, 0.8f);
             Instantiate(myDice[currentBidNumber - 1], boxPos.position, Quaternion.identity);
+            //Instantiate(myDice[currentBidNumber - 1], new Vector2(boxPos.position.x + randX, boxPos.position.y + randY), Quaternion.identity);
         }
     }
 }

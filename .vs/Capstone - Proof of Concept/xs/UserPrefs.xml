@@ -1,42 +1,30 @@
 ﻿<Properties StartupConfiguration="{2A4404BB-6BE6-6815-107E-F87E7093CAF3}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/HiddenRuleManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/BaseTileScript.cs">
     <Files>
       <File FileName="Assets/Scripts/BattleScene/TeaCupScript.cs" Line="31" Column="73" />
       <File FileName="Assets/Scripts/BattleScene/CurrentBidSlotScript.cs" Line="32" Column="10" />
-      <File FileName="Assets/Scripts/Scene1/Scene1NEWManager.cs" Line="16" Column="65" />
-      <File FileName="Assets/Scripts/BattleScene/GrabNPlaceScript.cs" Line="104" Column="44" />
-      <File FileName="Assets/Scripts/BattleScene/BidButtonScript.cs" Line="21" Column="14" />
-      <File FileName="Assets/Scripts/BattleScene/BaseAiEnemy.cs" Line="349" Column="10" />
-      <File FileName="Assets/Scripts/Scene6/PlayerMovementScript.cs" Line="302" Column="50" />
-      <File FileName="Assets/DirectionalFloorTiles.cs" Line="26" Column="17" />
-      <File FileName="Assets/Scripts/Scene3/Scene3TextFace.cs" Line="17" Column="1" />
-      <File FileName="Assets/Scripts/Scene3/NOT in use/Scene3Manager.cs" Line="21" Column="1" />
-      <File FileName="Assets/Scripts/Scene3/Scene3TextScript.cs" Line="30" Column="1" />
-      <File FileName="Assets/Scene5TextScript.cs" Line="40" Column="106" />
-      <File FileName="Assets/Scene2ElevatorScript.cs" Line="21" Column="25" />
-      <File FileName="Assets/Scripts/Scene2/Scene1Elevator.cs" Line="42" Column="1" />
-      <File FileName="Assets/Scripts/Scene4/Scene4TextScript.cs" Line="66" Column="83" />
-      <File FileName="Assets/Scripts/Scene4/Scene4BidButtonScript.cs" Line="29" Column="49" />
-      <File FileName="Assets/Scene4IncorrectTextBid.cs" Line="29" Column="23" />
-      <File FileName="Assets/Scripts/Scene4/Scene4CallButtonScript.cs" Line="35" Column="11" />
-      <File FileName="Assets/Scripts/Scene4/Scene4Pulse.cs" Line="39" Column="58" />
+      <File FileName="Assets/Scripts/Scene1/Scene1NEWManager.cs" Line="74" Column="6" />
+      <File FileName="Assets/Scripts/BattleScene/GrabNPlaceScript.cs" Line="23" Column="11" />
+      <File FileName="Assets/Scripts/BattleScene/BidButtonScript.cs" Line="12" Column="54" />
+      <File FileName="Assets/Scripts/BattleScene/BaseAiEnemy.cs" Line="86" Column="33" />
+      <File FileName="Assets/Scripts/Scene6/PlayerMovementScript.cs" Line="43" Column="8" />
       <File FileName="Assets/Scripts/Scene3/MayaIDCardScript.cs" Line="49" Column="42" />
       <File FileName="Assets/Scene3WallaceHandScript.cs" Line="17" Column="107" />
       <File FileName="Assets/Scene42Button.cs" Line="23" Column="79" />
-      <File FileName="Assets/DoorSprites.cs" Line="28" Column="34" />
+      <File FileName="Assets/DoorSprites.cs" Line="21" Column="2" />
       <File FileName="Assets/RPGCamera.cs" Line="17" Column="46" />
       <File FileName="Assets/RPGBackground.cs" Line="14" Column="46" />
       <File FileName="Assets/Scripts/BattleScene/CurrentBidText.cs" Line="15" Column="1" />
       <File FileName="Assets/SpeechBubbleScript.cs" Line="17" Column="61" />
       <File FileName="Assets/EndTileScript.cs" Line="8" Column="1" />
       <File FileName="Assets/SparkScript.cs" Line="129" Column="59" />
-      <File FileName="Assets/Scripts/BattleScene/CallButtonScript.cs" Line="19" Column="1" />
+      <File FileName="Assets/Scripts/BattleScene/CallButtonScript.cs" Line="24" Column="1" />
       <File FileName="Assets/Dialogue.cs" Line="10" Column="18" />
-      <File FileName="Assets/Scripts/BattleScene/BattleManager.cs" Line="210" Column="88" />
+      <File FileName="Assets/Scripts/BattleScene/BattleManager.cs" Line="309" Column="1" />
       <File FileName="Assets/Scripts/BattleScene/BattleManager_v3.cs" Line="32" Column="20" />
       <File FileName="Assets/DialogueManager.cs" Line="27" Column="1" />
-      <File FileName="Assets/DialogueTrigger.cs" Line="11" Column="41" />
-      <File FileName="Assets/DialogueContinue.cs" Line="10" Column="34" />
+      <File FileName="Assets/DialogueTrigger.cs" Line="8" Column="5" />
+      <File FileName="Assets/DialogueContinue.cs" Line="20" Column="1" />
       <File FileName="Assets/Scripts/BattleScene/RollForPlay.cs" Line="407" Column="47" />
       <File FileName="Assets/Scene5Manager.cs" Line="26" Column="32" />
       <File FileName="Assets/DialogueStart.cs" Line="9" Column="42" />
@@ -50,13 +38,17 @@
       <File FileName="Assets/Scripts/BattleScene/NOT in use/GenEnemyScript.cs" Line="20" Column="1" />
       <File FileName="Assets/Scripts/Scene6/PlayerStatsTracker.cs" Line="13" Column="28" />
       <File FileName="Assets/2d-extras-master/Assets/Tilemap/Tiles/Rule Tile/Scripts/RuleTile.cs" Line="101" Column="1" />
-      <File FileName="Assets/WireBoxScript.cs" Line="90" Column="10" />
+      <File FileName="Assets/WireBoxScript.cs" Line="99" Column="1" />
       <File FileName="Assets/Scripts/TurnTile.cs" Line="10" Column="5" />
-      <File FileName="Assets/HiddenRuleManager.cs" Line="37" Column="35" />
+      <File FileName="Assets/HiddenRuleManager.cs" Line="102" Column="47" />
       <File FileName="Assets/HiddenRulePlayer.cs" Line="11" Column="54" />
       <File FileName="Assets/ScoreboardNumberScript.cs" Line="11" Column="12" />
       <File FileName="Assets/TeleportScript.cs" Line="35" Column="78" />
-      <File FileName="Assets/ResetButton.cs" Line="12" Column="46" />
+      <File FileName="Assets/ResetButton.cs" Line="98" Column="62" />
+      <File FileName="Assets/Scene1FlashManager.cs" Line="45" Column="43" />
+      <File FileName="Assets/CancelButtonScript.cs" Line="20" Column="1" />
+      <File FileName="Assets/Scripts/BattleScene/TurnIndicatorScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/BaseTileScript.cs" Line="7" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

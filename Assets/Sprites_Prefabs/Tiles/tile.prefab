@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4262312306183834}
   - component: {fileID: 212542296995938694}
+  - component: {fileID: 114959326590753308}
   m_Layer: 0
   m_Name: tile
   m_TagString: BaseTile
@@ -33,13 +34,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1372802180544446}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: -4, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1, y: -4, z: 0}
   m_LocalScale: {x: 3.2, y: 3.2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114959326590753308
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1372802180544446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d54b842e5f43341b8bcdaca99c58366e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSteppedOn: 0
 --- !u!212 &212542296995938694
 SpriteRenderer:
   m_ObjectHideFlags: 1

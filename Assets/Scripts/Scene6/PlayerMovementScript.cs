@@ -42,6 +42,7 @@ public class PlayerMovementScript : MonoBehaviour {
 
     public List<Vector2> steppedOn;
 
+    GameObject[] normalTiles;
     GameObject[] myDoors;
     GameObject[] upTiles;
     GameObject[] leftTiles;
@@ -65,6 +66,7 @@ public class PlayerMovementScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         targetPos = new Vector2(transform.position.x, transform.position.y);
+        normalTiles = GameObject.FindGameObjectsWithTag("BaseTile");
         upTiles = GameObject.FindGameObjectsWithTag("TileUp");
         leftTiles = GameObject.FindGameObjectsWithTag("TileLeft");
         rightTiles = GameObject.FindGameObjectsWithTag("TileRight");
@@ -97,6 +99,7 @@ public class PlayerMovementScript : MonoBehaviour {
     }
     public void MoveLeft()
     {
+
         //foreach (GameObject b in blueBoxes)
         //{
         //    float dist = Vector2.Distance((Vector2)b.transform.position, fixedTargetPos);
@@ -118,6 +121,7 @@ public class PlayerMovementScript : MonoBehaviour {
     }
     public void MoveRight()
     {
+
         //foreach (GameObject b in blueBoxes)
         //{
         //    float dist = Vector2.Distance((Vector2)b.transform.position, fixedTargetPos);
@@ -140,6 +144,7 @@ public class PlayerMovementScript : MonoBehaviour {
     }
     public void MoveDown()
     {
+
         //foreach (GameObject b in blueBoxes)
         //{
         //    float dist = Vector2.Distance((Vector2)b.transform.position, fixedTargetPos);
@@ -266,6 +271,10 @@ public class PlayerMovementScript : MonoBehaviour {
 
 
                 if (transform.position.y >= targetPos.y){
+                    foreach (GameObject tile in normalTiles)
+                    {
+                        tile.GetComponent<BaseTileScript>().Check();
+                    }
                     transform.position = new Vector3(targetPos.x, targetPos.y, 0);
                     moveUp = false;
                     moveLeft = false;
@@ -397,6 +406,10 @@ public class PlayerMovementScript : MonoBehaviour {
                 transform.position = leftPos;
                 leftPos = new Vector2(transform.position.x - 0.1f, transform.position.y);
                 if (transform.position.x <= targetPos.x){
+                    foreach (GameObject tile in normalTiles)
+                    {
+                        tile.GetComponent<BaseTileScript>().Check();
+                    }
                     transform.position = new Vector3(targetPos.x, targetPos.y, 0);
                     moveUp = false;
                     moveLeft = false;
@@ -535,6 +548,10 @@ public class PlayerMovementScript : MonoBehaviour {
                 transform.position = rightPos;
                 rightPos = new Vector2(transform.position.x + 0.1f, transform.position.y);
                 if (transform.position.x >= targetPos.x){
+                    foreach (GameObject tile in normalTiles)
+                    {
+                        tile.GetComponent<BaseTileScript>().Check();
+                    }
                     transform.position = new Vector3(targetPos.x, targetPos.y, 0);
                     moveUp = false;
                     moveLeft = false;
@@ -662,6 +679,10 @@ public class PlayerMovementScript : MonoBehaviour {
                 transform.position = downPos;
                 downPos = new Vector2(transform.position.x, transform.position.y - 0.1f);
                 if (transform.position.y <= targetPos.y){
+                    foreach (GameObject tile in normalTiles)
+                    {
+                        tile.GetComponent<BaseTileScript>().Check();
+                    }
                     transform.position = new Vector3(targetPos.x, targetPos.y, 0);
                     moveUp = false;
                     moveLeft = false;

@@ -19,6 +19,9 @@ public class WireBoxScript : MonoBehaviour
     List<Vector2> steppedOn;
 
     public GameObject[] possibleLinks;
+
+    public GameObject[] needToLock;
+
     int linkCounter;
 
     public GameObject myPair;
@@ -28,18 +31,22 @@ public class WireBoxScript : MonoBehaviour
 
     void Update()
     {
-        //TODO: there's gotta be a better way to do this
+        //TODO: there's gotta be a better way to do this guaranteed
         if (isOn)
         {
             this.GetComponent<SpriteRenderer>().sprite = onSprite;
+            foreach (GameObject toLock in needToLock)
+            {
+                toLock.GetComponent<BoxCollider2D>().enabled = true;
+            }
         }
     }
 
 
     public void Check()
     {
-        player = GameObject.Find("Player");
 
+        player = GameObject.Find("Player");
         if (isActive)
         {
             this.GetComponent<BoxCollider2D>().enabled = false;
@@ -85,8 +92,13 @@ public class WireBoxScript : MonoBehaviour
             player.GetComponent<PlayerMovementScript>().steppedOn.Clear();
             //if (steppedOn.Count != 0)
             //{
+            foreach (GameObject toLock in needToLock)
+            {
+                toLock.GetComponent<BoxCollider2D>().enabled = false;
+            }
             steppedOn.Clear();
             //}
         }
+
     }
 }

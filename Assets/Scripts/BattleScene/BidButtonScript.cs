@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class BidButtonScript : MonoBehaviour {
 
+    GameObject eventSystem;
+
 	// Use this for initialization
 	void Start () {
-		
+        eventSystem = GameObject.Find("EventSystem");
 	}
 	
 	// Update is called once per frame
@@ -42,7 +44,7 @@ public class BidButtonScript : MonoBehaviour {
                 }
             }
         }
-
+        eventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
     }
 
     IEnumerator Pause(){

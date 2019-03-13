@@ -1508,6 +1508,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6998a7ea0ff649a0b865077d1710a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  downSprite: {fileID: 0}
+  upSprite: {fileID: 0}
 --- !u!114 &1612950411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1522,10 +1524,11 @@ MonoBehaviour:
   dialogue:
     speakerSprite: {fileID: 21300000, guid: 1d0addd444d0c4f7dadf9cbf5b07f655, type: 3}
     sentences:
-    - I'll be talking to you through an earpiece throughout your journey.
-    - The location of The Central Computer is highly classified, so we're going to
-      administer some anaesthesia.
-    - Good luck, Maya. Agent Petty, administer the anaesthesia.
+    - "We don\u2019t have a lot of time to waste. Since we can\u2019t afford to have
+      anyone else know of the Central Computer\u2019s physical location, we will be
+      administering some anaesthesia."
+    - "When you wake up, you\u2019ll be inside the Central Computer. Good luck, Maya."
+    - Agent Petty, administer the anaesthesia.
     - '...........'
     - So we ran out of anaesthesia, huh?
 --- !u!4 &1612950412

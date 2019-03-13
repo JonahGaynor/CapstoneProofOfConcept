@@ -26,9 +26,15 @@ public class BattleManager : MonoBehaviour {
     public GameObject[] enemyBattleDice;
     public GameObject[] currentBidDice;
 
+    public GameObject spinnyNewDice;
+
     public Sprite happyMaya;
     public Sprite sadMaya;
     public Sprite normalMaya;
+
+    public Sprite happyEnemy;
+    public Sprite sadEnemy;
+    public Sprite normalEnemy;
 
     public Transform boxPos;
 
@@ -126,6 +132,7 @@ public class BattleManager : MonoBehaviour {
 
         //TODO: name sucks
         GameObject.Find("playerPortrait").GetComponent<SpriteRenderer>().sprite = normalMaya;
+        GameObject.Find("enemyPortrait").GetComponent<SpriteRenderer>().sprite = normalEnemy;
     }
 
     //This seems perfect
@@ -168,7 +175,7 @@ public class BattleManager : MonoBehaviour {
         }
 
         //TODO: I don't think this should be here. Loser starts?
-        myTurn = true;
+        //myTurn = true;
 
         if (actualAmount >= currentBidAmount) {
             EnemyLoses();
@@ -192,6 +199,7 @@ public class BattleManager : MonoBehaviour {
 
     void PlayerLoses () {
         GameObject.Find("playerPortrait").GetComponent<SpriteRenderer>().sprite = sadMaya;
+        GameObject.Find("enemyPortrait").GetComponent<SpriteRenderer>().sprite = happyEnemy;
         playerLose = true;
         myDice--;
         if (myDice <= 0){
@@ -207,6 +215,7 @@ public class BattleManager : MonoBehaviour {
 
     void EnemyLoses () {
         GameObject.Find("playerPortrait").GetComponent<SpriteRenderer>().sprite = happyMaya;
+        GameObject.Find("enemyPortrait").GetComponent<SpriteRenderer>().sprite = sadEnemy;
         enemyDice--;
         if (enemyDice <= 0){
 
@@ -295,12 +304,6 @@ public class BattleManager : MonoBehaviour {
         }
     }
 
-    //TODO: is this used?
-    IEnumerator PauseToFlipTurn (){
-        yield return new WaitForSeconds (1f);
-        myTurn = true;
-    }
-
     void GameOver () {
         GameObject.Find("StatTracker").GetComponent<PlayerStatsTracker>().myDice = myDice;
     }
@@ -309,5 +312,12 @@ public class BattleManager : MonoBehaviour {
         GameObject.Find("StatTracker").GetComponent<PlayerStatsTracker>().myDice = myDice;
         //GameObject.Find("EnemyDice0").GetComponent<SpriteRenderer>().enabled = false;
         //GameObject.Find("EnemyGreenWire1").GetComponent<SpriteRenderer>().sortingOrder = 0;
+    }
+
+    public IEnumerator NewDice()
+    {
+        spinnyNewDice.GetComponent<SpriteRenderer>().enabled = true;
+        //spinnyNewDice
+        yield return new WaitForSeconds(0.1f);
     }
 }

@@ -184,6 +184,7 @@ public class PlayerMovementScript : MonoBehaviour {
         if (transform.position.y > lastTile.transform.position.y && !moveToNext)
         {
             moveToNext = true;
+            StartCoroutine(GetComponentInChildren<PlayerOutAnimation>().GetOut());
         }
 
         fixedTargetPos = new Vector2(transform.position.x, transform.position.y - 0.5f);

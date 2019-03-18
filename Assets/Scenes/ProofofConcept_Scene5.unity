@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speakerSprite: {fileID: 563910007}
-  dialogueText: {fileID: 0}
+  dialogueText: {fileID: 745476537}
   myAnim: {fileID: 1694419333}
   done: 0
 --- !u!4 &525133023
@@ -1190,7 +1190,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1053899737}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8eaaebcee8f744cac9cf1497b32d0a34, type: 3}
   m_Name: 
@@ -1508,8 +1508,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6998a7ea0ff649a0b865077d1710a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  downSprite: {fileID: 0}
-  upSprite: {fileID: 0}
+  downSprite: {fileID: 21300000, guid: e308203aa1a954a9ebbbae496bf7e318, type: 3}
+  upSprite: {fileID: 21300000, guid: df599bee0d3ac4d8d8ec71d11444b2fc, type: 3}
 --- !u!114 &1612950411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1644,8 +1644,8 @@ GameObject:
   - component: {fileID: 1694419334}
   - component: {fileID: 1694419333}
   m_Layer: 5
-  m_Name: TextBox-Scene3
-  m_TagString: Untagged
+  m_Name: TextBox
+  m_TagString: TextBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -73,6 +73,7 @@ public class BattleManager : MonoBehaviour {
 	//}
 
     public void EnemyTurn (){
+        GameObject.Find("teacup").GetComponent<TeaCupScript>().destroyOthers = true;
         turnCount++;
         counter = 0;
         for (int i = 0; i < enemyCurrentDice.Count; i++){
@@ -93,6 +94,7 @@ public class BattleManager : MonoBehaviour {
             GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().TurnAi2();
         }
         myTurn = true;
+        StartCoroutine(DestroyOpponentFirstBid());
     }
 
     void Roll () {
@@ -118,7 +120,7 @@ public class BattleManager : MonoBehaviour {
             Destroy(b);
         }
         //TODO: necessary?
-        GameObject.Find ("CurrentBidSlot").GetComponent<CurrentBidSlotScript>().shouldDestroy = true;
+        //GameObject.Find ("CurrentBidSlot").GetComponent<CurrentBidSlotScript>().shouldDestroy = true;
 
         //TODO: this stuff useless now?
         for (int i = 0; i < myDice; i++){
@@ -133,6 +135,7 @@ public class BattleManager : MonoBehaviour {
         //TODO: name sucks
         GameObject.Find("playerPortrait").GetComponent<SpriteRenderer>().sprite = normalMaya;
         GameObject.Find("enemyPortrait").GetComponent<SpriteRenderer>().sprite = normalEnemy;
+        GameObject.Find("teacup").GetComponent<TeaCupScript>().destroyOthers = true;
     }
 
     //This seems perfect
@@ -208,6 +211,7 @@ public class BattleManager : MonoBehaviour {
 
             StartCoroutine(PauseForRoll(false));
             FindObjectOfType<DialogueManager>().StartDialogue(happyDialogue);
+            StartCoroutine(EndDialogue());
             //Roll();
         }
         myTurn = true;
@@ -228,9 +232,15 @@ public class BattleManager : MonoBehaviour {
             StartCoroutine(GameObject.Find("Spark").GetComponent<SparkScript>().SparkMe());
             StartCoroutine(PauseForRoll(true));
             FindObjectOfType<DialogueManager>().StartDialogue(sadDialogue);
+            StartCoroutine(EndDialogue());
             //  Roll ();
         }
         myTurn = false;
+    }
+    IEnumerator DestroyOpponentFirstBid()
+    {
+        yield return new WaitForSeconds(1f);
+        GameObject.Find("teacup").GetComponent<TeaCupScript>().destroyOthers = true;
     }
     
     IEnumerator PauseForRoll (bool shouldPause) {
@@ -319,5 +329,11 @@ public class BattleManager : MonoBehaviour {
         spinnyNewDice.GetComponent<SpriteRenderer>().enabled = true;
         //spinnyNewDice
         yield return new WaitForSeconds(0.1f);
+    }
+
+    public IEnumerator EndDialogue()
+    {
+        yield return new WaitForSeconds(2.5f);
+        FindObjectOfType<DialogueManager>().EndDialogue();
     }
 }

@@ -231,6 +231,7 @@ public class RollForPlay : MonoBehaviour {
 
     IEnumerator OpTurn()
     {
+        GameObject.Find("teacup").GetComponent<TeaCupScript>().destroyOthers = true;
         this.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 15);
         yield return new WaitForSeconds(turnTime);
         this.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 30);
@@ -402,6 +403,7 @@ public class RollForPlay : MonoBehaviour {
         this.transform.localScale = new Vector3(transform.localScale.x * 1.3f, transform.localScale.y * 1.3f);
         yield return new WaitForSeconds(0.2f);
         this.transform.localScale = new Vector3(transform.localScale.x * 0.77f, transform.localScale.y * 0.77f);
+        GameObject.Find("BattleManager").GetComponent<BattleManager>().myTurn = false;
         yield return new WaitForSeconds(0.2f);
         this.GetComponent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(1.5f);

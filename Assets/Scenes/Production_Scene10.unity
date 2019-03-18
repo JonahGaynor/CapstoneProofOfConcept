@@ -3155,7 +3155,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1, y: 11.5, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1932666414}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6282,7 +6283,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -100
   m_Sprite: {fileID: 21300000, guid: c3c541efca117417e93a5451b20f79f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8008,6 +8009,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4739454073854592, guid: 1adbb461e68164a40b26caa6f09df673,
     type: 2}
   m_PrefabInternal: {fileID: 1929575477}
+--- !u!1 &1932666413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1932666414}
+  - component: {fileID: 1932666415}
+  m_Layer: 0
+  m_Name: PlayerAnimator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1932666414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1932666413}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.33333334, y: -5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 747978501}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1932666415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1932666413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be53960c506b64609804f776635b6db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outSprites:
+  - {fileID: 21300000, guid: 374a48e4128924e76ae2cb704c7b533f, type: 3}
+  - {fileID: 21300000, guid: af10fddcb570f42c9b8b73edf8064a21, type: 3}
+  - {fileID: 21300000, guid: 1db395054d9dc48ff835b55348dcd430, type: 3}
+  - {fileID: 21300000, guid: dee459cee3c934f07b27a297edaa5dd7, type: 3}
+  - {fileID: 21300000, guid: 67f30adc626404258b14e39e57afd4fc, type: 3}
+  normalForward: {fileID: 21300000, guid: 7d01eeea213264c3b8c0fb363b008073, type: 3}
 --- !u!1 &1957040038
 GameObject:
   m_ObjectHideFlags: 0

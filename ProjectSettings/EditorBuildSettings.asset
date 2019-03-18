@@ -35,10 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Production_Scene8.unity
     guid: 6a583acc03a7f46e4921ab5c86360bdc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Production_Scene9_Julia.unity
     guid: 9ff3810a5c7e4483aa71e24417ad895c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Production_Scene10.unity
     guid: 9d169a27f457645a9bf3a91566ef1861
   - enabled: 0

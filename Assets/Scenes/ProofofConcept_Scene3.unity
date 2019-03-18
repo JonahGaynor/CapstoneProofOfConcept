@@ -423,14 +423,20 @@ MonoBehaviour:
   dialogue:
     speakerSprite: {fileID: 21300000, guid: 1d0addd444d0c4f7dadf9cbf5b07f655, type: 3}
     sentences:
-    - Sorry about my agents grabbing you from your home like that, Maya.
-    - Your high IQ and remarkably low income made you our top candidate for Operation
-      Filler Name.
-    - We need you to defeat a group of hackers that have broken into the Central Computer.
-    - The Central Computer operates differently from normal computers. To get through
-      regions of the Computer, you must defeat increasingly difficult AI players of
-      an ancient dice game.
-    - I'll show you how it works. First, take this. It's your ID card.
+    - "Sorry about my agents grabbing you from your home like that. I couldn\u2019t
+      risk you not coming on your own tonight."
+    - Your IQ, test scores, and low bank balance made you the perfect candidate for
+      Operation Electric Sheep.
+    - Today, a group of hackers broke into the Central Computer. We believe they are
+      trying to destroy it.
+    - As you know, the Central Computer is vital to our way of life and the stability
+      of our government. If you carry out Operation Electric Sheep, you will be set
+      for life as a thanks from the government.
+    - "The Central Computer contains a series of puzzles, as well as an assortment
+      of artificial intelligence robots that only let you past if you defeat them
+      in an ancient dice game last seen in the 21st century. Here, I\u2019ll show
+      you how it works. "
+    - "You\u2019ll need this, though. It\u2019s your ID card."
 --- !u!4 &569049909
 Transform:
   m_ObjectHideFlags: 0

@@ -5447,6 +5447,7 @@ GameObject:
   - component: {fileID: 1856553272}
   - component: {fileID: 1856553271}
   - component: {fileID: 1856553273}
+  - component: {fileID: 1856553274}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -5520,6 +5521,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   downSprite: {fileID: 21300000, guid: e308203aa1a954a9ebbbae496bf7e318, type: 3}
   upSprite: {fileID: 21300000, guid: df599bee0d3ac4d8d8ec71d11444b2fc, type: 3}
+--- !u!114 &1856553274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1856553270}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15fb1a1bbbffa489a83c929d1355bb10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1863530492
 GameObject:
   m_ObjectHideFlags: 0
@@ -6025,7 +6037,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1000
   m_Sprite: {fileID: 21300000, guid: fb06a9d3ed752437f8271fe6919cee0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

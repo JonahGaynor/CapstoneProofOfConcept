@@ -21,7 +21,6 @@ public class DialogueManager : MonoBehaviour {
 	
     public void StartDialogue(Dialogue dialogue)
     {
-        Debug.Log("start dialogue");
         //Debug.Log("Starting dialogue with " + dialogue.name);
 
         GameObject.Find("Player").GetComponent<PlayerMovementScript>().canMove = false;
@@ -37,6 +36,7 @@ public class DialogueManager : MonoBehaviour {
         foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
+            //Debug.Log(sentence);
         }
 
         NextSentence();
@@ -44,9 +44,9 @@ public class DialogueManager : MonoBehaviour {
 
     public void NextSentence()
     {
-        Debug.Log("next sentence");
         if (sentences.Count == 0)
         {
+            Debug.Log("no more sentences");
             EndDialogue();
             return;
         }
@@ -70,7 +70,6 @@ public class DialogueManager : MonoBehaviour {
     {
         GameObject.Find("Player").GetComponent<PlayerMovementScript>().canMove = true;
         done = true;
-        Debug.Log("we done");
         myAnim.SetBool("isOpen", false);
 
     }

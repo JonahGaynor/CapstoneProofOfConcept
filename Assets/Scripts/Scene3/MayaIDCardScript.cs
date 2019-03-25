@@ -18,10 +18,10 @@ public class MayaIDCardScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (FindObjectOfType<DialogueManager>().done)
-        {
-            active = true;
-        }
+        //if (FindObjectOfType<DialogueManager>().done && GameObject.Find("TextStarter_Petty").GetComponent<Scene3Petty>().storageCounter == 7)
+        //{
+        //    active = true;
+        //}
         if (active){
             if (!startCoroutine)
             {

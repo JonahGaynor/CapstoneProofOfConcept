@@ -202,7 +202,7 @@ RectTransform:
   - {fileID: 1721033780}
   - {fileID: 555513527}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -423,20 +423,10 @@ MonoBehaviour:
   dialogue:
     speakerSprite: {fileID: 21300000, guid: 1d0addd444d0c4f7dadf9cbf5b07f655, type: 3}
     sentences:
-    - "Sorry about my agents grabbing you from your home like that. I couldn\u2019t
+    - "Sorry about my agents grabbing you from your home like that, Maya. I couldn\u2019t
       risk you not coming on your own tonight."
     - Your IQ, test scores, and low bank balance made you the perfect candidate for
-      Operation Electric Sheep.
-    - Today, a group of hackers broke into the Central Computer. We believe they are
-      trying to destroy it.
-    - As you know, the Central Computer is vital to our way of life and the stability
-      of our government. If you carry out Operation Electric Sheep, you will be set
-      for life as a thanks from the government.
-    - "The Central Computer contains a series of puzzles, as well as an assortment
-      of artificial intelligence robots that only let you past if you defeat them
-      in an ancient dice game last seen in the 21st century. Here, I\u2019ll show
-      you how it works. "
-    - "You\u2019ll need this, though. It\u2019s your ID card."
+      Operation... uhhh...
 --- !u!4 &569049909
 Transform:
   m_ObjectHideFlags: 0
@@ -575,7 +565,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4630202752628728, guid: 3258132b9ba4643b3ae65b1569bcb545, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114296077588083846, guid: 3258132b9ba4643b3ae65b1569bcb545,
         type: 2}
@@ -719,7 +709,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &892706762
 GameObject:
@@ -843,8 +833,141 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &938130086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 938130091}
+  - component: {fileID: 938130089}
+  - component: {fileID: 938130088}
+  - component: {fileID: 938130087}
+  - component: {fileID: 938130090}
+  - component: {fileID: 938130092}
+  m_Layer: 0
+  m_Name: TextStarter_Petty
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &938130087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 938130086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad9be2cac0f74833972e2a715784976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  test: {fileID: 0}
+--- !u!114 &938130088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 938130086}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1ce3cb9ec714d6f9c89a401531f782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &938130089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 938130086}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6998a7ea0ff649a0b865077d1710a05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  downSprite: {fileID: 21300000, guid: e308203aa1a954a9ebbbae496bf7e318, type: 3}
+  upSprite: {fileID: 21300000, guid: df599bee0d3ac4d8d8ec71d11444b2fc, type: 3}
+--- !u!114 &938130090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 938130086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef40e248686b046169c61629a07a3638, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    speakerSprite: {fileID: 21300000, guid: 484c3090fb0174d678c57e6e1d30acb9, type: 3}
+    sentences:
+    - Electric Sheep!
+--- !u!4 &938130091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 938130086}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &938130092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 938130086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f768c2b87e8ea459ea4311467c09e0d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storage:
+  - speakerSprite: {fileID: 21300000, guid: 1d0addd444d0c4f7dadf9cbf5b07f655, type: 3}
+    sentences:
+    - Yeah, that.
+    - "Let\u2019s say it wasn\u2019t my first choice. "
+    - Personally I think it sounds more like we're rubbing our socks on carpets and
+      shocking each other.
+    - "Do you like Agent Petty\u2019s name for the operation?"
+  - speakerSprite: {fileID: 21300000, guid: 8a8a4df75891f4a1b818ee4332ce9e5f, type: 3}
+    sentences:
+    - '... yeah kinda.'
+  - speakerSprite: {fileID: 21300000, guid: 1d0addd444d0c4f7dadf9cbf5b07f655, type: 3}
+    sentences:
+    - Oh what the hell do you know! You're the least qualified person in this room!
+    - '...'
+    - Today, a group of hackers broke into the Central Computer. We believe they are
+      trying to destroy it.
+    - As you know, the Central Computer is vital to our way of life and the stability
+      of our government.
+    - "If you carry out Operation\u2026"
+  - speakerSprite: {fileID: 21300000, guid: 484c3090fb0174d678c57e6e1d30acb9, type: 3}
+    sentences:
+    - Electric Sheep!
+  - speakerSprite: {fileID: 21300000, guid: 1d0addd444d0c4f7dadf9cbf5b07f655, type: 3}
+    sentences:
+    - Hey man, I know.
+    - "If you carry out Operation... Electric Sheep, you will be set for life as a
+      thanks from the government. You can even pursue your dream of\u2026 uhhh..."
+  - speakerSprite: {fileID: 21300000, guid: ae9b92a2b86874f6e979263a72eac410, type: 3}
+    sentences:
+    - Making minimalistic shadow boxes featuring Cabbage Patch Kids?
+  - speakerSprite: {fileID: 21300000, guid: 1d0addd444d0c4f7dadf9cbf5b07f655, type: 3}
+    sentences:
+    - Yeah... why not.
+    - The Central Computer contains puzzles and artificial intelligence guards that
+      will only let you past if you defeat them in an ancient dice game last seen
+      in the 21st century.
+    - Let me show you how it works. You'll need this. It's your ID card.
 --- !u!1 &1051854561
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,7 +1341,7 @@ GameObject:
   - component: {fileID: 1300181704}
   m_Layer: 0
   m_Name: WallaceHand
-  m_TagString: Untagged
+  m_TagString: TileFinal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1280,7 +1403,7 @@ Transform:
   m_LocalScale: {x: 20, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1300181704
 MonoBehaviour:
@@ -1379,7 +1502,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1343328176
 GameObject:
@@ -1454,7 +1577,7 @@ Transform:
   m_LocalScale: {x: 5.6, y: 5.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1483049986
 GameObject:
@@ -1529,7 +1652,7 @@ Transform:
   m_LocalScale: {x: 5.6, y: 5.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1539784695
 GameObject:
@@ -1827,11 +1950,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2125947667}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.169183, y: 23.120007, z: 0.47649303}
+  m_LocalPosition: {x: 0.9, y: -22.9, z: 0.47649303}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2134251173
 GameObject:
@@ -1861,7 +1984,7 @@ Transform:
   m_LocalScale: {x: 7.8326, y: 7.8326, z: 7.8326}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2134251175
 MonoBehaviour:

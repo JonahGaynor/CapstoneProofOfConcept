@@ -283,7 +283,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2301127}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.33333334, y: 1.1666667, z: 0}
+  m_LocalPosition: {x: -0.33333334, y: 1.5, z: 0}
   m_LocalScale: {x: 1.0666667, y: 1.0666667, z: 0.40029}
   m_Children: []
   m_Father: {fileID: 432805802}
@@ -4393,7 +4393,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 387785024}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.8333334, z: 0}
+  m_LocalPosition: {x: 0.33333334, y: 2.1666667, z: 0}
   m_LocalScale: {x: 1.0666667, y: 1.0666667, z: 1.0626}
   m_Children: []
   m_Father: {fileID: 432805802}
@@ -17926,7 +17926,7 @@ GameObject:
   - component: {fileID: 1744276147}
   - component: {fileID: 1744276146}
   - component: {fileID: 1744276145}
-  - component: {fileID: 1744276144}
+  - component: {fileID: 1744276148}
   m_Layer: 5
   m_Name: ResetButton
   m_TagString: Untagged
@@ -17953,31 +17953,6 @@ RectTransform:
   m_AnchoredPosition: {x: 534, y: 291.30005}
   m_SizeDelta: {x: 160, y: 71.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1744276144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1744276142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81e5abd9e36dd413aa2624d201a2f47d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resetPositions:
-  - {x: -1, y: 0.5}
-  - {x: 1, y: 5.5}
-  - {x: 5, y: 13.5}
-  upSprite: {fileID: 21300000, guid: bc4ee7158d92d42e5accdff86420032b, type: 3}
-  teleportSprites:
-  - {fileID: 21300000, guid: 374a48e4128924e76ae2cb704c7b533f, type: 3}
-  - {fileID: 21300000, guid: af10fddcb570f42c9b8b73edf8064a21, type: 3}
-  - {fileID: 21300000, guid: 1db395054d9dc48ff835b55348dcd430, type: 3}
-  - {fileID: 21300000, guid: dee459cee3c934f07b27a297edaa5dd7, type: 3}
-  - {fileID: 21300000, guid: 67f30adc626404258b14e39e57afd4fc, type: 3}
-  - {fileID: 21300000, guid: bc4ee7158d92d42e5accdff86420032b, type: 3}
-  blueSprite: {fileID: 21300000, guid: 4c5ffe1c6fc264efc94ce2b3a87b547a, type: 3}
-  redSprite: {fileID: 21300000, guid: 5017912478cde4a558d15055a55ad703, type: 3}
 --- !u!114 &1744276145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18017,7 +17992,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1744276144}
+      - m_Target: {fileID: 1744276148}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -18064,6 +18039,32 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1744276142}
   m_CullTransparentMesh: 0
+--- !u!114 &1744276148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1744276142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7170495237c6344daace4fa595937b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPositions:
+  - {x: -1, y: 0.5}
+  - {x: 1, y: 5.5}
+  - {x: 5, y: 13.5}
+  resetPuzzles: 
+  upSprite: {fileID: 21300000, guid: bc4ee7158d92d42e5accdff86420032b, type: 3}
+  teleportSprites:
+  - {fileID: 21300000, guid: 374a48e4128924e76ae2cb704c7b533f, type: 3}
+  - {fileID: 21300000, guid: af10fddcb570f42c9b8b73edf8064a21, type: 3}
+  - {fileID: 21300000, guid: 1db395054d9dc48ff835b55348dcd430, type: 3}
+  - {fileID: 21300000, guid: dee459cee3c934f07b27a297edaa5dd7, type: 3}
+  - {fileID: 21300000, guid: 67f30adc626404258b14e39e57afd4fc, type: 3}
+  - {fileID: 21300000, guid: bc4ee7158d92d42e5accdff86420032b, type: 3}
+  blueSprite: {fileID: 21300000, guid: 4c5ffe1c6fc264efc94ce2b3a87b547a, type: 3}
+  redSprite: {fileID: 21300000, guid: 5017912478cde4a558d15055a55ad703, type: 3}
 --- !u!1001 &1745283911
 Prefab:
   m_ObjectHideFlags: 0

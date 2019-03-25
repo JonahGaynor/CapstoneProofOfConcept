@@ -84,7 +84,6 @@ public class PlayerMovementScript : MonoBehaviour {
 
     public void MoveUp()
     {
-
         moveUp = true;
         //myAnimator.SetTrigger("MoveUp");
         upPos = new Vector2(transform.position.x, transform.position.y + 0.1f);
@@ -241,7 +240,7 @@ public class PlayerMovementScript : MonoBehaviour {
         if (!Physics2D.OverlapPoint(targetPos + (Vector2.down/2)) && (moveUp || moveLeft || moveRight || moveDown)) {
             //Debug.Log(targetPos);
              spriteCounterTimer += Time.deltaTime;
-            if (spriteCounterTimer >= 0.12f)
+            if (spriteCounterTimer >= 0.08f)
             {
                 spriteCounterTimer = 0;
                 if (spriteCounter == 3)

@@ -40,6 +40,7 @@ public class WireBoxScript : MonoBehaviour
                 toLock.GetComponent<BoxCollider2D>().enabled = true;
             }
         }
+        Debug.Log(completedPuzzles);
     }
 
 

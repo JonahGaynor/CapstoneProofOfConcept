@@ -114,6 +114,7 @@ public class HiddenRuleManager : MonoBehaviour {
         player.GetComponent<PlayerMovementScript>().canMove = true;
         GameObject.Find("ScoreboardReset").GetComponent<Image>().enabled = false;
         GameObject.Find("ScoreboardNumber").GetComponent<Image>().enabled = false;
+        GameObject.Find("ScoreboardNumber").GetComponent<ScoreboardNumberScript>().puzzle3Counter = 0;
         GameObject.Find("ScoreboardNumberBase").GetComponent<Image>().enabled = false;
         GameObject.Find("ScoreboardBase").GetComponent<Image>().enabled = false;
     }

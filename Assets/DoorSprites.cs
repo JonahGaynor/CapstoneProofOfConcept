@@ -13,15 +13,10 @@ public class DoorSprites : MonoBehaviour {
 
     public SpriteRenderer sr;
 
-	// Use this for initialization
-	void Start () {
+    void Start()
+    {
         sr = this.GetComponent<SpriteRenderer>();
-	}
-	
-	// Update is called once per frame
-	//void Update () {
-
-	//}
+    }
 
     public void Open(int completedPuzzles)
     {
@@ -32,6 +27,13 @@ public class DoorSprites : MonoBehaviour {
             sr.sprite = mySprites[myNumber];
             isClosed = false;
             this.GetComponent<BoxCollider2D>().enabled = false;
+        }
+        else
+        {
+            myNumber = 0;
+            sr.sprite = mySprites[myNumber];
+            isClosed = true;
+            this.GetComponent<BoxCollider2D>().enabled = true;
         }
     }
 }

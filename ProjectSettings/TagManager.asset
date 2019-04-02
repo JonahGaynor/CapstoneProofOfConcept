@@ -26,6 +26,8 @@ TagManager:
   - GreenBox
   - Wire
   - TextBox
+  - ScreenBorders
+  - TransitionDice
   layers:
   - Default
   - TransparentFX

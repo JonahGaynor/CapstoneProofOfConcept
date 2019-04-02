@@ -40,10 +40,14 @@ public class BattleManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-       StartCoroutine(BeginBattle());
+       //StartCoroutine(BeginBattle());
 
 
 	}
+    public void BeginBattlePlz()
+    {
+        StartCoroutine(BeginBattle());
+    }
 
     IEnumerator BeginBattle() {
 

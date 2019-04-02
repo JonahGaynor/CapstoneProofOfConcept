@@ -8,6 +8,8 @@ public class BaseTileScript : MonoBehaviour {
     Vector2 newPos;
     public bool isSteppedOn = false;
     bool lerp = false;
+    float myHighlightNumb;
+    float timer = -10f;
 
     private void Awake()
     {
@@ -17,10 +19,12 @@ public class BaseTileScript : MonoBehaviour {
     void Start () {
         newPos = new Vector2(myPos.x, myPos.y - 0.075f);
         this.GetComponent<SpriteRenderer>().sortingOrder -= (int)myPos.y;
+        myHighlightNumb = transform.position.x + transform.position.y;
 	}
 
     private void Update()
     {
+        timer += Time.deltaTime * 8;
         if (transform.position.y < myPos.y && !lerp)
         {
             transform.position = Vector2.Lerp(transform.position, myPos, 0.5f);
@@ -37,10 +41,19 @@ public class BaseTileScript : MonoBehaviour {
             GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.8f, 0.8f);
 
         }
+        else if (timer > myHighlightNumb && timer < myHighlightNumb + 3f)
+        {
+            GetComponent<SpriteRenderer>().color = Color.yellow;
+        }
         else
         {
             GetComponent<SpriteRenderer>().color = Color.white;
 
+        }
+
+        if (timer >= 20f)
+        {
+            timer = -10f;
         }
     }
 

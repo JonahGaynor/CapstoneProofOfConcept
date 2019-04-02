@@ -39,7 +39,7 @@ public class TeaCupScript : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D col){
         GameObject.Find ("CurrentBidSlot").GetComponent<CurrentBidSlotScript>().shouldDestroy = true;
-        Debug.Log(destroyOthers + "we should destroy");
+        //Debug.Log(destroyOthers + "we should destroy");
         if (!destroyOthers) {
             GameObject.Find ("CurrentBidSlot").GetComponent<CurrentBidSlotScript>().shouldDestroy = true;
 			if (col.gameObject.name == "1Dice 1(Clone)" && !haveHit) {

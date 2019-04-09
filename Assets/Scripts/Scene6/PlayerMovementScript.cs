@@ -188,23 +188,23 @@ public class PlayerMovementScript : MonoBehaviour {
 
         fixedTargetPos = new Vector2(transform.position.x, transform.position.y - 0.5f);
         //if (transform.position.y >= -3 && !firstWallaceText) {
-       //     canMove = false;
-       //     firstWallaceText = true;
-//            GameObject.Find("WallaceSpeech1").GetComponent<SpriteRenderer>().enabled = true;
-  //          GameObject.Find("EnterButton").GetComponent<SpriteRenderer>().enabled = true;
-            //GameObject.Find("tempSpeechBubble").GetComponent<SpriteRenderer>().enabled = true;
-            //GameObject.Find("TextFace").GetComponent<SpriteRenderer>().enabled = true;
-            //GameObject.Find("FirstWallaceText").GetComponent<Text>().enabled = true;
-       // }
+        //     canMove = false;
+        //     firstWallaceText = true;
+        //            GameObject.Find("WallaceSpeech1").GetComponent<SpriteRenderer>().enabled = true;
+        //          GameObject.Find("EnterButton").GetComponent<SpriteRenderer>().enabled = true;
+        //GameObject.Find("tempSpeechBubble").GetComponent<SpriteRenderer>().enabled = true;
+        //GameObject.Find("TextFace").GetComponent<SpriteRenderer>().enabled = true;
+        //GameObject.Find("FirstWallaceText").GetComponent<Text>().enabled = true;
+        // }
 
         if (!moveUp && !moveLeft && !moveRight && !moveDown && canMove) {
-            if (Input.GetKeyUp(KeyCode.UpArrow)) {
+            if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W)) {
                 MoveUp();
-            } else if (Input.GetKeyUp(KeyCode.LeftArrow)) {
+            } else if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.A)) {
                 MoveLeft();
-            } else if (Input.GetKeyUp(KeyCode.RightArrow)) {
+            } else if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.D)) {
                 MoveRight();
-            } else if (Input.GetKeyUp(KeyCode.DownArrow)) {
+            } else if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S)) {
                 MoveDown();
             }
         }

@@ -866,7 +866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad9be2cac0f74833972e2a715784976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: {fileID: 0}
+  storageCounter: 0
 --- !u!114 &938130088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,7 +966,7 @@ MonoBehaviour:
     - Yeah... why not.
     - The Central Computer contains puzzles and artificial intelligence guards that
       will only let you past if you defeat them in an ancient dice game last seen
-      in the 21st century.
+      about 50 years ago.
     - Let me show you how it works. You'll need this. It's your ID card.
 --- !u!1 &1051854561
 GameObject:

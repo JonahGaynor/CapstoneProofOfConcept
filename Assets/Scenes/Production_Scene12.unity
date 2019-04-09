@@ -594,7 +594,7 @@ MonoBehaviour:
   dialogue:
     speakerSprite: {fileID: 21300000, guid: 960bba01b353849ab9140320e442cb33, type: 3}
     sentences:
-    - 08/13/2491
+    - 08/13/2085
     - A government agent disrupted our meeting today. He introduced himself to us
       as Agent Wallace, but Simon called him Ron.
     - He said he had been tracking our conversations and that any attempt to break
@@ -4393,7 +4393,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 387785024}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.33333334, y: 2.1666667, z: 0}
+  m_LocalPosition: {x: 0.33333334, y: 1.8333334, z: 0}
   m_LocalScale: {x: 1.0666667, y: 1.0666667, z: 1.0626}
   m_Children: []
   m_Father: {fileID: 432805802}
@@ -9113,7 +9113,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 777661092}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6666667, y: 3.8333335, z: 0}
+  m_LocalPosition: {x: 0.6666667, y: 4.166667, z: 0}
   m_LocalScale: {x: 1.0666667, y: 1.0666667, z: 0.40029}
   m_Children: []
   m_Father: {fileID: 432805802}
@@ -19220,7 +19220,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1830195767}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6666667, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1.8333334, z: 0}
   m_LocalScale: {x: 1.0666667, y: 1.0666667, z: 1}
   m_Children: []
   m_Father: {fileID: 432805802}

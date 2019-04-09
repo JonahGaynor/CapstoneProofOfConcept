@@ -1801,9 +1801,9 @@ RectTransform:
   m_Father: {fileID: 302921661}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 65.45001, y: -247}
+  m_AnchorMin: {x: 0.5563123, y: 0}
+  m_AnchorMax: {x: 0.5563123, y: 0}
+  m_AnchoredPosition: {x: -6.9048157, y: 113.2554}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &724804384
@@ -2523,9 +2523,9 @@ RectTransform:
   m_Father: {fileID: 302921661}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -135.45001, y: -247}
+  m_AnchorMin: {x: 0.39934376, y: 0}
+  m_AnchorMax: {x: 0.39934376, y: 0}
+  m_AnchoredPosition: {x: -6.852844, y: 113.25528}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1030530947
@@ -4533,6 +4533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26f83ecc019e144428b7ad4cc3671195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bluffingNumb: 0
+  bluffingNumb2: 0
   myDice:
   - {fileID: 1460250410045928, guid: 80500886d2b674af09a07dcf7b19e462, type: 2}
   - {fileID: 1159167363647806, guid: fb1c16bdd7c504f2eb257cca1c0d2cfe, type: 2}
@@ -4542,6 +4544,7 @@ MonoBehaviour:
   - {fileID: 1322773164128334, guid: 5b929cc78f8e24803af816b7db323946, type: 2}
   boxPos: {fileID: 0}
   enemyNumber: 0
+  MayaBids: 
 --- !u!4 &1624052389
 Transform:
   m_ObjectHideFlags: 0
@@ -4590,9 +4593,9 @@ RectTransform:
   m_Father: {fileID: 302921661}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 472.90002, y: 335.00003}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -166.67776, y: -25.6427}
   m_SizeDelta: {x: 539.6, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1658331546
@@ -4700,12 +4703,22 @@ MonoBehaviour:
   counter: 0
   enemyToCall: 0
   turnCount: 0
+  happyDialogue:
+    speakerSprite: {fileID: 0}
+    sentences: []
+  sadDialogue:
+    speakerSprite: {fileID: 0}
+    sentences: []
   battleDice: []
   enemyBattleDice: []
   currentBidDice: []
+  spinnyNewDice: {fileID: 0}
   happyMaya: {fileID: 0}
   sadMaya: {fileID: 0}
   normalMaya: {fileID: 0}
+  happyEnemy: {fileID: 0}
+  sadEnemy: {fileID: 0}
+  normalEnemy: {fileID: 0}
   boxPos: {fileID: 0}
 --- !u!4 &1749002752
 Transform:

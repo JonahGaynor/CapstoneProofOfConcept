@@ -7677,7 +7677,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 753362562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 21.5, z: 0}
+  m_LocalPosition: {x: 0, y: -3.5, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 1726252769}
@@ -7920,7 +7920,7 @@ MonoBehaviour:
   dialogue:
     speakerSprite: {fileID: 21300000, guid: 960bba01b353849ab9140320e442cb33, type: 3}
     sentences:
-    - 07/26/2491
+    - 07/26/2085
     - Today was our third meeting in the last week.
     - I was followed home today by a man in a suit and dark sunglasses. I walked in
       circles to prove it to myself.
@@ -8106,7 +8106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  myEnemy: 0
+  myEnemy: 1
 --- !u!4 &783040353 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4262312306183834, guid: 4728552f6b28048a6b4fd6fe8eb5a65c,
@@ -16754,7 +16754,10 @@ MonoBehaviour:
   dice5: {fileID: 1460250410045928, guid: 376f581d514bd43aa9b8c01705d0306a, type: 2}
   dice6: {fileID: 1460250410045928, guid: 4aa66722f5b1449abb68633876e1ed70, type: 2}
   screenBorders: {fileID: 1877792333}
+  transitionDice: []
+  carryOverDice: 0
   testBG: {fileID: 21300000, guid: a89f6ec3920544840a6f02c8908fb94d, type: 3}
+  sceneChangeNumb: 0
   sceneNames:
   - BattleSceneNew
 --- !u!4 &1754569147
@@ -17813,7 +17816,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -2.076461}
+  m_Offset: {x: 0.051471233, y: -10.559435}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -17824,7 +17827,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.4648104, y: 0.09817934}
+  m_Size: {x: 23.093906, y: 0.14606094}
   m_EdgeRadius: 0
 --- !u!61 &1877792335
 BoxCollider2D:
@@ -17937,7 +17940,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 780
   m_Sprite: {fileID: 21300000, guid: f462d262344324bf2ac7695ff587940b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -17954,7 +17957,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1877792333}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.5, y: -3.5, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children: []
   m_Father: {fileID: 0}
@@ -17971,6 +17974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffddb0b4582dc42c5aaa187cb8b5581c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!4 &1878686036 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4262312306183834, guid: 4728552f6b28048a6b4fd6fe8eb5a65c,

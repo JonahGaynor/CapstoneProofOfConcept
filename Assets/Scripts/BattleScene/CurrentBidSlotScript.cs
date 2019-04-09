@@ -18,7 +18,7 @@ public class CurrentBidSlotScript : MonoBehaviour {
         myDice = GameObject.FindGameObjectsWithTag("DestroyMe");
         if (shouldDestroy && !haveStartedCoroutine){
             foreach (GameObject m in myDice){
-                if (m.transform.position.y > 2.5){
+                if (m.transform.position.y > 2.3){
                     Destroy(m);
                 }
             }
@@ -44,7 +44,7 @@ public class CurrentBidSlotScript : MonoBehaviour {
     }
 
     IEnumerator StopDestroy(){
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         shouldDestroy = false;
         haveStartedCoroutine = false;
     }

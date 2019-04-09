@@ -7,6 +7,7 @@ public class Scene5Manager : MonoBehaviour {
 
     int enterCount = 0;
     public Sprite secondSprite;
+    bool off = true;
 
 	// Use this for initialization
 	void Start () {
@@ -20,9 +21,11 @@ public class Scene5Manager : MonoBehaviour {
 
             enterCount++;
         }
-        if (enterCount >= 5)
+        if (enterCount >= 5 && off)
         {
-            SceneManager.LoadScene("ProofofConcept_Scene6");
+            off = false;
+            StartCoroutine(GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().FadeToBlack());
+            //SceneManager.LoadScene("ProofofConcept_Scene6");
         } else if (enterCount == 3)
         {
             GameObject.Find("AgentSprite").GetComponent<SpriteRenderer>().sprite = secondSprite;

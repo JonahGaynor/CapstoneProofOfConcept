@@ -7,6 +7,9 @@ public class BidButtonScript : MonoBehaviour {
 
     GameObject eventSystem;
 
+    GameObject[] biddingDice;
+    int tempNumb;
+
 	// Use this for initialization
 	void Start () {
         eventSystem = GameObject.Find("EventSystem");
@@ -20,6 +23,41 @@ public class BidButtonScript : MonoBehaviour {
     public void OnClick () {
         if (GameObject.Find("BattleManager").GetComponent<BattleManager>().myTurn)
         {
+            if (GameObject.Find("teacup").GetComponent<TeaCupScript>().myNumber == 0)
+            {
+                biddingDice = GameObject.FindGameObjectsWithTag("BiddingDice");
+                foreach (GameObject d in biddingDice)
+                {
+                    if (d.name == "1Dice 1(Clone)")
+                    {
+                        GameObject.Find("teacup").GetComponent<TeaCupScript>().myNumber = 1;
+                    }
+                    else if (d.name == "2Dice 1(Clone)")
+                    {
+                        GameObject.Find("teacup").GetComponent<TeaCupScript>().myNumber = 2;
+                    }
+                    else if (d.name == "3Dice 1(Clone)")
+                    {
+                        GameObject.Find("teacup").GetComponent<TeaCupScript>().myNumber = 3;
+                    }
+                    else if (d.name == "4Dice 1(Clone)")
+                    {
+                        GameObject.Find("teacup").GetComponent<TeaCupScript>().myNumber = 4;
+                    }
+                    else if (d.name == "5Dice 1(Clone)")
+                    {
+                        GameObject.Find("teacup").GetComponent<TeaCupScript>().myNumber = 5;
+                    }
+                    else if (d.name == "6Dice 1(Clone)")
+                    {
+                        GameObject.Find("teacup").GetComponent<TeaCupScript>().myNumber = 6;
+                    }
+                    else
+                    {
+                        GameObject.Find("teacup").GetComponent<TeaCupScript>().myNumber = 8;
+                    }
+                }
+            }
             if (GameObject.Find("BattleManager").GetComponent<BattleManager>().currentBidAmount < GameObject.Find("DiceGens").GetComponent<DiceGensScript>().amountBid)
             {
                 GameObject.Find("BattleManager").GetComponent<BattleManager>().currentBidAmount = GameObject.Find("DiceGens").GetComponent<DiceGensScript>().amountBid;
@@ -28,6 +66,7 @@ public class BidButtonScript : MonoBehaviour {
                 GameObject.Find("DiceGens").GetComponent<DiceGensScript>().amountBid = 0;
                 GameObject.Find("teacup").GetComponent<TeaCupScript>().destroyOthers = true;
                 GameObject.Find("teacup").GetComponent<TeaCupScript>().haveHit = false;
+                GameObject.Find("CurrentBidSlot").GetComponent<CurrentBidSlotScript>().shouldDestroy = true;
                 StartCoroutine(Pause());
             }
             else if (GameObject.Find("BattleManager").GetComponent<BattleManager>().currentBidAmount == GameObject.Find("DiceGens").GetComponent<DiceGensScript>().amountBid)
@@ -40,6 +79,7 @@ public class BidButtonScript : MonoBehaviour {
                     GameObject.Find("DiceGens").GetComponent<DiceGensScript>().amountBid = 0;
                     GameObject.Find("teacup").GetComponent<TeaCupScript>().destroyOthers = true;
                     GameObject.Find("teacup").GetComponent<TeaCupScript>().haveHit = false;
+                    GameObject.Find("CurrentBidSlot").GetComponent<CurrentBidSlotScript>().shouldDestroy = true;
                     StartCoroutine(Pause());
                 }
             }

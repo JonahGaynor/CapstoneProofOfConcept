@@ -9,17 +9,12 @@ public class TeaCupScript : MonoBehaviour {
 	public bool destroyOthers = false;
 	bool startCoroutine = false;
     GameObject[] myDice;
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
+    	
 	// Update is called once per frame
 	void Update () {
 		if (destroyOthers && !startCoroutine) {
 			startCoroutine = true;
-			StartCoroutine (destroy ());
+			StartCoroutine (Destroy ());
 		}
         if (destroyOthers)
         {
@@ -38,10 +33,10 @@ public class TeaCupScript : MonoBehaviour {
     }
 
 	void OnCollisionEnter2D (Collision2D col){
-        GameObject.Find ("CurrentBidSlot").GetComponent<CurrentBidSlotScript>().shouldDestroy = true;
+        //GameObject.Find ("CurrentBidSlot").GetComponent<CurrentBidSlotScript>().shouldDestroy = true;
         //Debug.Log(destroyOthers + "we should destroy");
         if (!destroyOthers) {
-            GameObject.Find ("CurrentBidSlot").GetComponent<CurrentBidSlotScript>().shouldDestroy = true;
+        //GameObject.Find ("CurrentBidSlot").GetComponent<CurrentBidSlotScript>().shouldDestroy = true;
 			if (col.gameObject.name == "1Dice 1(Clone)" && !haveHit) {
 				myNumber = 1;
 				haveHit = true;
@@ -77,8 +72,8 @@ public class TeaCupScript : MonoBehaviour {
 		}
 	}
 
-	IEnumerator destroy(){
-		yield return new WaitForSeconds (2f);
+	IEnumerator Destroy(){
+		yield return new WaitForSeconds (.5f);
 		destroyOthers = false;
 		startCoroutine = false;
 		haveHit = false;

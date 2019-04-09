@@ -17,13 +17,15 @@ public class TransitionDiceScript : MonoBehaviour {
     public void CheckBG()
     {
         borders = GameObject.Find("ScreenBorders").transform.position;
+        Check();
     }
 
     public void Check()
     {
         //checks versus the black background's y
         player = GameObject.Find("Player");
+        borders = GameObject.Find("ScreenBorders").transform.position;
         transform.position = new Vector3(transform.position.x - borders.x, transform.position.y - borders.y, 0);
-
+        
     }
 }

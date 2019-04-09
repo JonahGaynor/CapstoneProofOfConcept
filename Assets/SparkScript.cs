@@ -20,16 +20,19 @@ public class SparkScript : MonoBehaviour {
     float timer = 0;
     float maxTime = 0.2f;
 
+    public bool finishedSparking = false;
+
     public static int enemiesDefeated = 0;
    // bool haveMovedDown = false;
 
 	// Use this for initialization
 	void Start () {
-       // StartCoroutine (SparkMe());
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        // StartCoroutine (SparkMe());
+
+    }
+
+    // Update is called once per frame
+    void Update () {
         this.GetComponent<SpriteRenderer>().sprite = mySprites[mySpriteNumber];
         if (diceToSpark == 5)
         {
@@ -102,6 +105,7 @@ public class SparkScript : MonoBehaviour {
 
     public IEnumerator SparkMe() {
         //Debug.Log("Sparking now");
+
         this.GetComponent<SpriteRenderer>().enabled = true;
         moveDown = true;
         yield return new WaitUntil(haveMovedDown);
@@ -116,18 +120,21 @@ public class SparkScript : MonoBehaviour {
         {
             enemiesDefeated++;
             yield return new WaitForSeconds(1f);
-            if (enemiesDefeated == 1)
-            {
-                SceneManager.LoadScene("Production_Scene7");
-            }
-            else if (enemiesDefeated == 2)
-            {
-                SceneManager.LoadScene("Production_Scene8");
-            }
-            else if (enemiesDefeated == 3)
-            {
-                SceneManager.LoadScene("Production_Scene10");
-            }
+            //GameObject borders = GameObject.FindGameObjectWithTag("ScreenBorders");
+            //StartCoroutine(borders.GetComponent<SceneTransitionScript>().FadeToBlack());
+            finishedSparking = true;
+            //if (enemiesDefeated == 1)
+            //{
+            //    SceneManager.LoadScene("Production_Scene7");
+            //}
+            //else if (enemiesDefeated == 2)
+            //{
+            //    SceneManager.LoadScene("Production_Scene8");
+            //}
+            //else if (enemiesDefeated == 3)
+            //{
+            //    SceneManager.LoadScene("Production_Scene10");
+            //}
         }
         else
         {

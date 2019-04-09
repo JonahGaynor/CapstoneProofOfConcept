@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GrabNPlaceScript : MonoBehaviour {
 
@@ -95,29 +96,54 @@ public class GrabNPlaceScript : MonoBehaviour {
 	}
 
 	void OnMouseDown () {
-		clicked = true;
-		Debug.Log ("click");
-//		if (currentBidNumber > GameObject.Find ("BattleManager").GetComponent<BattleManagerScript> ().currentBidNumber) {
-//			for (int i = 0; i < currentBidAmount + 1; i++) {
-		Debug.Log ("instantiate please");
-				//Instantiate (myDice, boxPos);
-        float randX = Random.Range(-.8f, .8f);
-        float randY = Random.Range(-.8f, .8f);
-        Vector3 instantiatePos = new Vector3 (boxPos.position.x + randX, boxPos.position.y + randY, 0);
-        Instantiate (myDice, instantiatePos, Quaternion.identity);
-        float temp = Random.Range(-1f, 1f);
-      //AAAAARGH wtf
-//        myDice.GetComponent<RigidBody2D>().velocity = new Vector3(0, temp, 0);
-		GameObject.Find ("DiceGens").GetComponent<DiceGensScript> ().amountBid++;
-//			}
-//		} else {
-//			for (int i = 0; i < currentBidAmount + 1; i++) {
-//				Debug.Log ("instantiate please");
-//				//Instantiate (myDice, boxPos);
-//				Instantiate (myDice, boxPos.position, Quaternion.identity);
-//				GameObject.Find ("DiceGens").GetComponent<DiceGensScript> ().amountBid++;
-//			}
-//		}
-//		currentBidAmount++;
-	}
+        if (SceneManager.GetActiveScene().name == "ProofofConcept_Scene4")
+        {
+            clicked = true;
+            Debug.Log("click");
+            //      if (currentBidNumber > GameObject.Find ("BattleManager").GetComponent<BattleManagerScript> ().currentBidNumber) {
+            //          for (int i = 0; i < currentBidAmount + 1; i++) {
+            Debug.Log("instantiate please");
+            //Instantiate (myDice, boxPos);
+            float randX = Random.Range(-.8f, .8f);
+            float randY = Random.Range(-.8f, .8f);
+            Vector3 instantiatePos = new Vector3(boxPos.position.x + randX, boxPos.position.y + randY, 0);
+            Instantiate(myDice, instantiatePos, Quaternion.identity);
+            float temp = Random.Range(-1f, 1f);
+            //AAAAARGH wtf
+            //        myDice.GetComponent<RigidBody2D>().velocity = new Vector3(0, temp, 0);
+            GameObject.Find("DiceGens").GetComponent<DiceGensScript>().amountBid++;
+        }
+        else if (GameObject.Find("BattleManager").GetComponent<BattleManager>().myTurn)
+        {
+            clicked = true;
+            Debug.Log("click");
+            //      if (currentBidNumber > GameObject.Find ("BattleManager").GetComponent<BattleManagerScript> ().currentBidNumber) {
+            //          for (int i = 0; i < currentBidAmount + 1; i++) {
+            Debug.Log("instantiate please");
+            //Instantiate (myDice, boxPos);
+            float randX = Random.Range(-.8f, .8f);
+            float randY = Random.Range(-.8f, .8f);
+            Vector3 instantiatePos = new Vector3(boxPos.position.x + randX, boxPos.position.y + randY, 0);
+            Instantiate(myDice, instantiatePos, Quaternion.identity);
+            float temp = Random.Range(-1f, 1f);
+            //AAAAARGH wtf
+            //        myDice.GetComponent<RigidBody2D>().velocity = new Vector3(0, temp, 0);
+            GameObject.Find("DiceGens").GetComponent<DiceGensScript>().amountBid++;
+            if (GameObject.Find("teacup").GetComponent<TeaCupScript>().myNumber == 0)
+            {
+                GameObject.Find("teacup").GetComponent<TeaCupScript>().myNumber = myNumber;
+            }
+        }
+            
+        //			}
+        //		} else {
+        //			for (int i = 0; i < currentBidAmount + 1; i++) {
+        //				Debug.Log ("instantiate please");
+        //				//Instantiate (myDice, boxPos);
+        //				Instantiate (myDice, boxPos.position, Quaternion.identity);
+        //				GameObject.Find ("DiceGens").GetComponent<DiceGensScript> ().amountBid++;
+        //			}
+        //		}
+        //		currentBidAmount++;
+    }
 }

@@ -23,13 +23,14 @@ public class EndTileScript : MonoBehaviour {
         if (player.position.y >= this.transform.position.y + 0.4f && !used)
         {
             used = true;
-            GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().enemyHit = myEnemy;
-            GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().myPos = player.position;
+            //GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().enemyHit = myEnemy;
+            //GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().myPos = player.position;
             StartCoroutine(PauseToChangeLevel());
         }
     }
 
     IEnumerator PauseToChangeLevel() {
+        GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().enemyHit = myEnemy;
         GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().EnterBattle();
         yield return new WaitForSeconds(1f);
         StartCoroutine(GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().FadeToBlack());

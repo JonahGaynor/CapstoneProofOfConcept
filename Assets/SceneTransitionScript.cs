@@ -14,23 +14,32 @@ public class SceneTransitionScript : MonoBehaviour {
     public GameObject screenBorders;
     public GameObject[] transitionDice;
     float a = 0;
+    public int carryOverDice;
     float color = 255;
     public Sprite testBG;
     Vector2 spawnPos;
     float changeVar;
     float changeVarY;
-    int sceneChangeNumb = 0;
+    public int sceneChangeNumb = 0;
     public string[] sceneNames;
 
     // Use this for initialization
-    void Start () {
-        DontDestroyOnLoad(this.gameObject);
-        DontDestroyOnLoad(GameObject.Find("ScreenBorders"));
+    void Start() {
+        //DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(GameObject.Find("ScreenBorders"));
+
+
         //if (FindObjectOfType<SceneTransitionScript>() != null)
         //{
         //    FindObjectOfType<SceneTransitionScript>().Clear();
         //}
         screenBorders = GameObject.Find("ScreenBorders");
+        //if (SceneManager.GetActiveScene().name == sceneNames[0])
+        //{
+            StartCoroutine(FadeIn());
+            //Clear();
+            StartCoroutine(BeginScene());
+        //}
         //StartCoroutine(FadeToBlack());
     }
     
@@ -81,65 +90,99 @@ public class SceneTransitionScript : MonoBehaviour {
         screenBorders.GetComponent<BoxCollider2D>().enabled = false;
     }
 
+    public IEnumerator BeginScene()
+    {
+        Debug.Log("begin scene");
+        screenBorders.GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(4f);
+        Debug.Log("collider on");
+        Time.timeScale = 1;
+        screenBorders.GetComponent<BoxCollider2D>().enabled = true;
+    }
+
     public IEnumerator FadeToBlack()
     {
         //screenBorders.GetComponent<ScreenBorders>().player = GameObject.Find("Player");
         //screenBorders.GetComponent<ScreenBorders>().Check();
-        GameObject.Find("ScreenBorders").GetComponent<ScreenBorders>().CheckBeforeChange();
+        a = 0;
+        screenBorders.GetComponent<ScreenBorders>().CheckBeforeChange();
         GameObject player = GameObject.Find("Player");
         transform.position = new Vector2(0, player.transform.position.y + 10);
+        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false;
         SpawnDice();
         yield return new WaitForSeconds(0.4f);
+        Debug.Log("my screen borders is " + screenBorders);
         //a += 10;
         screenBorders.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, a);
+        Debug.Log("my a value is: " + a);
         yield return new WaitForSeconds(0.2f);
         a += 0.2f;
         color -= 25;
         screenBorders.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, a);
+        Debug.Log("my a value is: " + a);
         yield return new WaitForSeconds(0.2f);
         a += 0.2f;
         color -= 25;
         screenBorders.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, a);
+        Debug.Log("my a value is: " + a);
         yield return new WaitForSeconds(0.2f);
         a += 0.2f;
         color -= 25;
         screenBorders.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, a);
+        Debug.Log("my a value is: " + a);
         yield return new WaitForSeconds(0.2f);
         a += 0.2f;
         color -= 25;
         screenBorders.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, a);
+        Debug.Log("my a value is: " + a);
+
         yield return new WaitForSeconds(0.2f);
         a += 0.2f;
         color -= 25;
         screenBorders.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, a);
+        Debug.Log("my a value is: " + a);
         yield return new WaitForSeconds(0.2f);
-        transitionDice = GameObject.FindGameObjectsWithTag("TransitionDice");
         //Time.timeScale = 2;
         yield return new WaitForSeconds(2f);
+        Camera.main.enabled = false;
+        //GL.Clear(true, true, Color.black);
         //start another coroutine
-        SceneManager.LoadScene(sceneNames[sceneChangeNumb]);
         Debug.Log("go");
+        transitionDice = GameObject.FindGameObjectsWithTag("TransitionDice");
+
         foreach (GameObject dice in transitionDice)
         {
             dice.GetComponent<TransitionDiceScript>().CheckBG();
         }
-        Clear();
-        foreach (GameObject dice in transitionDice)
-        {
-            dice.GetComponent<TransitionDiceScript>().Check();
-        }
+        //Clear();
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(sceneNames[sceneChangeNumb]);
+        //foreach (GameObject dice in transitionDice)
+        //{
+        //    dice.GetComponent<TransitionDiceScript>().Check();
+        //}
         screenBorders = GameObject.Find("ScreenBorders");
         screenBorders.GetComponent<ScreenBorders>().Check();
         Debug.Log("fade in");
         //yield return new WaitForSeconds(0.5f);
 
-        StartCoroutine(FadeIn());
+        //StartCoroutine(FadeIn());
+
         //screenBorders.GetComponent<SpriteRenderer>().sprite = testBG;
         //screenBorders.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
     }
 
+
     IEnumerator FadeIn()
     {
+        a = 1;
+        Debug.Log("in");
+        screenBorders = GameObject.Find("ScreenBorders");
+        transitionDice = GameObject.FindGameObjectsWithTag("TransitionDice");
+        foreach (GameObject d in transitionDice)
+        {
+            d.transform.position = new Vector3(d.transform.position.x + screenBorders.transform.position.x, d.transform.position.y + screenBorders.transform.position.y, 0);
+        }
         a -= 0.2f;
         screenBorders.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, a);
         yield return new WaitForSeconds(0.15f);
@@ -154,8 +197,21 @@ public class SceneTransitionScript : MonoBehaviour {
         yield return new WaitForSeconds(0.15f);
         a -= 0.2f;
         screenBorders.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, a);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
-        GameObject.Find("BattleManager").GetComponent<BattleManager>().BeginBattlePlz();
+        if (SceneManager.GetActiveScene().name == "BattleSceneNew")
+        {
+            GameObject.Find("BattleManager").GetComponent<BattleManager>().BeginBattlePlz();
+        }
+        //yield return new WaitForSeconds(4f);
+        //Destroy(screenBorders);
+        //Destroy(this.gameObject);
+        yield return new WaitForSeconds(5f);
+        transitionDice = GameObject.FindGameObjectsWithTag("TransitionDice");
+        foreach (GameObject d in transitionDice)
+        {
+            Destroy(d);
+        }
+        screenBorders.GetComponent<ScreenBorders>().Check();
     }
 }

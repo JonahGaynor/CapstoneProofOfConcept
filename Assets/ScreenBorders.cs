@@ -8,8 +8,9 @@ public class ScreenBorders : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
         player = GameObject.Find("Player");
+        transform.position = new Vector3(0.5f, player.transform.position.y, 0);
 	}
 
     public void CheckBeforeChange()

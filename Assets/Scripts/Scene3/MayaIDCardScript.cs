@@ -11,11 +11,7 @@ public class MayaIDCardScript : MonoBehaviour {
     public bool active = false;
     bool startCoroutine = false;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
+
 	// Update is called once per frame
 	void Update () {
         //if (FindObjectOfType<DialogueManager>().done && GameObject.Find("TextStarter_Petty").GetComponent<Scene3Petty>().storageCounter == 7)

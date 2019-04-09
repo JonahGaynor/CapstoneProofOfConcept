@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ProofofConcept_Scene4.unity
     guid: 9b600be895b9f43ed82c962dd0363a05
   - enabled: 1
+    path: Assets/Scenes/Production_Scene4New.unity
+    guid: dd7772e6a8aa84ab4ad3282e661ab1eb
+  - enabled: 1
     path: Assets/Scenes/ProofofConcept_Scene5.unity
     guid: 33e573ab836da462dbf2e575cdf6b32b
   - enabled: 1
@@ -35,7 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Production_Scene8.unity
     guid: 6a583acc03a7f46e4921ab5c86360bdc
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Production_Scene9_Julia.unity
     guid: 9ff3810a5c7e4483aa71e24417ad895c
   - enabled: 0

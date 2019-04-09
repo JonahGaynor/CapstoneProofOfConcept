@@ -38,12 +38,7 @@ public class BattleManager : MonoBehaviour {
 
     public Transform boxPos;
 
-	// Use this for initialization
-	void Start () {
-       //StartCoroutine(BeginBattle());
 
-
-	}
     public void BeginBattlePlz()
     {
         StartCoroutine(BeginBattle());
@@ -61,20 +56,37 @@ public class BattleManager : MonoBehaviour {
         //TODO: This naming sucks
         boxPos = GameObject.Find("teacup").GetComponent<Transform>();
 
+        Debug.Log(GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().enemyHit);
         GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().enemyNumber = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().enemyHit;
+        Debug.Log(GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().enemyNumber);
 
         enemyType = GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().enemyNumber;
+        if (enemyType == 1)
+        {
+            GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 0;
+        }
+        else if (enemyType == 2)
+        {
+            GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 1;
+        }
+        else if (enemyType == 3)
+        {
+            GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 2;
+        }
 
         yield return new WaitForSeconds(0.2f);
         GameObject.Find("RollArrow").GetComponent<RollForPlay>().Spin();
         yield return new WaitForSeconds(5f);
         Roll();
+        //yield return new WaitForSeconds(10f);
+        //Debug.Log("setactive");
+        //GameObject.Find("ScreenBorders").SetActive(true);
     }
-	
-	// Update is called once per frame
-	//void Update () {
-		
-	//}
+
+    // Update is called once per frame
+    //void Update () {
+
+    //}
 
     public void EnemyTurn (){
         GameObject.Find("teacup").GetComponent<TeaCupScript>().destroyOthers = true;
@@ -89,16 +101,24 @@ public class BattleManager : MonoBehaviour {
         {
             EnemyCall();
         }
-        else if (enemyType == 0)
+        else if (enemyType == 1)
         {
             GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().Turn();
         }
-        else if (enemyType == 1)
+        else if (enemyType == 2)
         {
             GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().TurnAi2();
         }
-        myTurn = true;
-        StartCoroutine(DestroyOpponentFirstBid());
+        else if (enemyType == 3)
+        {
+            GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().TurnAi3();
+        }
+        else if (enemyType == 4)
+        {
+            GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().TurnJulia();
+        }
+        //myTurn = true;
+        //StartCoroutine(DestroyOpponentFirstBid());
     }
 
     void Roll () {
@@ -140,6 +160,10 @@ public class BattleManager : MonoBehaviour {
         GameObject.Find("playerPortrait").GetComponent<SpriteRenderer>().sprite = normalMaya;
         GameObject.Find("enemyPortrait").GetComponent<SpriteRenderer>().sprite = normalEnemy;
         GameObject.Find("teacup").GetComponent<TeaCupScript>().destroyOthers = true;
+        GameObject.Find("CurrentBidSlot").GetComponent<CurrentBidSlotScript>().shouldDestroy = true;
+        GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().bluffingNumb = 0;
+        GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().bluffingNumb2 = 0;
+        GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().MayaBids.Clear();
     }
 
     //This seems perfect
@@ -201,6 +225,7 @@ public class BattleManager : MonoBehaviour {
 
         currentBidAmount = amount;
         currentBidNumber = number;
+        myTurn = true;
       //  myTurn = true;
     }
 
@@ -263,25 +288,7 @@ public class BattleManager : MonoBehaviour {
             e.GetComponent<EnemyDiceScript>().shouldShow = false;
         }
 
-
         yield return new WaitForSeconds (0.5f);
-
-        //if (enemyDice < 1){
-        //    GameObject.Find("EnemyDice0").SetActive(false);
-        //    GameObject.Find ("enemyGreenWire1").GetComponent<SpriteRenderer>().sortingOrder = 0;
-        //} else if (enemyDice < 2){
-        //    GameObject.Find("EnemyDice1").SetActive(false);
-        //    GameObject.Find("enemyGreenWire2").GetComponent<SpriteRenderer>().sortingOrder = 0;
-        //} else if (enemyDice < 3){
-        //    GameObject.Find("EnemyDice2").SetActive(false);
-        //    GameObject.Find("enemyGreenWire3").GetComponent<SpriteRenderer>().sortingOrder = 0;
-        //} else if (enemyDice < 4){
-        //    GameObject.Find("EnemyDice3").SetActive(false);
-        //    GameObject.Find("enemyGreenWire4").GetComponent<SpriteRenderer>().sortingOrder = 0;
-        //} else if (enemyDice < 5){
-        //    GameObject.Find("EnemyDice4").SetActive(false);
-        //    GameObject.Find("enemyGreenWire5").GetComponent<SpriteRenderer>().sortingOrder = 0;
-        //}
 
         //TODO: gotta be a better way to do this. Might be messed up when entering battle with fewer dice?
         if (playerLose)
@@ -323,7 +330,7 @@ public class BattleManager : MonoBehaviour {
     }
 
     void EnemyGameOver () {
-        GameObject.Find("StatTracker").GetComponent<PlayerStatsTracker>().myDice = myDice;
+        //GameObject.Find("StatTracker").GetComponent<PlayerStatsTracker>().myDice = myDice;
         //GameObject.Find("EnemyDice0").GetComponent<SpriteRenderer>().enabled = false;
         //GameObject.Find("EnemyGreenWire1").GetComponent<SpriteRenderer>().sortingOrder = 0;
     }

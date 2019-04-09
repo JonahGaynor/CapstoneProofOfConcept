@@ -10,7 +10,7 @@ public class PlayerStatsTracker : MonoBehaviour {
     public Vector2[] firstBids;
     public Vector2[] calledBids;
 
-    public int enemyHit = 1;
+    public int enemyHit;
 
     public GenDiceScript diceProfile1;
     public GenDiceScript diceProfile2;
@@ -29,18 +29,28 @@ public class PlayerStatsTracker : MonoBehaviour {
 	}
 
     public void EnterBattle() {
+        Debug.Log("enemy hit number is " + enemyHit);
         lastScene = SceneManager.GetActiveScene();
-
+        GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().carryOverDice = myDice;
     }
 
     public void ExitBattle(int dice) {
         if (dice > 0) {
-            SceneManager.LoadScene(lastScene.name);
-            GameObject.Find("Player").transform.position = myPos;
+            //SceneManager.LoadScene(lastScene.name);
+            //GameObject.Find("Player").transform.position = myPos;
         }
         else {
-            SceneManager.LoadScene(lastScene.name);
-            myDice = 5;
+            StartCoroutine(GiveDice());
+            //myDice = 5;
         }
+    }
+
+    IEnumerator GiveDice()
+    {
+        myDice = GameObject.Find("BattleManager").GetComponent<BattleManager>().myDice;
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(lastScene.name);
+        yield return new WaitForSeconds(0.5f);
+        GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().carryOverDice = myDice;
     }
 }

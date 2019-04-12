@@ -7,6 +7,9 @@ public class PlayerOutAnimation : MonoBehaviour {
     public Sprite[] outSprites;
     public Sprite normalForward;
 
+    public AudioClip inAudio;
+    AudioSource myAudio;
+
     GameObject[] tiles;
 
 	// Use this for initialization
@@ -16,9 +19,11 @@ public class PlayerOutAnimation : MonoBehaviour {
 	
     public IEnumerator GetIn()
     {
+        myAudio = GetComponentInParent<AudioSource>();
         this.GetComponentInParent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(0.3f);
         this.GetComponentInParent<SpriteRenderer>().enabled = true;
+        myAudio.PlayOneShot(inAudio);
         this.GetComponentInParent<SpriteRenderer>().sprite = outSprites[4];
         yield return new WaitForSeconds(0.1f);
         this.GetComponentInParent<SpriteRenderer>().sprite = outSprites[3];

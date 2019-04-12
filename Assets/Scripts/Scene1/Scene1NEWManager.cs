@@ -10,6 +10,7 @@ public class Scene1NEWManager : MonoBehaviour {
     AudioSource myAudio;
     public AudioClip gasp;
     public AudioClip titleBoom;
+    public AudioClip doorCreek;
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +29,7 @@ public class Scene1NEWManager : MonoBehaviour {
         this.GetComponent<SpriteRenderer>().sprite = mySprites[3];
         yield return new WaitForSeconds(1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[4];
+        myAudio.PlayOneShot(doorCreek);
         yield return new WaitForSeconds(.2f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[5];
         yield return new WaitForSeconds(.2f);
@@ -40,6 +42,7 @@ public class Scene1NEWManager : MonoBehaviour {
         this.GetComponent<SpriteRenderer>().sprite = mySprites[9];
         yield return new WaitForSeconds(.1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[10];
+        myAudio.Stop();
         yield return new WaitForSeconds(.1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[11];
         yield return new WaitForSeconds(.1f);

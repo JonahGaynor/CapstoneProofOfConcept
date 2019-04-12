@@ -21,6 +21,9 @@ public class PlayerMovementScript : MonoBehaviour {
 
     public bool stunned = false;
 
+    public AudioClip shootTileWhoosh;
+    AudioSource myAudio;
+
     public int myColor = 0;
 
     public Tilemap walls;
@@ -76,6 +79,7 @@ public class PlayerMovementScript : MonoBehaviour {
         redBoxes = GameObject.FindGameObjectsWithTag("RedBox");
         yellowBoxes = GameObject.FindGameObjectsWithTag("YellowBox");
         greenBoxes = GameObject.FindGameObjectsWithTag("GreenBox");
+        myAudio = GetComponent<AudioSource>();
      //   myAnimator = this.GetComponent<Animator>();
        // rb = this.GetComponent<Rigidbody2D>();
   //      xOffset = GameObject.Find ("Grid").GetComponent<Transform>().position.x;
@@ -343,6 +347,7 @@ public class PlayerMovementScript : MonoBehaviour {
                         float dist = Vector2.Distance((Vector2)u.transform.position, fixedTargetPos);
                         if (dist < 0.1f)
                         {
+                            //myAudio.PlayOneShot(shootTileWhoosh);
                             MoveUp();
                         }
                         //if ((Vector2)u.transform.position == fixedTargetPos)

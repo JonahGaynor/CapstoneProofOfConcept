@@ -3,7 +3,7 @@
     <Files>
       <File FileName="Assets/Scripts/BattleScene/TeaCupScript.cs" Line="78" Column="26" />
       <File FileName="Assets/Scripts/BattleScene/CurrentBidSlotScript.cs" Line="40" Column="22" />
-      <File FileName="Assets/Scripts/Scene1/Scene1NEWManager.cs" Line="74" Column="6" />
+      <File FileName="Assets/Scripts/Scene1/Scene1NEWManager.cs" Line="45" Column="24" />
       <File FileName="Assets/Scripts/BattleScene/GrabNPlaceScript.cs" Line="116" Column="1" />
       <File FileName="Assets/Scripts/BattleScene/BidButtonScript.cs" Line="57" Column="92" />
       <File FileName="Assets/Scripts/BattleScene/BaseAiEnemy.cs" Line="46" Column="1" />
@@ -27,7 +27,7 @@
       <File FileName="Assets/DialogueStart.cs" Line="16" Column="2" />
       <File FileName="Assets/Scene6DialogueTrigger.cs" Line="22" Column="1" />
       <File FileName="Assets/ImportantChoiceBattleButton.cs" Line="13" Column="9" />
-      <File FileName="Assets/Scripts/Scene6/PlayerMovementScript.cs" Line="207" Column="86" />
+      <File FileName="Assets/Scripts/Scene6/PlayerMovementScript.cs" Line="350" Column="31" />
       <File FileName="Assets/ImportantChoicePlayer.cs" Line="41" Column="87" />
       <File FileName="Assets/ImportantChoiceJoinButton.cs" Line="24" Column="39" />
       <File FileName="Assets/BaseTileScript.cs" Line="46" Column="64" />
@@ -47,11 +47,13 @@
       <File FileName="Assets/TutorialManager.cs" Line="70" Column="40" />
       <File FileName="Assets/Scripts/Scene4/Scene4TextScript.cs" Line="1" Column="1" />
       <File FileName="Assets/DialogueManager.cs" Line="26" Column="1" />
-      <File FileName="Assets/Scripts/Scene4/Scene4BidButtonScript.cs" Line="44" Column="9" />
+      <File FileName="Assets/Scripts/Scene4/Scene4BidButtonScript.cs" Line="44" Column="1" />
       <File FileName="Assets/TutorialBidButton.cs" Line="37" Column="42" />
       <File FileName="Assets/Scripts/BattleScene/DiceGensScript.cs" Line="15" Column="20" />
-      <File FileName="Assets/Scripts/Scene4/Scene4Pulse.cs" Line="40" Column="9" />
+      <File FileName="Assets/Scripts/Scene4/Scene4Pulse.cs" Line="40" Column="1" />
       <File FileName="Assets/Scene4SecondPulse.cs" Line="45" Column="73" />
+      <File FileName="Assets/PlayerOutAnimation.cs" Line="26" Column="38" />
+      <File FileName="Assets/HiddenRuleManager.cs" Line="78" Column="41" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

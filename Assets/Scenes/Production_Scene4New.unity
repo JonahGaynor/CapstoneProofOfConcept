@@ -1263,11 +1263,11 @@ MonoBehaviour:
   secondDialogue:
     speakerSprite: {fileID: 21300000, guid: 1d0addd444d0c4f7dadf9cbf5b07f655, type: 3}
     sentences:
-    - Perfect! You could have BID two 6s, or three or more of any dice face!
+    - Perfect! You could have BID ~ ~ , or three or more of any dice face!
     - You CALL when you believe that the total dice do not have at least the amount
       of the relevant dice face.
-    - If you CALL a bid of four 2s, you would be correct if there are three or fewer
-      2s. You would be incorrect if there are four or more 2s.
+    - If you CALL a bid of > > > > , you would be correct if there are three or fewer
+      > . You would be incorrect if there are four or more > .
     - If you correctly CALL, the opponent loses one of their dice. If you incorrectly
       CALL, you lose one of your dice.
     - We then roll our dice and go again until one of us loses all of our dice.
@@ -1352,7 +1352,7 @@ MonoBehaviour:
       of the BID or the dice face.
     - You may not decrease the amount of dice being BID, but you can decrease the
       dice face if you increase the amount.
-    - If I were to BID two 5s, what could you BID? Try bidding using the bidding area.
+    - If I were to BID ] ] , what could you BID? Try bidding using the bidding area.
 --- !u!4 &557261872
 Transform:
   m_ObjectHideFlags: 0
@@ -3317,12 +3317,12 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7d7380682e2e34efa97fa601582c7815, type: 3}
-    m_FontSize: 144
+    m_Font: {fileID: 12800000, guid: 120606eb016af45199ab7607bd991476, type: 3}
+    m_FontSize: 200
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 144
+    m_MaxSize: 288
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -4419,6 +4419,7 @@ GameObject:
   - component: {fileID: 1864520463}
   - component: {fileID: 1864520462}
   - component: {fileID: 1864520461}
+  - component: {fileID: 1864520464}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4486,6 +4487,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1864520464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1864520460}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 100
+  m_RefResolutionX: 1280
+  m_RefResolutionY: 720
+  m_UpscaleRT: 1
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &1865711780
 GameObject:
   m_ObjectHideFlags: 0

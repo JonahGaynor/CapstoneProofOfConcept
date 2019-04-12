@@ -13,6 +13,9 @@ public class HiddenRuleManager : MonoBehaviour {
 
     static int _playerDir;
 
+    public AudioClip resetAudio;
+    AudioSource myAudio;
+
     public Sprite[] teleportSprites;
 
     GameObject player;
@@ -21,6 +24,7 @@ public class HiddenRuleManager : MonoBehaviour {
     {
         _instance = this;
         player = GameObject.Find("Player");
+        myAudio = GetComponent<AudioSource>();
     }
 
     public static int playerDir
@@ -71,6 +75,7 @@ public class HiddenRuleManager : MonoBehaviour {
     void Reset()
     {
         //TODO: shoot player
+        myAudio.PlayOneShot(resetAudio);
         myNumb = 0;
         GameObject.Find("ScoreboardReset").GetComponent<Image>().enabled = true;
         ShootPlayer();

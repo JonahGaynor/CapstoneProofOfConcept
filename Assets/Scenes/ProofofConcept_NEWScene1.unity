@@ -289,8 +289,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7305a270544564b839e89f00a50c0ce5, type: 3}
   - {fileID: 21300000, guid: be3923537f56846f6ab215694c48e446, type: 3}
   - {fileID: 21300000, guid: f462d262344324bf2ac7695ff587940b, type: 3}
-  gasp: {fileID: 8300000, guid: 6bdbd9ef1e1c94f6cabe97c6da4fd118, type: 3}
+  gasp: {fileID: 8300000, guid: 7eb2598a923d24aeb8a893b3dc3cbfaf, type: 3}
   titleBoom: {fileID: 8300000, guid: b899765efd99a4e16adb2974c19180f3, type: 3}
+  doorCreek: {fileID: 8300000, guid: 494405d5ca088406494fad443a362492, type: 3}
 --- !u!4 &1137866880
 Transform:
   m_ObjectHideFlags: 0
@@ -424,9 +425,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2c7999e5736844894be8ca0f343f8982, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f102c8b16066d43618db917381817704, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -753,6 +754,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f462d262344324bf2ac7695ff587940b, type: 3}
   gasp: {fileID: 8300000, guid: 6bdbd9ef1e1c94f6cabe97c6da4fd118, type: 3}
   titleBoom: {fileID: 8300000, guid: b899765efd99a4e16adb2974c19180f3, type: 3}
+  doorCreek: {fileID: 0}
 --- !u!4 &2094381107
 Transform:
   m_ObjectHideFlags: 0

@@ -780,8 +780,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myDice: 5
   enemiesDefeated: 0
-  firstBids: []
-  calledBids: []
+  Ai1:
+    enemySprites:
+    - {fileID: 21300000, guid: cbf958bad06dc4b6a8f75199f1df817a, type: 3}
+    - {fileID: 21300000, guid: 3ff72359c3e0e40dd94e7a6dbe21bf4a, type: 3}
+    - {fileID: 21300000, guid: 73b6f43961aa04c7a9aea1b1a1071096, type: 3}
+    printerSprite: {fileID: 21300000, guid: 3f3bd2db49e9544d2a685bbfae21a140, type: 3}
+    printerOn: {fileID: 21300000, guid: 3f3bd2db49e9544d2a685bbfae21a140, type: 3}
+  Ai2:
+    enemySprites:
+    - {fileID: 21300000, guid: 13d9aafce322347878370f10f34bcdf1, type: 3}
+    - {fileID: 21300000, guid: 1edda6c42585848b1844513786bed43f, type: 3}
+    - {fileID: 21300000, guid: 5108f2a5c0bb8452c80d7529a4324851, type: 3}
+    printerSprite: {fileID: 21300000, guid: 3f3bd2db49e9544d2a685bbfae21a140, type: 3}
+    printerOn: {fileID: 21300000, guid: 3f3bd2db49e9544d2a685bbfae21a140, type: 3}
+  Ai3:
+    enemySprites:
+    - {fileID: 21300000, guid: 61c14f0e0c1d1457d95f0f666b3ae7e0, type: 3}
+    - {fileID: 21300000, guid: d62e0af4e268e4a74b72561c3fca0432, type: 3}
+    - {fileID: 21300000, guid: d4b813b8388e04efd9663ea2dbdb67e3, type: 3}
+    printerSprite: {fileID: 21300000, guid: 3f3bd2db49e9544d2a685bbfae21a140, type: 3}
+    printerOn: {fileID: 21300000, guid: 3f3bd2db49e9544d2a685bbfae21a140, type: 3}
+  Julia:
+    enemySprites:
+    - {fileID: 21300000, guid: 08106bf3a54fd42588a4b361d6ea2687, type: 3}
+    - {fileID: 21300000, guid: 5c82c040f7291454ba0f440ecc554aae, type: 3}
+    - {fileID: 21300000, guid: 630e2fa9b40594cb893c3ab74662992c, type: 3}
+    printerSprite: {fileID: 21300000, guid: 3da85779a83fe4dc5ae6bfa0fec3705c, type: 3}
+    printerOn: {fileID: 21300000, guid: 6f7b284a29fb5405c90388f7663ea90e, type: 3}
+  Jacob:
+    enemySprites:
+    - {fileID: 21300000, guid: f1f7b0e29b35d4b92a4aec982891983c, type: 3}
+    - {fileID: 21300000, guid: ebcef4e77b4494e77a0cf7e31a50226b, type: 3}
+    - {fileID: 21300000, guid: 1e50490662b1c4acbad16556fa5e4253, type: 3}
+    printerSprite: {fileID: 21300000, guid: 18eb71a8898c745d4a9e333037f88870, type: 3}
+    printerOn: {fileID: 21300000, guid: 2c19cbf557ca5413592b9034a4ed2283, type: 3}
+  Amelia:
+    enemySprites:
+    - {fileID: 21300000, guid: 960bba01b353849ab9140320e442cb33, type: 3}
+    - {fileID: 21300000, guid: 02ad330d6d5d94aee8228a54ca3af12d, type: 3}
+    - {fileID: 21300000, guid: 2ea049b6ecfc944d2ab47e6d674361f4, type: 3}
+    printerSprite: {fileID: 21300000, guid: 6dd21e5d5e95b4a85940b16ab44c2163, type: 3}
+    printerOn: {fileID: 21300000, guid: 9f3bc7fa43b2441f98e0467a68995d0c, type: 3}
+  Simon:
+    enemySprites:
+    - {fileID: 21300000, guid: da8aec319673448f1a6b8c0da1e0a8bb, type: 3}
+    - {fileID: 21300000, guid: 7c44ccc1d9ad544a2ba216769583ade6, type: 3}
+    - {fileID: 21300000, guid: f1fcf7ce93c144ccfb52da709a08a959, type: 3}
+    printerSprite: {fileID: 21300000, guid: a70eedd3ef85f43c5a7ef065f2795c19, type: 3}
+    printerOn: {fileID: 21300000, guid: 1730489b0d18c4f79ba1672de9e7393f, type: 3}
   enemyHit: 1
   diceProfile1: {fileID: 11400000, guid: 0486f4651bf5c40f6a00b34b7228c13a, type: 2}
   diceProfile2: {fileID: 11400000, guid: 0486f4651bf5c40f6a00b34b7228c13a, type: 2}
@@ -7721,7 +7768,13 @@ MonoBehaviour:
   moveDown: 0
   canMove: 1
   stunned: 0
-  shootTileWhoosh: {fileID: 8300000, guid: 9050ffa48c2fb48b58c4af123738b573, type: 3}
+  shootTileWhoosh: {fileID: 8300000, guid: 46d9a040034f44f4c9df934ddf013c6e, type: 3}
+  footsteps:
+  - {fileID: 8300000, guid: d1a76b93a354549b8a326f924cf9d4e7, type: 3}
+  - {fileID: 8300000, guid: 1e836442e32f14a26afcb4a72bf9ca36, type: 3}
+  - {fileID: 8300000, guid: 68624ea33092647c9a27e5742c96a9d5, type: 3}
+  - {fileID: 8300000, guid: 801d2defa0c9041aa97c4ee6a788182b, type: 3}
+  - {fileID: 8300000, guid: 7af760add643b4802a3432def291712a, type: 3}
   myColor: 0
   walls: {fileID: 0}
   upSprites:
@@ -8299,7 +8352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  myEnemy: 1
+  myEnemy: 2
 --- !u!4 &783040353 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4262312306183834, guid: 4728552f6b28048a6b4fd6fe8eb5a65c,

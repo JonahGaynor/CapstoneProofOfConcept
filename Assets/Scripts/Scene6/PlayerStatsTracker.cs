@@ -7,8 +7,18 @@ public class PlayerStatsTracker : MonoBehaviour {
 
     public int myDice;
     public int enemiesDefeated;
-    public Vector2[] firstBids;
-    public Vector2[] calledBids;
+    //public Vector2[] firstBids;
+    //public Vector2[] calledBids;
+
+    //public Sprite[] enemySprites;
+    //public Sprite[] enemyPrinters;
+    public BattleScenePackage Ai1;
+    public BattleScenePackage Ai2;
+    public BattleScenePackage Ai3;
+    public BattleScenePackage Julia;
+    public BattleScenePackage Jacob;
+    public BattleScenePackage Amelia;
+    public BattleScenePackage Simon;
 
     public int enemyHit;
 

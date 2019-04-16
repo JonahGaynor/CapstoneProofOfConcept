@@ -26,14 +26,15 @@ public class TutorialBidButton : MonoBehaviour {
         if (biddingCounter.GetComponent<DiceGensScript>().amountBid > 2)
         {
             tutorialManager.GetComponent<TutorialManager>().Clear();
+            this.gameObject.SetActive(false);
         }
         else if (biddingCounter.GetComponent<DiceGensScript>().amountBid == 2)
         {
             if (teacup.GetComponent<TeaCupScript>().myNumber > 5)
             {
                 tutorialManager.GetComponent<TutorialManager>().Clear();
+                this.gameObject.SetActive(false);
             }
         }
-        this.gameObject.SetActive(false);
     }
 }

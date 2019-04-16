@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ProofofConcept_Scene3.unity
     guid: a87679b86426f4399ad19e6d97bccd2c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ProofofConcept_Scene4.unity
     guid: 9b600be895b9f43ed82c962dd0363a05
   - enabled: 1

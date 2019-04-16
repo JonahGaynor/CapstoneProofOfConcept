@@ -29,7 +29,8 @@ public class BaseTileScript : MonoBehaviour {
         {
             transform.position = Vector2.Lerp(transform.position, myPos, 0.5f);
             isSteppedOn = false;
-        } if (lerp)
+        } 
+        if (lerp)
         {
             //Debug.Log(myPos);
             isSteppedOn = true;
@@ -51,7 +52,7 @@ public class BaseTileScript : MonoBehaviour {
 
         }
 
-        if (timer >= 20f)
+        if (timer >= 30f)
         {
             timer = -10f;
         }

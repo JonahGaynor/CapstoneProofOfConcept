@@ -38,12 +38,14 @@ public class BattleManager : MonoBehaviour {
 
     public Transform boxPos;
 
+    public AudioClip happyReaction;
+    public AudioClip sadReaction;
+    AudioSource myAudio;
 
     public void BeginBattlePlz()
     {
         StartCoroutine(BeginBattle());
     }
-
     IEnumerator BeginBattle() {
 
         //TODO: THESE ARE NOT NECESARILY TRUE // figure out how to get that info
@@ -52,6 +54,7 @@ public class BattleManager : MonoBehaviour {
 
         battleDice = GameObject.FindGameObjectsWithTag("Dice");
         enemyBattleDice = GameObject.FindGameObjectsWithTag("EnemyDice");
+
 
         //TODO: This naming sucks
         boxPos = GameObject.Find("teacup").GetComponent<Transform>();
@@ -64,16 +67,28 @@ public class BattleManager : MonoBehaviour {
         if (enemyType == 1)
         {
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 0;
+            normalEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai1.enemySprites[0];
+            happyEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai1.enemySprites[1];
+            sadEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai1.enemySprites[2];
+
         }
         else if (enemyType == 2)
         {
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 1;
+            normalEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai2.enemySprites[0];
+            happyEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai2.enemySprites[1];
+            sadEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai2.enemySprites[2];
         }
         else if (enemyType == 3)
         {
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 2;
         }
 
+        //GameObject.Find("enemyPortrait").GetComponent<SpriteRenderer>().sprite = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().enemySprites[enemyType];
+        GameObject.Find("enemyPortrait").GetComponent<SpriteRenderer>().sprite = normalEnemy;
+        happyDialogue.speakerSprite = happyEnemy;
+        sadDialogue.speakerSprite = sadEnemy;
+        myAudio = GetComponent<AudioSource>();
         yield return new WaitForSeconds(0.2f);
         GameObject.Find("RollArrow").GetComponent<RollForPlay>().Spin();
         yield return new WaitForSeconds(5f);
@@ -237,7 +252,7 @@ public class BattleManager : MonoBehaviour {
         if (myDice <= 0){
             GameOver();
         } else {
-
+            myAudio.PlayOneShot(happyReaction);
             StartCoroutine(PauseForRoll(false));
             FindObjectOfType<DialogueManager>().StartDialogue(happyDialogue);
             StartCoroutine(EndDialogue());
@@ -258,6 +273,7 @@ public class BattleManager : MonoBehaviour {
         } else {
 
             //TODO: same thing about not doing it with GameObject.Find every time
+            myAudio.PlayOneShot(sadReaction);
             StartCoroutine(GameObject.Find("Spark").GetComponent<SparkScript>().SparkMe());
             StartCoroutine(PauseForRoll(true));
             FindObjectOfType<DialogueManager>().StartDialogue(sadDialogue);

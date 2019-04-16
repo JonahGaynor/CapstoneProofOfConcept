@@ -197,12 +197,13 @@ public class SceneTransitionScript : MonoBehaviour {
         yield return new WaitForSeconds(0.15f);
         a -= 0.2f;
         screenBorders.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, a);
-        yield return new WaitForSeconds(2f);
-        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
         if (SceneManager.GetActiveScene().name == "BattleSceneNew")
         {
             GameObject.Find("BattleManager").GetComponent<BattleManager>().BeginBattlePlz();
         }
+        yield return new WaitForSeconds(2f);
+        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
+
         //yield return new WaitForSeconds(4f);
         //Destroy(screenBorders);
         //Destroy(this.gameObject);

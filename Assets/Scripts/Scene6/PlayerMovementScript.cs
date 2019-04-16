@@ -22,6 +22,7 @@ public class PlayerMovementScript : MonoBehaviour {
     public bool stunned = false;
 
     public AudioClip shootTileWhoosh;
+    public AudioClip[] footsteps;
     AudioSource myAudio;
 
     public int myColor = 0;
@@ -98,6 +99,11 @@ public class PlayerMovementScript : MonoBehaviour {
                 steppedOn.Add(new Vector2(targetPos.x, targetPos.y - 0.5f));
             }
         }
+        if (!myAudio.isPlaying)
+        {
+            int rand = Random.Range(0, 5);
+            myAudio.PlayOneShot(footsteps[rand], 0.3f);
+        }
         //   rb.MovePosition(upPos);
     }
     public void MoveLeft()
@@ -120,6 +126,11 @@ public class PlayerMovementScript : MonoBehaviour {
             {
                 steppedOn.Add(new Vector2(targetPos.x, targetPos.y - 0.5f));
             }
+        }
+        if (!myAudio.isPlaying)
+        {
+            int rand = Random.Range(0, 5);
+            myAudio.PlayOneShot(footsteps[rand], 0.3f);
         }
     }
     public void MoveRight()
@@ -144,6 +155,11 @@ public class PlayerMovementScript : MonoBehaviour {
                 steppedOn.Add(new Vector2(targetPos.x, targetPos.y - 0.5f));
             }
         }
+        if (!myAudio.isPlaying)
+        {
+            int rand = Random.Range(0, 5);
+            myAudio.PlayOneShot(footsteps[rand], 0.3f);
+        }
     }
     public void MoveDown()
     {
@@ -165,6 +181,11 @@ public class PlayerMovementScript : MonoBehaviour {
             {
                 steppedOn.Add(new Vector2(targetPos.x, targetPos.y - 0.5f));
             }
+        }
+        if (!myAudio.isPlaying)
+        {
+            int rand = Random.Range(0, 5);
+            myAudio.PlayOneShot(footsteps[rand], 0.3f);
         }
     }
 
@@ -203,12 +224,16 @@ public class PlayerMovementScript : MonoBehaviour {
 
         if (!moveUp && !moveLeft && !moveRight && !moveDown && canMove) {
             if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W)) {
+                myAudio.Stop();
                 MoveUp();
             } else if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.A)) {
+                myAudio.Stop();
                 MoveLeft();
             } else if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.D)) {
+                myAudio.Stop();
                 MoveRight();
             } else if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S)) {
+                myAudio.Stop();
                 MoveDown();
             }
         }
@@ -347,7 +372,7 @@ public class PlayerMovementScript : MonoBehaviour {
                         float dist = Vector2.Distance((Vector2)u.transform.position, fixedTargetPos);
                         if (dist < 0.1f)
                         {
-                            //myAudio.PlayOneShot(shootTileWhoosh);
+                            myAudio.PlayOneShot(shootTileWhoosh);
                             MoveUp();
                         }
                         //if ((Vector2)u.transform.position == fixedTargetPos)
@@ -362,6 +387,7 @@ public class PlayerMovementScript : MonoBehaviour {
                         float dist = Vector2.Distance((Vector2)l.transform.position, fixedTargetPos);
                         if (dist < 0.1f)
                         {
+                            myAudio.PlayOneShot(shootTileWhoosh);
                             MoveLeft();
                         }
                         //if ((Vector2)l.transform.position == fixedTargetPos)
@@ -376,6 +402,7 @@ public class PlayerMovementScript : MonoBehaviour {
                         float dist = Vector2.Distance((Vector2)r.transform.position, fixedTargetPos);
                         if (dist < 0.1f)
                         {
+                            myAudio.PlayOneShot(shootTileWhoosh);
                             MoveRight();
                         }
                         //if ((Vector2)r.transform.position == fixedTargetPos)
@@ -390,6 +417,7 @@ public class PlayerMovementScript : MonoBehaviour {
                         float dist = Vector2.Distance((Vector2)d.transform.position, fixedTargetPos);
                         if (dist < 0.1f)
                         {
+                            myAudio.PlayOneShot(shootTileWhoosh);
                             MoveDown();
                         }
                         //if ((Vector2)d.transform.position == fixedTargetPos)
@@ -484,6 +512,7 @@ public class PlayerMovementScript : MonoBehaviour {
                         float dist = Vector2.Distance((Vector2)u.transform.position, fixedTargetPos);
                         if (dist < 0.1f)
                         {
+                            myAudio.PlayOneShot(shootTileWhoosh);
                             MoveUp();
                         }
                         //if ((Vector2)u.transform.position == fixedTargetPos)
@@ -499,6 +528,7 @@ public class PlayerMovementScript : MonoBehaviour {
                         float dist = Vector2.Distance((Vector2)l.transform.position, fixedTargetPos);
                         if (dist < 0.1f) {
                             // Debug.Log("LEFT PLEASE");
+                            myAudio.PlayOneShot(shootTileWhoosh);
                             MoveLeft();
                         }
 
@@ -519,6 +549,7 @@ public class PlayerMovementScript : MonoBehaviour {
                         float dist = Vector2.Distance((Vector2)r.transform.position, fixedTargetPos);
                         if (dist < 0.1f)
                         {
+                            myAudio.PlayOneShot(shootTileWhoosh);
                             MoveRight();
                         }
                         //if ((Vector2)r.transform.position == fixedTargetPos)
@@ -533,6 +564,7 @@ public class PlayerMovementScript : MonoBehaviour {
                         float dist = Vector2.Distance((Vector2)d.transform.position, fixedTargetPos);
                         if (dist < 0.1f)
                         {
+                            myAudio.PlayOneShot(shootTileWhoosh);
                             MoveDown();
                         }
                         //if ((Vector2)d.transform.position == fixedTargetPos)
@@ -626,6 +658,7 @@ public class PlayerMovementScript : MonoBehaviour {
                         float dist = Vector2.Distance((Vector2)u.transform.position, fixedTargetPos);
                         if (dist < 0.1f)
                         {
+                            myAudio.PlayOneShot(shootTileWhoosh);
                             MoveUp();
                         }
                         //if ((Vector2)u.transform.position == fixedTargetPos)
@@ -640,6 +673,7 @@ public class PlayerMovementScript : MonoBehaviour {
                         float dist = Vector2.Distance((Vector2)l.transform.position, fixedTargetPos);
                         if (dist < 0.1f)
                         {
+                            myAudio.PlayOneShot(shootTileWhoosh);
                             MoveLeft();
                         }
                         //if ((Vector2)l.transform.position == fixedTargetPos)
@@ -654,6 +688,7 @@ public class PlayerMovementScript : MonoBehaviour {
                         float dist = Vector2.Distance((Vector2)r.transform.position, fixedTargetPos);
                         if (dist < 0.1f)
                         {
+                            myAudio.PlayOneShot(shootTileWhoosh);
                             MoveRight();
                         }
                         //if ((Vector2)r.transform.position == fixedTargetPos)
@@ -668,6 +703,7 @@ public class PlayerMovementScript : MonoBehaviour {
                         float dist = Vector2.Distance((Vector2)d.transform.position, fixedTargetPos);
                         if (dist < 0.1f)
                         {
+                            myAudio.PlayOneShot(shootTileWhoosh);
                             MoveDown();
                         }
                         //if ((Vector2)d.transform.position == fixedTargetPos)
@@ -756,6 +792,7 @@ public class PlayerMovementScript : MonoBehaviour {
                         float dist = Vector2.Distance((Vector2)u.transform.position, fixedTargetPos);
                         if (dist < 0.1f)
                         {
+                            myAudio.PlayOneShot(shootTileWhoosh);
                             MoveUp();
                         }
                         //if ((Vector2)u.transform.position == fixedTargetPos)
@@ -770,6 +807,7 @@ public class PlayerMovementScript : MonoBehaviour {
                         float dist = Vector2.Distance((Vector2)l.transform.position, fixedTargetPos);
                         if (dist < 0.1f)
                         {
+                            myAudio.PlayOneShot(shootTileWhoosh);
                             MoveLeft();
                         }
                         //if ((Vector2)l.transform.position == fixedTargetPos)
@@ -784,6 +822,7 @@ public class PlayerMovementScript : MonoBehaviour {
                         float dist = Vector2.Distance((Vector2)r.transform.position, fixedTargetPos);
                         if (dist < 0.1f)
                         {
+                            myAudio.PlayOneShot(shootTileWhoosh);
                             MoveRight();
                         }
                         //if ((Vector2)r.transform.position == fixedTargetPos)
@@ -798,6 +837,7 @@ public class PlayerMovementScript : MonoBehaviour {
                         float dist = Vector2.Distance((Vector2)d.transform.position, fixedTargetPos);
                         if (dist < 0.1f)
                         {
+                            myAudio.PlayOneShot(shootTileWhoosh);
                             MoveDown();
                         }
                         //if ((Vector2)d.transform.position == fixedTargetPos)

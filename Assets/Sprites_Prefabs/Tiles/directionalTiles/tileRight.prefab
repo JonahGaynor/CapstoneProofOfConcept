@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4161574027723222}
   - component: {fileID: 212486095794570848}
+  - component: {fileID: 114243207191875558}
   m_Layer: 0
   m_Name: tileRight
   m_TagString: TileRight
@@ -40,6 +41,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114243207191875558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1925488206956190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d54b842e5f43341b8bcdaca99c58366e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSteppedOn: 0
 --- !u!212 &212486095794570848
 SpriteRenderer:
   m_ObjectHideFlags: 1

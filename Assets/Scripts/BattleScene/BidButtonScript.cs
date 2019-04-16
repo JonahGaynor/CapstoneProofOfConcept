@@ -10,9 +10,13 @@ public class BidButtonScript : MonoBehaviour {
     GameObject[] biddingDice;
     int tempNumb;
 
+    public AudioClip wrong;
+    AudioSource myAudio;
+
 	// Use this for initialization
 	void Start () {
         eventSystem = GameObject.Find("EventSystem");
+        myAudio = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -55,6 +59,7 @@ public class BidButtonScript : MonoBehaviour {
                     else
                     {
                         GameObject.Find("teacup").GetComponent<TeaCupScript>().myNumber = 8;
+                        myAudio.PlayOneShot(wrong);
                     }
                 }
             }
@@ -82,6 +87,14 @@ public class BidButtonScript : MonoBehaviour {
                     GameObject.Find("CurrentBidSlot").GetComponent<CurrentBidSlotScript>().shouldDestroy = true;
                     StartCoroutine(Pause());
                 }
+                else
+                {
+                    myAudio.PlayOneShot(wrong);
+                }
+            }
+            else
+            {
+                myAudio.PlayOneShot(wrong);
             }
         }
         eventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);

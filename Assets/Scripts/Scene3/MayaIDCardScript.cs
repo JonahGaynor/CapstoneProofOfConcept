@@ -44,7 +44,7 @@ public class MayaIDCardScript : MonoBehaviour {
         Debug.Log("we in");
         yield return new WaitForSeconds(1f);
         //Debug.Log("move scenes now plz");
-        SceneManager.LoadScene("ProofofConcept_Scene4");
+        SceneManager.LoadScene("Production_Scene4New");
         yield return new WaitForSeconds(0.1f);
     }
 }

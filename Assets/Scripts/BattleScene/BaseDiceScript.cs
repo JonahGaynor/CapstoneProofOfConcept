@@ -7,6 +7,7 @@ public class BaseDiceScript : MonoBehaviour {
     public int myFace;
     int myNumb;
     Vector3 myScale;
+    public Sprite[] rollingSprites;
 
 	// Use this for initialization
 	void Start () {
@@ -54,15 +55,28 @@ public class BaseDiceScript : MonoBehaviour {
         } else if (this.tag == "EnemyDice"){
             GameObject.Find ("BattleManager").GetComponent<BattleManager>().enemyCurrentDice.Add(myFace);
         }
-        this.GetComponent<SpriteRenderer>().sprite = diceProfile.mySprites[myFace - 1];
 
     }
 
     IEnumerator Juice()
     {
-        yield return new WaitForSeconds(myNumb/5f);
-        transform.localScale = myScale * 1.1f;
-        yield return new WaitForSeconds(0.5f);
-        transform.localScale = myScale;
+        int rollNumb = 0;
+        for (int i = 0; i < 52; i++)
+        {
+            yield return new WaitForSeconds(0.01f);
+            this.GetComponent<SpriteRenderer>().sprite = rollingSprites[rollNumb];
+            rollNumb++;
+            if (rollNumb == 13)
+            {
+                rollNumb = 0;
+            }
+        }
+        yield return new WaitForSeconds(0.3f);
+        this.GetComponent<SpriteRenderer>().sprite = diceProfile.mySprites[myFace - 1];
+
+        //yield return new WaitForSeconds(myNumb/5f);
+        //transform.localScale = myScale * 1.1f;
+        //yield return new WaitForSeconds(0.5f);
+        //transform.localScale = myScale;
     }
 }

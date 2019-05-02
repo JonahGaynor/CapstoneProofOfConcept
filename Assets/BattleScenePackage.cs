@@ -10,7 +10,7 @@ public class BattleScenePackage
     public Sprite[] enemySprites;
     public Sprite printerSprite;
     public Sprite printerOn;
-
+    public Sprite[] blinkSprites;
     //[TextArea(3, 10)]
     //public string[] sentences;
 

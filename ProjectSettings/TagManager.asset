@@ -28,6 +28,11 @@ TagManager:
   - TextBox
   - ScreenBorders
   - TransitionDice
+  - AgentPetty
+  - AgentWallace
+  - AgentThree
+  - AgentFour
+  - Simon
   layers:
   - Default
   - TransparentFX

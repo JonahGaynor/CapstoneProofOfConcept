@@ -37,25 +37,25 @@ public class BaseTileScript : MonoBehaviour {
             //transform.position = new Vector2(myPos.x, myPos.y - 0.075f);
             transform.position = Vector2.Lerp(transform.position, newPos, 0.5f);
         }
-        if (isSteppedOn)
-        {
-            GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.8f, 0.8f);
+        //if (isSteppedOn)
+        //{
+        //    GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.8f, 0.8f);
 
-        }
-        else if (timer > myHighlightNumb && timer < myHighlightNumb + 3f)
-        {
-            GetComponent<SpriteRenderer>().color = Color.yellow;
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().color = Color.white;
+        //}
+        //else if (timer > myHighlightNumb && timer < myHighlightNumb + 3f)
+        //{
+        //    GetComponent<SpriteRenderer>().color = Color.yellow;
+        //}
+        //else
+        //{
+        //    GetComponent<SpriteRenderer>().color = Color.white;
 
-        }
+        //}
 
-        if (timer >= 30f)
-        {
-            timer = -10f;
-        }
+        //if (timer >= 30f)
+        //{
+        //    timer = -10f;
+        //}
     }
 
     public void Check()
@@ -70,10 +70,12 @@ public class BaseTileScript : MonoBehaviour {
         if (diffX < 0.1f && diffY < 0.6f && transform.position.y < playerPos.y)
         {
             lerp = true;
+            this.GetComponent<SpriteRenderer>().color = Color.gray;
         }
         else
         {
             lerp = false;
+            this.GetComponent<SpriteRenderer>().color = Color.white;
         }
         //else if (diffX < 0.1f && diffY < 0.5f && isUp)
         //{

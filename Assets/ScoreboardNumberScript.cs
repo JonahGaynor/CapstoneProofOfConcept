@@ -22,6 +22,10 @@ public class ScoreboardNumberScript : MonoBehaviour {
         {
             puzzleNumber = 3;
         }
+        else if (SceneManager.GetActiveScene().name == "Production_Scene23")
+        {
+            puzzleNumber = 4;
+        }
         else
         {
             puzzleNumber = 1;
@@ -95,6 +99,10 @@ public class ScoreboardNumberScript : MonoBehaviour {
             this.GetComponent<Image>().sprite = puzzle3Sprites[puzzle3Counter];
             puzzle3Counter++;
         }
-
+        else if (puzzleNumber == 4)
+        {
+            this.GetComponent<Image>().sprite = puzzle3Sprites[puzzle3Counter];
+            puzzle3Counter++;
+        }
     }
 }

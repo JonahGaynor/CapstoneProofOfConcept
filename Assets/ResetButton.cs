@@ -19,6 +19,7 @@ public class ResetButton : MonoBehaviour {
     public Sprite redSprite;
     GameObject[] doors;
     int numberForDoors;
+    bool isOn = true;
 
 
     void Start()
@@ -28,46 +29,57 @@ public class ResetButton : MonoBehaviour {
 
     public void OnClick()
     {
-        doors = GameObject.FindGameObjectsWithTag("Door");
-        player.GetComponent<PlayerMovementScript>().drawingWires = false;
-        if (resetPositions[resetPositions.Length - 1].y < player.transform.position.y)
+        if (isOn)
         {
-            wires = GameObject.FindGameObjectsWithTag("Wire");
-            blueBoxes = GameObject.FindGameObjectsWithTag("BlueBox");
-            redBoxes = GameObject.FindGameObjectsWithTag("RedBox");
-            //player.transform.position = resetPositions[resetPositions.Length - 1];
-            //player.GetComponent<SpriteRenderer>().sprite = upSprite;
-            //player.GetComponent<PlayerMovementScript>().targetPos = resetPositions[resetPositions.Length - 1];
-            counter = 1;
-            numberForDoors = 8;
-            StartCoroutine(Teleport());
-        } else if (resetPositions[resetPositions.Length - 2].y < player.transform.position.y)
-        {
-            wires = GameObject.FindGameObjectsWithTag("Wire");
-            blueBoxes = GameObject.FindGameObjectsWithTag("BlueBox");
-            redBoxes = GameObject.FindGameObjectsWithTag("RedBox");
-            //player.transform.position = resetPositions[resetPositions.Length - 2];
-            //player.GetComponent<SpriteRenderer>().sprite = upSprite;
-            //player.GetComponent<PlayerMovementScript>().targetPos = resetPositions[resetPositions.Length - 2];
-            counter = 2;
-            numberForDoors = 2;
-            StartCoroutine(Teleport());
+            doors = GameObject.FindGameObjectsWithTag("Door");
+            player.GetComponent<PlayerMovementScript>().drawingWires = false;
+            if (resetPositions[resetPositions.Length - 1].y < player.transform.position.y)
+            {
+                wires = GameObject.FindGameObjectsWithTag("Wire");
+                blueBoxes = GameObject.FindGameObjectsWithTag("BlueBox");
+                redBoxes = GameObject.FindGameObjectsWithTag("RedBox");
+                //player.transform.position = resetPositions[resetPositions.Length - 1];
+                //player.GetComponent<SpriteRenderer>().sprite = upSprite;
+                //player.GetComponent<PlayerMovementScript>().targetPos = resetPositions[resetPositions.Length - 1];
+                counter = 1;
+                numberForDoors = 8;
+                StartCoroutine(Teleport());
+            }
+            else if (resetPositions[resetPositions.Length - 2].y < player.transform.position.y)
+            {
+                wires = GameObject.FindGameObjectsWithTag("Wire");
+                blueBoxes = GameObject.FindGameObjectsWithTag("BlueBox");
+                redBoxes = GameObject.FindGameObjectsWithTag("RedBox");
+                //player.transform.position = resetPositions[resetPositions.Length - 2];
+                //player.GetComponent<SpriteRenderer>().sprite = upSprite;
+                //player.GetComponent<PlayerMovementScript>().targetPos = resetPositions[resetPositions.Length - 2];
+                counter = 2;
+                numberForDoors = 2;
+                StartCoroutine(Teleport());
+            }
+            else if (resetPositions[resetPositions.Length - 3].y < player.transform.position.y)
+            {
+                wires = GameObject.FindGameObjectsWithTag("Wire");
+                blueBoxes = GameObject.FindGameObjectsWithTag("BlueBox");
+                redBoxes = GameObject.FindGameObjectsWithTag("RedBox");
+                //player.transform.position = resetPositions[resetPositions.Length - 3];
+                //player.GetComponent<SpriteRenderer>().sprite = upSprite;
+                //player.GetComponent<PlayerMovementScript>().targetPos = resetPositions[resetPositions.Length - 3];
+                counter = 3;
+                numberForDoors = 0;
+                StartCoroutine(Teleport());
+            }
+            isOn = false;
+            StartCoroutine(Reset());
+            //Scene thisScene = SceneManager.GetActiveScene();
+            //SceneManager.LoadScene(thisScene.name);
         }
-        else if (resetPositions[resetPositions.Length - 3].y < player.transform.position.y)
-        {
-            wires = GameObject.FindGameObjectsWithTag("Wire");
-            blueBoxes = GameObject.FindGameObjectsWithTag("BlueBox");
-            redBoxes = GameObject.FindGameObjectsWithTag("RedBox");
-            //player.transform.position = resetPositions[resetPositions.Length - 3];
-            //player.GetComponent<SpriteRenderer>().sprite = upSprite;
-            //player.GetComponent<PlayerMovementScript>().targetPos = resetPositions[resetPositions.Length - 3];
-            counter = 3;
-            numberForDoors = 0;
-            StartCoroutine(Teleport());
-        }
+    }
 
-        //Scene thisScene = SceneManager.GetActiveScene();
-        //SceneManager.LoadScene(thisScene.name);
+    IEnumerator Reset()
+    {
+        yield return new WaitForSeconds(2.5f);
+        isOn = true;
     }
 
     IEnumerator Teleport()
@@ -133,6 +145,9 @@ public class ResetButton : MonoBehaviour {
             box.GetComponent<SpriteRenderer>().sprite = redSprite;
             box.GetComponent<BoxCollider2D>().enabled = false;
         }
+        GameObject.Find("Player").GetComponent<PlayerMovementScript>().drawingWires = false;
+        GameObject.Find("Player").GetComponent<PlayerMovementScript>().myColor = 0;
+        GameObject.Find("Player").GetComponent<PlayerMovementScript>().steppedOn.Clear();
         //foreach (GameObject door in doors)
         //{
         //    if (door.GetComponent<DoorSprites>().myNumber == 0 || door.transform.position.y > player.transform.position.y)

@@ -289,6 +289,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7305a270544564b839e89f00a50c0ce5, type: 3}
   - {fileID: 21300000, guid: be3923537f56846f6ab215694c48e446, type: 3}
   - {fileID: 21300000, guid: f462d262344324bf2ac7695ff587940b, type: 3}
+  - {fileID: 21300000, guid: 9379b34494e9e43b8b89f2db2f674f7f, type: 3}
   gasp: {fileID: 8300000, guid: 7eb2598a923d24aeb8a893b3dc3cbfaf, type: 3}
   titleBoom: {fileID: 8300000, guid: b899765efd99a4e16adb2974c19180f3, type: 3}
   doorCreek: {fileID: 8300000, guid: 494405d5ca088406494fad443a362492, type: 3}

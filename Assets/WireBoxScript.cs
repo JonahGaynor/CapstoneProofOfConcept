@@ -12,6 +12,9 @@ public class WireBoxScript : MonoBehaviour
     public Sprite offSprite;
     public Sprite onSprite;
 
+    public AudioClip completed;
+    AudioSource myAudio;
+
     public static int completedPuzzles = 0;
 
     TurnTile _turntile = new TurnTile();
@@ -21,6 +24,16 @@ public class WireBoxScript : MonoBehaviour
     public GameObject[] possibleLinks;
 
     public GameObject[] needToLock;
+    public Sprite lockSprite;
+    public Sprite normalLockSprite;
+
+
+    public GameObject[] allTiles;
+    public GameObject myTile;
+
+    public Sprite blueSprite;
+    public Sprite redSprite;
+    public Sprite normalSprite;
 
     int linkCounter;
 
@@ -28,6 +41,13 @@ public class WireBoxScript : MonoBehaviour
     GameObject player;
 
     public GameObject spawnLine;
+
+    void Start()
+    {
+        myAudio = GetComponentInParent<AudioSource>();
+        allTiles = GameObject.FindGameObjectsWithTag("BaseTile");
+        this.GetComponent<SpriteRenderer>().sortingOrder -= (int)transform.position.y;
+    }
 
     void Update()
     {
@@ -38,9 +58,18 @@ public class WireBoxScript : MonoBehaviour
             foreach (GameObject toLock in needToLock)
             {
                 toLock.GetComponent<BoxCollider2D>().enabled = true;
+                toLock.GetComponent<SpriteRenderer>().sprite = lockSprite;
+                this.GetComponent<BoxCollider2D>().enabled = true;
+            }
+            if (myColor == 0)
+            {
+                myTile.GetComponent<SpriteRenderer>().sprite = blueSprite;
+            }
+            else
+            {
+                myTile.GetComponent<SpriteRenderer>().sprite = redSprite;
             }
         }
-        Debug.Log(completedPuzzles);
     }
 
 
@@ -50,7 +79,7 @@ public class WireBoxScript : MonoBehaviour
         player = GameObject.Find("Player");
         if (isActive)
         {
-            this.GetComponent<BoxCollider2D>().enabled = false;
+            //this.GetComponent<BoxCollider2D>().enabled = false;
             float dist = Vector2.Distance((Vector2)player.transform.position, (Vector2)this.transform.position);
             foreach (GameObject link in possibleLinks)
             {
@@ -68,6 +97,12 @@ public class WireBoxScript : MonoBehaviour
                     steppedOn = player.GetComponent<PlayerMovementScript>().steppedOn;
                     // myPair.GetComponent<WireBoxScript>().isOn = false;
                     isActive = false;
+                    myAudio.Stop();
+                    myAudio.PlayOneShot(completed);
+                    foreach (GameObject tile in allTiles)
+                    {
+                        tile.GetComponent<SpriteRenderer>().sprite = normalSprite;
+                    }
                     for (int i = 1; i < steppedOn.Count - 1; i++)
                     {
                         GameObject newLine = Instantiate(spawnLine);
@@ -77,10 +112,10 @@ public class WireBoxScript : MonoBehaviour
                     }
                     link.GetComponent<SpriteRenderer>().sprite = onSprite;
                     this.GetComponent<SpriteRenderer>().sprite = onSprite;
-                    link.GetComponent<WireBoxScript>().enabled = false;
-                    this.GetComponent<WireBoxScript>().enabled = false;
                     link.GetComponent<BoxCollider2D>().enabled = true;
                     this.GetComponent<BoxCollider2D>().enabled = true;
+                    link.GetComponent<WireBoxScript>().enabled = false;
+                    this.GetComponent<WireBoxScript>().enabled = false;
                 }
             }
             linkCounter = 0;
@@ -95,7 +130,11 @@ public class WireBoxScript : MonoBehaviour
             //{
             foreach (GameObject toLock in needToLock)
             {
-                toLock.GetComponent<BoxCollider2D>().enabled = false;
+                if (toLock.GetComponent<WireBoxScript>().enabled)
+                {
+                    toLock.GetComponent<BoxCollider2D>().enabled = false;
+                }
+                toLock.GetComponent<SpriteRenderer>().sprite = normalLockSprite;
             }
             steppedOn.Clear();
             //}

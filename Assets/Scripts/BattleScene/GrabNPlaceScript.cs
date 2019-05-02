@@ -15,10 +15,14 @@ public class GrabNPlaceScript : MonoBehaviour {
 	int currentNumb;
 	public int myNumber;
 
+    public AudioClip clickMe;
+    AudioSource myAudio;
+
     public GameObject[] currentDice;
 
 	// Use this for initialization
 	void Start () {
+        myAudio = GetComponentInParent<AudioSource>();
         currentDice = GameObject.FindGameObjectsWithTag("Dice");
         boxPos = GameObject.Find ("teacup").GetComponent<Transform> ();
         //boxPos = GameObject.Find("3DPrinter").GetComponent<Transform>();
@@ -115,6 +119,7 @@ public class GrabNPlaceScript : MonoBehaviour {
         }
         else if (GameObject.Find("BattleManager").GetComponent<BattleManager>().myTurn)
         {
+            myAudio.PlayOneShot(clickMe);
             clicked = true;
             Debug.Log("click");
             //      if (currentBidNumber > GameObject.Find ("BattleManager").GetComponent<BattleManagerScript> ().currentBidNumber) {

@@ -13,18 +13,24 @@ public class DialogueManager : MonoBehaviour {
     public Animator myAnim;
 
     public bool done = false;
+    bool finishedSentence = true;
+    string holdSentence;
 
-	// Use this for initialization
-	void Awake () {
+    public AudioClip typewriter;
+    AudioSource myAudio;
+
+    // Use this for initialization
+    void Awake () {
         sentences = new Queue<string>();
-	}
-	
+        myAudio = GetComponent<AudioSource>();
+    }
+    
     public void StartDialogue(Dialogue dialogue)
     {
         //Debug.Log("Starting dialogue with " + dialogue.name);
 
         GameObject.Find("Player").GetComponent<PlayerMovementScript>().canMove = false;
-
+        done = false;
         myAnim.SetBool("isOpen", true);
 
         speakerSprite.sprite = dialogue.speakerSprite;
@@ -44,30 +50,53 @@ public class DialogueManager : MonoBehaviour {
 
     public void NextSentence()
     {
-        if (sentences.Count == 0)
+
+        if (!finishedSentence)
+        {
+            StopAllCoroutines();
+            dialogueText.text = holdSentence;
+            myAudio.Stop();
+            finishedSentence = true;
+        }
+        else if (sentences.Count == 0)
         {
             Debug.Log("no more sentences");
             EndDialogue();
             return;
         }
+        else
+        {
+            string sentence = sentences.Dequeue();
+            myAudio.Stop();
+            StopAllCoroutines();
 
-        string sentence = sentences.Dequeue();
-        StopAllCoroutines();
-        StartCoroutine(NextChar(sentence));
+            myAudio.PlayOneShot(typewriter);
+            StartCoroutine(NextChar(sentence));
+        }
+
     }
 
     IEnumerator NextChar(string sentence)
     {
+        finishedSentence = false;
         dialogueText.text = "";
+        holdSentence = sentence;
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
+            //if (sentence[sentence.Length] == letter)
+            //{
+            //    myAudio.Stop();
+            //}
             yield return null;
         }
+        myAudio.Stop();
+        finishedSentence = true;
     }
 
     public void EndDialogue()
     {
+        myAudio.Stop();
         GameObject.Find("Player").GetComponent<PlayerMovementScript>().canMove = true;
         done = true;
         myAnim.SetBool("isOpen", false);

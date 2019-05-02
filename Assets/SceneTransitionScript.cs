@@ -94,7 +94,7 @@ public class SceneTransitionScript : MonoBehaviour {
     {
         Debug.Log("begin scene");
         screenBorders.GetComponent<BoxCollider2D>().enabled = false;
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(6f);
         Debug.Log("collider on");
         Time.timeScale = 1;
         screenBorders.GetComponent<BoxCollider2D>().enabled = true;
@@ -201,13 +201,13 @@ public class SceneTransitionScript : MonoBehaviour {
         {
             GameObject.Find("BattleManager").GetComponent<BattleManager>().BeginBattlePlz();
         }
+        StartCoroutine(GameObject.Find("PlayerAnimator").GetComponent<PlayerOutAnimation>().GetIn());
         yield return new WaitForSeconds(2f);
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
-
         //yield return new WaitForSeconds(4f);
         //Destroy(screenBorders);
         //Destroy(this.gameObject);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
         transitionDice = GameObject.FindGameObjectsWithTag("TransitionDice");
         foreach (GameObject d in transitionDice)
         {

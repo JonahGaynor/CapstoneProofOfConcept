@@ -472,8 +472,8 @@ public class BaseAiEnemy : MonoBehaviour {
                     }
                     else if (myThrees > 0)
                     {
-                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 3);
-                        for (int i = 0; i < currentBidAmount; i++)
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 3);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
                         {
                             Instantiate(myDice[2], boxPos.position, Quaternion.identity);
                         }
@@ -515,16 +515,16 @@ public class BaseAiEnemy : MonoBehaviour {
                     }
                     else if (myThrees > 0)
                     {
-                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 3);
-                        for (int i = 0; i < currentBidAmount; i++)
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 3);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
                         {
                             Instantiate(myDice[2], boxPos.position, Quaternion.identity);
                         }
                     }
                     else if (myFours > 0)
                     {
-                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 4);
-                        for (int i = 0; i < currentBidAmount; i++)
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 4);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
                         {
                             Instantiate(myDice[3], boxPos.position, Quaternion.identity);
                         }
@@ -4597,6 +4597,798 @@ public class BaseAiEnemy : MonoBehaviour {
         }
     }
 
+    public void TurnSimon()
+    {
+        turnNumber++;
+        currentBidAmountDifference = GameObject.Find("BattleManager").GetComponent<BattleManager>().currentBidAmount - currentBidAmount;
+        currentBidNumberDifference = GameObject.Find("BattleManager").GetComponent<BattleManager>().currentBidNumber - currentBidNumber;
+        currentBidAmount = GameObject.Find("BattleManager").GetComponent<BattleManager>().currentBidAmount;
+        currentBidNumber = GameObject.Find("BattleManager").GetComponent<BattleManager>().currentBidNumber;
+
+        int increaseAmount = (currentBidAmountDifference * 6) + currentBidNumberDifference;
+
+        foreach (GameObject d in GameObject.Find("BattleManager").GetComponent<BattleManager>().battleDice)
+        {
+            if (d.GetComponent<EnemyDiceScript>().myFace == 1)
+            {
+                MayaOnes++;
+            }
+            else if (d.GetComponent<EnemyDiceScript>().myFace == 2)
+            {
+                MayaTwos++;
+            }
+            else if (d.GetComponent<EnemyDiceScript>().myFace == 3)
+            {
+                MayaThrees++;
+            }
+            else if (d.GetComponent<EnemyDiceScript>().myFace == 4)
+            {
+                MayaFours++;
+            }
+            else if (d.GetComponent<EnemyDiceScript>().myFace == 5)
+            {
+                MayaFives++;
+            }
+            else if (d.GetComponent<EnemyDiceScript>().myFace == 6)
+            {
+                MayaSixes++;
+            }
+        }
+
+        foreach (GameObject d in GameObject.Find("BattleManager").GetComponent<BattleManager>().enemyBattleDice)
+        {
+            if (d.GetComponent<EnemyDiceScript>().myFace == 1)
+            {
+                myOnes++;
+            }
+            else if (d.GetComponent<EnemyDiceScript>().myFace == 2)
+            {
+                myTwos++;
+            }
+            else if (d.GetComponent<EnemyDiceScript>().myFace == 3)
+            {
+                myThrees++;
+            }
+            else if (d.GetComponent<EnemyDiceScript>().myFace == 4)
+            {
+                myFours++;
+            }
+            else if (d.GetComponent<EnemyDiceScript>().myFace == 5)
+            {
+                myFives++;
+            }
+            else if (d.GetComponent<EnemyDiceScript>().myFace == 6)
+            {
+                mySixes++;
+            }
+        }
+        if (bluffingNumb == 0)
+        {
+            if (mySixes == 0)
+            {
+                bluffingNumb = 6;
+            }
+            else if (myFives == 0)
+            {
+                bluffingNumb = 5;
+            }
+            else if (myFours == 0)
+            {
+                bluffingNumb = 4;
+            }
+            else if (myThrees == 0)
+            {
+                bluffingNumb = 3;
+            }
+            else if (myTwos == 0)
+            {
+                bluffingNumb = 2;
+            }
+            else
+            {
+                bluffingNumb = 1;
+            }
+        }
+
+        StartCoroutine(Pause());
+
+        //starts
+        if (currentBidAmount == 0 && currentBidNumber == 0)
+        {
+            float rand = Random.value;
+            if (rand <= 0.25f)
+            {
+                if (mySixes >= myFives && mySixes >= myFours && mySixes >= myThrees && mySixes >= myTwos && mySixes >= myOnes)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(2, 6);
+                    for (int i = 0; i < 2; i++)
+                    {
+                        Instantiate(myDice[5], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else if (myFives >= mySixes && myFives >= myFours && myFives >= myThrees && myFives >= myTwos && myFives >= myOnes)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(2, 5);
+                    for (int i = 0; i < 2; i++)
+                    {
+                        Instantiate(myDice[4], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else if (myFours >= mySixes && myFours >= myFives && myFours >= myThrees && myFours >= myTwos && myFours >= myOnes)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(2, 4);
+                    for (int i = 0; i < 2; i++)
+                    {
+                        Instantiate(myDice[3], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else if (myThrees >= mySixes && myThrees >= myFives && myThrees >= myFours && myThrees >= myTwos && myThrees >= myOnes)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(2, 3);
+                    for (int i = 0; i < 2; i++)
+                    {
+                        Instantiate(myDice[2], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else if (myTwos >= mySixes && myTwos >= myFives && myTwos >= myFours && myTwos >= myThrees && myTwos >= myOnes)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(2, 2);
+                    for (int i = 0; i < 2; i++)
+                    {
+                        Instantiate(myDice[1], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(2, 1);
+                    for (int i = 0; i < 2; i++)
+                    {
+                        Instantiate(myDice[0], boxPos.position, Quaternion.identity);
+                    }
+                }
+            }
+            else if (rand <= 0.5f)
+            {
+                int rand2 = Random.Range(1, 7);
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(2, rand2);
+                for (int i = 0; i < 2; i++)
+                {
+                    Instantiate(myDice[rand2 - 1], boxPos.position, Quaternion.identity);
+                }
+            }
+            else
+            {
+                if (mySixes >= myFives && mySixes >= myFours && mySixes >= myThrees && mySixes >= myTwos && mySixes >= myOnes)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(mySixes, 6);
+                    for (int i = 0; i < mySixes; i++)
+                    {
+                        Instantiate(myDice[5], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else if (myFives >= mySixes && myFives >= myFours && myFives >= myThrees && myFives >= myTwos && myFives >= myOnes)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(myFives, 5);
+                    for (int i = 0; i < myFives; i++)
+                    {
+                        Instantiate(myDice[4], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else if (myFours >= mySixes && myFours >= myFives && myFours >= myThrees && myFours >= myTwos && myFours >= myOnes)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(myFours, 4);
+                    for (int i = 0; i < myFours; i++)
+                    {
+                        Instantiate(myDice[3], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else if (myThrees >= mySixes && myThrees >= myFives && myThrees >= myFours && myThrees >= myTwos && myThrees >= myOnes)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(myThrees, 3);
+                    for (int i = 0; i < myThrees; i++)
+                    {
+                        Instantiate(myDice[2], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else if (myTwos >= mySixes && myTwos >= myFives && myTwos >= myFours && myTwos >= myThrees && myTwos >= myOnes)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(myTwos, 2);
+                    for (int i = 0; i < myTwos; i++)
+                    {
+                        Instantiate(myDice[1], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(myOnes, 1);
+                    for (int i = 0; i < myOnes; i++)
+                    {
+                        Instantiate(myDice[0], boxPos.position, Quaternion.identity);
+                    }
+                }
+            }
+        }
+        else if (currentBidAmountDifference >= 3)
+        {
+            GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyCall();
+        }
+        else if (currentBidAmountDifference >= 2 && turnNumber >= 2)
+        {
+            GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyCall();
+        }
+        else if (currentBidNumber == 6)
+        {
+            if (mySixes + MayaSixes < currentBidAmount && increaseAmount <= 3 && Random.value <= 0.7f)
+            {
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyCall();
+            }
+            else if (mySixes + MayaSixes < currentBidAmount && Random.value <= 0.55f)
+            {
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyCall();
+            }
+            else
+            {
+                float randomVal = Random.value;
+                if (randomVal <= 0.5f)
+                {
+                    if (myOnes >= currentBidAmount + 1)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 1);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[0], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (myTwos >= currentBidAmount + 1)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 2);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[1], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (myThrees >= currentBidAmount + 1)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 3);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[2], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (myFours >= currentBidAmount + 1)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 4);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[3], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (myFives >= currentBidAmount + 1)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 5);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[4], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 6);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[5], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                }
+                else if (randomVal <= 0.75f)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 1);
+                    for (int i = 0; i < currentBidAmount + 1; i++)
+                    {
+                        Instantiate(myDice[0], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else
+                {
+                    if (bluffingNumb <= currentBidNumber)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, bluffingNumb);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[bluffingNumb - 1], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, bluffingNumb);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[bluffingNumb - 1], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                }
+            }
+        }
+        else if (currentBidNumber == 5)
+        {
+            if (myFives + MayaFives < currentBidAmount && increaseAmount <= 3 && Random.value <= 0.7f)
+            {
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyCall();
+            }
+            else if (myFives + MayaFives < currentBidAmount && Random.value <= 0.55f)
+            {
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyCall();
+            }
+            else
+            {
+                float randomVal = Random.value;
+                if (randomVal <= 0.5f)
+                {
+                    if (mySixes >= currentBidAmount)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 6);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[5], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (myOnes >= currentBidAmount + 1)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 1);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[0], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (myTwos >= currentBidAmount + 1)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 2);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[1], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (myThrees >= currentBidAmount + 1)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 3);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[2], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (myFours >= currentBidAmount + 1)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 4);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[3], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 5);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[4], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                }
+                else if (randomVal <= 0.75f)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 6);
+                    for (int i = 0; i < currentBidAmount; i++)
+                    {
+                        Instantiate(myDice[5], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else
+                {
+                    if (bluffingNumb <= currentBidNumber)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, bluffingNumb);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[bluffingNumb - 1], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, bluffingNumb);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[bluffingNumb - 1], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                }
+            }
+        }
+        else if (currentBidNumber == 4)
+        {
+            if (myFours + MayaFours < currentBidAmount && increaseAmount <= 3 && Random.value <= 0.7f)
+            {
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyCall();
+            }
+            else if (myFours + MayaFours < currentBidAmount && Random.value <= 0.55f)
+            {
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyCall();
+            }
+            else
+            {
+                float randomVal = Random.value;
+                if (randomVal <= 0.5f)
+                {
+                    if (myFives >= currentBidAmount)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 5);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[4], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (mySixes >= currentBidAmount)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 6);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[5], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (myOnes >= currentBidAmount + 1)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 1);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[0], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (myTwos >= currentBidAmount + 1)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 2);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[1], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (myThrees >= currentBidAmount + 1)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 3);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[2], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 4);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[3], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                }
+                else if (randomVal <= 0.75f)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 6);
+                    for (int i = 0; i < currentBidAmount; i++)
+                    {
+                        Instantiate(myDice[5], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else
+                {
+                    if (bluffingNumb <= currentBidNumber)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, bluffingNumb);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[bluffingNumb - 1], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, bluffingNumb);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[bluffingNumb - 1], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                }
+            }
+        }
+        else if (currentBidNumber == 3)
+        {
+            if (myThrees + MayaThrees < currentBidAmount && increaseAmount <= 3 && Random.value <= 0.7f)
+            {
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyCall();
+            }
+            else if (myThrees + MayaThrees < currentBidAmount && Random.value <= 0.55f)
+            {
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyCall();
+            }
+            else
+            {
+                float randomVal = Random.value;
+                if (randomVal <= 0.5f)
+                {
+                    if (myFours >= currentBidAmount)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 4);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[3], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (myFives >= currentBidAmount)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 5);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[4], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (mySixes >= currentBidAmount)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 6);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[5], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (myOnes >= currentBidAmount + 1)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 1);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[0], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (myTwos >= currentBidAmount + 1)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 2);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[1], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 3);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[2], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                }
+                else if (randomVal <= 0.75f)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 6);
+                    for (int i = 0; i < currentBidAmount; i++)
+                    {
+                        Instantiate(myDice[5], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else
+                {
+                    if (bluffingNumb <= currentBidNumber)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, bluffingNumb);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[bluffingNumb - 1], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, bluffingNumb);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[bluffingNumb - 1], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                }
+            }
+        }
+        else if (currentBidNumber == 2)
+        {
+            if (myTwos + MayaTwos < currentBidAmount && increaseAmount <= 3 && Random.value <= 0.7f)
+            {
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyCall();
+            }
+            else if (myTwos + MayaTwos < currentBidAmount && Random.value <= 0.55f)
+            {
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyCall();
+            }
+            else
+            {
+                float randomVal = Random.value;
+                if (randomVal <= 0.5f)
+                {
+                    if (myThrees >= currentBidAmount)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 3);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[2], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (myFours >= currentBidAmount)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 4);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[3], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (myFives >= currentBidAmount)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 5);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[4], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (mySixes >= currentBidAmount)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 6);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[5], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (myOnes >= currentBidAmount + 1)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 1);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[0], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 2);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[1], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                }
+                else if (randomVal <= 0.75f)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 6);
+                    for (int i = 0; i < currentBidAmount; i++)
+                    {
+                        Instantiate(myDice[5], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else
+                {
+                    if (bluffingNumb <= currentBidNumber)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, bluffingNumb);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[bluffingNumb - 1], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, bluffingNumb);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[bluffingNumb - 1], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (myOnes + MayaOnes < currentBidAmount && increaseAmount <= 3 && Random.value <= 0.7f)
+            {
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyCall();
+            }
+            else if (myOnes + MayaOnes < currentBidAmount && Random.value <= 0.55f)
+            {
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyCall();
+            }
+            else
+            {
+                float randomVal = Random.value;
+                if (randomVal <= 0.5f)
+                {
+                    if (myTwos >= currentBidAmount)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 2);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[1], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (myThrees >= currentBidAmount)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 3);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[2], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (myFours >= currentBidAmount)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 4);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[3], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (myFives >= currentBidAmount)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 5);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[4], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else if (mySixes >= currentBidAmount)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 6);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[5], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 1);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[0], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                }
+                else if (randomVal <= 0.75f)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 6);
+                    for (int i = 0; i < currentBidAmount; i++)
+                    {
+                        Instantiate(myDice[5], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else
+                {
+                    if (bluffingNumb <= currentBidNumber)
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, bluffingNumb);
+                        for (int i = 0; i < currentBidAmount + 1; i++)
+                        {
+                            Instantiate(myDice[bluffingNumb - 1], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                    else
+                    {
+                        GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, bluffingNumb);
+                        for (int i = 0; i < currentBidAmount; i++)
+                        {
+                            Instantiate(myDice[bluffingNumb - 1], boxPos.position, Quaternion.identity);
+                        }
+                    }
+                }
+            }
+        }
+
+        myOnes = 0;
+        myTwos = 0;
+        myThrees = 0;
+        myFours = 0;
+        myFives = 0;
+        mySixes = 0;
+        MayaOnes = 0;
+        MayaTwos = 0;
+        MayaThrees = 0;
+        MayaFours = 0;
+        MayaFives = 0;
+        MayaSixes = 0;
+        bluffingNumb = 0;
+    }
     IEnumerator Pause(){
         GameObject.Find("teacup").GetComponent<TeaCupScript>().destroyOthers = false;
         yield return new WaitForSeconds (1f);

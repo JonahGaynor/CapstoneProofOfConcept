@@ -33,6 +33,7 @@ public class TutorialManager : MonoBehaviour {
 
     private void Start()
     {
+        Cursor.visible = true;
         textBox = GameObject.FindGameObjectWithTag("TextBox");
         textBox.GetComponent<Animator>().SetBool("isOn", true);
         enemyDice = GameObject.FindGameObjectsWithTag("EnemyDice");

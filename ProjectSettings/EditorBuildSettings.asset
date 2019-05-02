@@ -41,9 +41,54 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Production_Scene9_Julia.unity
     guid: 9ff3810a5c7e4483aa71e24417ad895c
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Production_Scene10.unity
     guid: 9d169a27f457645a9bf3a91566ef1861
+  - enabled: 1
+    path: Assets/Scenes/Production_Scene11.unity
+    guid: 21a73b2e8651f4ffe9d0310facdffc26
+  - enabled: 1
+    path: Assets/Scenes/Production_Scene12.unity
+    guid: 7b6af0c4ff5e246a090e454a71511136
+  - enabled: 1
+    path: Assets/Scenes/Production_Scene13.unity
+    guid: 28edecb26e02545fa8962ae78021353b
+  - enabled: 1
+    path: Assets/Scenes/Production_Scene14_Jacob.unity
+    guid: 8be87a9e4a5a24643ac9350f9b786595
+  - enabled: 1
+    path: Assets/Scenes/Production_Scene15.unity
+    guid: 5adaa4052e3bc4f41a7f48123fbc8106
+  - enabled: 1
+    path: Assets/Scenes/Production_Scene16.unity
+    guid: 33ebf3b7ced3b4d10978a2737435e49a
+  - enabled: 1
+    path: Assets/Scenes/Production_Scene17.unity
+    guid: 8d8b8aa39cb564c9da69186ab91baacc
+  - enabled: 1
+    path: Assets/Scenes/Production_Scene18.unity
+    guid: 421fa8fcb7e224897aabfc45a454eaf7
+  - enabled: 1
+    path: Assets/Scenes/Production_Scene19_Amelia.unity
+    guid: 6e29b24f6ebeb4567a566f6ebadaeb48
+  - enabled: 1
+    path: Assets/Scenes/Production_Scene20.unity
+    guid: 97688e17cd0d844c199164084aeea1ad
+  - enabled: 1
+    path: Assets/Scenes/Production_Scene21.unity
+    guid: 7a797ae517b8b4afb939d430171bb18c
+  - enabled: 1
+    path: Assets/Scenes/Production_Scene22.unity
+    guid: 09d689ca730b541b7af5a94107ddad39
+  - enabled: 1
+    path: Assets/Scenes/Production_Scene23.unity
+    guid: b202176d7781740a3b004b9fa59bdcee
+  - enabled: 1
+    path: Assets/Scenes/Production_Scene24_Simon.unity
+    guid: 1b53112236a9a41b6acca18f12f2f9aa
+  - enabled: 1
+    path: Assets/Scenes/Production_Credits.unity
+    guid: 9968ea75fb2e04344ba548f299de119a
   - enabled: 0
     path: Assets/Scenes/~NOTinuse/BattleScene.unity
     guid: dba474a011b294e7ea17014d78ee3500

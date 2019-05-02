@@ -23,6 +23,7 @@ public class ImportantChoiceBattleButton : MonoBehaviour {
 
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         myAnim.SetBool("turnOn", false);
+        StartCoroutine(GameObject.Find("endtile").GetComponent<EndTileScript>().PauseToChangeLevel());
     }
 
 }

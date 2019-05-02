@@ -244,12 +244,12 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7d7380682e2e34efa97fa601582c7815, type: 3}
-    m_FontSize: 72
+    m_Font: {fileID: 12800000, guid: 120606eb016af45199ab7607bd991476, type: 3}
+    m_FontSize: 44
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 7
-    m_MaxSize: 72
+    m_MinSize: 2
+    m_MaxSize: 144
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -311,7 +311,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.396875, y: 0}
   m_AnchorMax: {x: 0.396875, y: 0}
-  m_AnchoredPosition: {x: -3.6928253, y: 113.2554}
+  m_AnchoredPosition: {x: -3.69281, y: 113.2554}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &53466505
@@ -411,7 +411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91e47045670b8406d87bdea178b2c379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wrong: {fileID: 8300000, guid: e93e05c27ed5b4c35b7d43268eea7027, type: 3}
+  wrong: {fileID: 8300000, guid: de1daea03b201494783489f5374d00ea, type: 3}
+  illAllowIt: {fileID: 8300000, guid: e93e05c27ed5b4c35b7d43268eea7027, type: 3}
 --- !u!82 &53466509
 AudioSource:
   m_ObjectHideFlags: 0
@@ -676,6 +677,7 @@ MonoBehaviour:
   boxPos: {fileID: 0}
   diceCreated: 0
   myNumber: 0
+  clickMe: {fileID: 8300000, guid: af5473809f926409691f97ea573e3d0d, type: 3}
   currentDice: []
 --- !u!61 &89930444
 BoxCollider2D:
@@ -1146,6 +1148,21 @@ MonoBehaviour:
   diceProfile: {fileID: 11400000, guid: fe72824a747b3445098ffbe633b7a801, type: 2}
   myFace: 0
   shouldShow: 0
+  rollingSprites:
+  - {fileID: 21300000, guid: da772f33e9f3e460581f8dadae681fad, type: 3}
+  - {fileID: 21300000, guid: 1757533947e8e47f9b6d9e56812b9b88, type: 3}
+  - {fileID: 21300000, guid: dc0d5b444225d45278045823dd0b4a6f, type: 3}
+  - {fileID: 21300000, guid: 7207160501a4841d8add7a6d4b0e74ee, type: 3}
+  - {fileID: 21300000, guid: 31cb8e862fd0d4870b9af2035080c1bb, type: 3}
+  - {fileID: 21300000, guid: 38a322cd0f4204d4c826b31117470750, type: 3}
+  - {fileID: 21300000, guid: bfba661a20bba490c80ca8ae8c23cf43, type: 3}
+  - {fileID: 21300000, guid: 54964ccd0ce7f411191cf1532a57588e, type: 3}
+  - {fileID: 21300000, guid: bd898472e04ea4fe18c0c17373815a3a, type: 3}
+  - {fileID: 21300000, guid: 2744aa4b684544f43ace3d5958d4a4b4, type: 3}
+  - {fileID: 21300000, guid: c6e6efcfe7d804dc4b3dd95edc2abfa2, type: 3}
+  - {fileID: 21300000, guid: 862172e378f354d83a216f9a0deadc2a, type: 3}
+  - {fileID: 21300000, guid: 8b02570d680fd4807bcda2a3ec1bb271, type: 3}
+  baseSprite: {fileID: 0}
 --- !u!1 &262386090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,6 +1478,21 @@ MonoBehaviour:
   diceProfile: {fileID: 11400000, guid: fe72824a747b3445098ffbe633b7a801, type: 2}
   myFace: 0
   shouldShow: 0
+  rollingSprites:
+  - {fileID: 21300000, guid: da772f33e9f3e460581f8dadae681fad, type: 3}
+  - {fileID: 21300000, guid: 1757533947e8e47f9b6d9e56812b9b88, type: 3}
+  - {fileID: 21300000, guid: dc0d5b444225d45278045823dd0b4a6f, type: 3}
+  - {fileID: 21300000, guid: 7207160501a4841d8add7a6d4b0e74ee, type: 3}
+  - {fileID: 21300000, guid: 31cb8e862fd0d4870b9af2035080c1bb, type: 3}
+  - {fileID: 21300000, guid: 38a322cd0f4204d4c826b31117470750, type: 3}
+  - {fileID: 21300000, guid: bfba661a20bba490c80ca8ae8c23cf43, type: 3}
+  - {fileID: 21300000, guid: 54964ccd0ce7f411191cf1532a57588e, type: 3}
+  - {fileID: 21300000, guid: bd898472e04ea4fe18c0c17373815a3a, type: 3}
+  - {fileID: 21300000, guid: 2744aa4b684544f43ace3d5958d4a4b4, type: 3}
+  - {fileID: 21300000, guid: c6e6efcfe7d804dc4b3dd95edc2abfa2, type: 3}
+  - {fileID: 21300000, guid: 862172e378f354d83a216f9a0deadc2a, type: 3}
+  - {fileID: 21300000, guid: 8b02570d680fd4807bcda2a3ec1bb271, type: 3}
+  baseSprite: {fileID: 0}
 --- !u!1 &336400865
 GameObject:
   m_ObjectHideFlags: 0
@@ -2413,6 +2445,7 @@ MonoBehaviour:
   boxPos: {fileID: 0}
   diceCreated: 0
   myNumber: 0
+  clickMe: {fileID: 8300000, guid: af5473809f926409691f97ea573e3d0d, type: 3}
   currentDice: []
 --- !u!61 &672316424
 BoxCollider2D:
@@ -2482,6 +2515,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   diceProfile: {fileID: 11400000, guid: 0486f4651bf5c40f6a00b34b7228c13a, type: 2}
   myFace: 0
+  rollingSprites:
+  - {fileID: 21300000, guid: 005ce8c7d385c4ba0be4eb1b66abd243, type: 3}
+  - {fileID: 21300000, guid: e605e8dd9cef044e8a522e28f81c71b2, type: 3}
+  - {fileID: 21300000, guid: 3ece0abd91a704bf68e1c146e01f5653, type: 3}
+  - {fileID: 21300000, guid: 69291b9caedba4dc8842cf2fb6be1bd0, type: 3}
+  - {fileID: 21300000, guid: a43daed7c096a4038b40dedfff5e8687, type: 3}
+  - {fileID: 21300000, guid: 907e288376a4d4228ab721b87155d36e, type: 3}
+  - {fileID: 21300000, guid: a442292b69a6b46b38e20e53c43643f3, type: 3}
+  - {fileID: 21300000, guid: 11b944d0746574c4898b9f8bdc2d13b9, type: 3}
+  - {fileID: 21300000, guid: d62430684fb0244f08f8f94494e1bd5d, type: 3}
+  - {fileID: 21300000, guid: 0497659426eaf43d89b86d66d3fc3191, type: 3}
+  - {fileID: 21300000, guid: ee1fe48c1a7534ecd945da279dfccff2, type: 3}
+  - {fileID: 21300000, guid: 367d5867911b14e51b7d841b689c3b03, type: 3}
+  - {fileID: 21300000, guid: a460f5e173bab43cda6b809fd5601acc, type: 3}
 --- !u!212 &711908098
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2618,6 +2665,21 @@ MonoBehaviour:
   diceProfile: {fileID: 11400000, guid: fe72824a747b3445098ffbe633b7a801, type: 2}
   myFace: 0
   shouldShow: 0
+  rollingSprites:
+  - {fileID: 21300000, guid: da772f33e9f3e460581f8dadae681fad, type: 3}
+  - {fileID: 21300000, guid: 1757533947e8e47f9b6d9e56812b9b88, type: 3}
+  - {fileID: 21300000, guid: dc0d5b444225d45278045823dd0b4a6f, type: 3}
+  - {fileID: 21300000, guid: 7207160501a4841d8add7a6d4b0e74ee, type: 3}
+  - {fileID: 21300000, guid: 31cb8e862fd0d4870b9af2035080c1bb, type: 3}
+  - {fileID: 21300000, guid: 38a322cd0f4204d4c826b31117470750, type: 3}
+  - {fileID: 21300000, guid: bfba661a20bba490c80ca8ae8c23cf43, type: 3}
+  - {fileID: 21300000, guid: 54964ccd0ce7f411191cf1532a57588e, type: 3}
+  - {fileID: 21300000, guid: bd898472e04ea4fe18c0c17373815a3a, type: 3}
+  - {fileID: 21300000, guid: 2744aa4b684544f43ace3d5958d4a4b4, type: 3}
+  - {fileID: 21300000, guid: c6e6efcfe7d804dc4b3dd95edc2abfa2, type: 3}
+  - {fileID: 21300000, guid: 862172e378f354d83a216f9a0deadc2a, type: 3}
+  - {fileID: 21300000, guid: 8b02570d680fd4807bcda2a3ec1bb271, type: 3}
+  baseSprite: {fileID: 0}
 --- !u!1 &850140332
 GameObject:
   m_ObjectHideFlags: 0
@@ -2630,6 +2692,7 @@ GameObject:
   - component: {fileID: 850140335}
   - component: {fileID: 850140334}
   - component: {fileID: 850140337}
+  - component: {fileID: 850140338}
   m_Layer: 5
   m_Name: CallButton
   m_TagString: Untagged
@@ -2653,7 +2716,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5561875, y: 0}
   m_AnchorMax: {x: 0.5561875, y: 0}
-  m_AnchoredPosition: {x: -6.7446823, y: 113.2554}
+  m_AnchoredPosition: {x: -6.74469, y: 113.2554}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &850140334
@@ -2753,6 +2816,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba416e8d9b79a4696aff3690184680aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  callMe: {fileID: 8300000, guid: 019034a05f1c5470fa753a2a467a7afd, type: 3}
+--- !u!82 &850140338
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 850140332}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &865795323
 GameObject:
   m_ObjectHideFlags: 0
@@ -2762,6 +2921,7 @@ GameObject:
   m_Component:
   - component: {fileID: 865795325}
   - component: {fileID: 865795324}
+  - component: {fileID: 865795326}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -2784,6 +2944,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1684520692}
   myAnim: {fileID: 583341322}
   done: 0
+  typewriter: {fileID: 8300000, guid: 6ad0c87c633d6429b8d310ea243b61be, type: 3}
 --- !u!4 &865795325
 Transform:
   m_ObjectHideFlags: 0
@@ -2797,6 +2958,101 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &865795326
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 865795323}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &903117851
 GameObject:
   m_ObjectHideFlags: 0
@@ -2806,6 +3062,7 @@ GameObject:
   m_Component:
   - component: {fileID: 903117853}
   - component: {fileID: 903117852}
+  - component: {fileID: 903117854}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2831,6 +3088,7 @@ MonoBehaviour:
   canMove: 1
   stunned: 0
   shootTileWhoosh: {fileID: 0}
+  footsteps: []
   myColor: 0
   walls: {fileID: 0}
   upSprites: []
@@ -2840,6 +3098,8 @@ MonoBehaviour:
   spriteCounter: 0
   targetPos: {x: 0, y: 0}
   steppedOn: []
+  blueSprite: {fileID: 0}
+  redSprite: {fileID: 0}
   drawingWires: 0
 --- !u!4 &903117853
 Transform:
@@ -2850,10 +3110,106 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1242304428}
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &903117854
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 903117851}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &928810500
 GameObject:
   m_ObjectHideFlags: 0
@@ -3143,6 +3499,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   diceProfile: {fileID: 11400000, guid: 0486f4651bf5c40f6a00b34b7228c13a, type: 2}
   myFace: 0
+  rollingSprites:
+  - {fileID: 21300000, guid: 005ce8c7d385c4ba0be4eb1b66abd243, type: 3}
+  - {fileID: 21300000, guid: e605e8dd9cef044e8a522e28f81c71b2, type: 3}
+  - {fileID: 21300000, guid: 3ece0abd91a704bf68e1c146e01f5653, type: 3}
+  - {fileID: 21300000, guid: 69291b9caedba4dc8842cf2fb6be1bd0, type: 3}
+  - {fileID: 21300000, guid: a43daed7c096a4038b40dedfff5e8687, type: 3}
+  - {fileID: 21300000, guid: 907e288376a4d4228ab721b87155d36e, type: 3}
+  - {fileID: 21300000, guid: a442292b69a6b46b38e20e53c43643f3, type: 3}
+  - {fileID: 21300000, guid: 11b944d0746574c4898b9f8bdc2d13b9, type: 3}
+  - {fileID: 21300000, guid: d62430684fb0244f08f8f94494e1bd5d, type: 3}
+  - {fileID: 21300000, guid: 0497659426eaf43d89b86d66d3fc3191, type: 3}
+  - {fileID: 21300000, guid: ee1fe48c1a7534ecd945da279dfccff2, type: 3}
+  - {fileID: 21300000, guid: 367d5867911b14e51b7d841b689c3b03, type: 3}
+  - {fileID: 21300000, guid: a460f5e173bab43cda6b809fd5601acc, type: 3}
 --- !u!212 &1071908919
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3199,6 +3569,7 @@ GameObject:
   - component: {fileID: 1152052669}
   - component: {fileID: 1152052671}
   - component: {fileID: 1152052670}
+  - component: {fileID: 1152052672}
   m_Layer: 0
   m_Name: PlayerDice0
   m_TagString: Dice
@@ -3232,6 +3603,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   diceProfile: {fileID: 11400000, guid: 0486f4651bf5c40f6a00b34b7228c13a, type: 2}
   myFace: 0
+  rollingSprites:
+  - {fileID: 21300000, guid: 005ce8c7d385c4ba0be4eb1b66abd243, type: 3}
+  - {fileID: 21300000, guid: e605e8dd9cef044e8a522e28f81c71b2, type: 3}
+  - {fileID: 21300000, guid: 3ece0abd91a704bf68e1c146e01f5653, type: 3}
+  - {fileID: 21300000, guid: 69291b9caedba4dc8842cf2fb6be1bd0, type: 3}
+  - {fileID: 21300000, guid: a43daed7c096a4038b40dedfff5e8687, type: 3}
+  - {fileID: 21300000, guid: 907e288376a4d4228ab721b87155d36e, type: 3}
+  - {fileID: 21300000, guid: a442292b69a6b46b38e20e53c43643f3, type: 3}
+  - {fileID: 21300000, guid: 11b944d0746574c4898b9f8bdc2d13b9, type: 3}
+  - {fileID: 21300000, guid: d62430684fb0244f08f8f94494e1bd5d, type: 3}
+  - {fileID: 21300000, guid: 0497659426eaf43d89b86d66d3fc3191, type: 3}
+  - {fileID: 21300000, guid: ee1fe48c1a7534ecd945da279dfccff2, type: 3}
+  - {fileID: 21300000, guid: 367d5867911b14e51b7d841b689c3b03, type: 3}
+  - {fileID: 21300000, guid: a460f5e173bab43cda6b809fd5601acc, type: 3}
 --- !u!212 &1152052671
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3278,6 +3663,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1152052672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1152052668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb47dc8f422d467aa81339f50286e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oldSprite: {fileID: 21300000, guid: 4c6aa06bd596a48e5a680294aeaff2ae, type: 3}
+  newSprite: {fileID: 21300000, guid: 97d958a4c5a7c4073977a96a1064578f, type: 3}
+  newDice: {fileID: 11400000, guid: fd331c8e0850a4ef8b6bc0a820fc78ad, type: 2}
 --- !u!1 &1181105824
 GameObject:
   m_ObjectHideFlags: 0
@@ -3406,6 +3805,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1193543562}
   - component: {fileID: 1193543563}
+  - component: {fileID: 1193543564}
   m_Layer: 0
   m_Name: DiceGens
   m_TagString: Untagged
@@ -3444,6 +3844,101 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountBid: 0
+--- !u!82 &1193543564
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1193543561}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1211193933
 GameObject:
   m_ObjectHideFlags: 0
@@ -3588,6 +4083,50 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!1 &1242304427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1242304428}
+  - component: {fileID: 1242304429}
+  m_Layer: 0
+  m_Name: PlayerAnimator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1242304428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1242304427}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 903117853}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1242304429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1242304427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be53960c506b64609804f776635b6db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outSprites: []
+  normalForward: {fileID: 0}
+  inAudio: {fileID: 0}
+  outAudio: {fileID: 0}
 --- !u!1 &1259211279
 GameObject:
   m_ObjectHideFlags: 0
@@ -3880,6 +4419,7 @@ MonoBehaviour:
   boxPos: {fileID: 0}
   diceCreated: 0
   myNumber: 0
+  clickMe: {fileID: 8300000, guid: af5473809f926409691f97ea573e3d0d, type: 3}
   currentDice: []
 --- !u!61 &1274262979
 BoxCollider2D:
@@ -4000,6 +4540,7 @@ MonoBehaviour:
   boxPos: {fileID: 0}
   diceCreated: 0
   myNumber: 0
+  clickMe: {fileID: 8300000, guid: af5473809f926409691f97ea573e3d0d, type: 3}
   currentDice: []
 --- !u!61 &1283212605
 BoxCollider2D:
@@ -4120,6 +4661,7 @@ MonoBehaviour:
   boxPos: {fileID: 0}
   diceCreated: 0
   myNumber: 0
+  clickMe: {fileID: 8300000, guid: af5473809f926409691f97ea573e3d0d, type: 3}
   currentDice: []
 --- !u!61 &1289726473
 BoxCollider2D:
@@ -4564,6 +5106,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   diceProfile: {fileID: 11400000, guid: 0486f4651bf5c40f6a00b34b7228c13a, type: 2}
   myFace: 0
+  rollingSprites:
+  - {fileID: 21300000, guid: 005ce8c7d385c4ba0be4eb1b66abd243, type: 3}
+  - {fileID: 21300000, guid: e605e8dd9cef044e8a522e28f81c71b2, type: 3}
+  - {fileID: 21300000, guid: 3ece0abd91a704bf68e1c146e01f5653, type: 3}
+  - {fileID: 21300000, guid: 69291b9caedba4dc8842cf2fb6be1bd0, type: 3}
+  - {fileID: 21300000, guid: a43daed7c096a4038b40dedfff5e8687, type: 3}
+  - {fileID: 21300000, guid: 907e288376a4d4228ab721b87155d36e, type: 3}
+  - {fileID: 21300000, guid: a442292b69a6b46b38e20e53c43643f3, type: 3}
+  - {fileID: 21300000, guid: 11b944d0746574c4898b9f8bdc2d13b9, type: 3}
+  - {fileID: 21300000, guid: d62430684fb0244f08f8f94494e1bd5d, type: 3}
+  - {fileID: 21300000, guid: 0497659426eaf43d89b86d66d3fc3191, type: 3}
+  - {fileID: 21300000, guid: ee1fe48c1a7534ecd945da279dfccff2, type: 3}
+  - {fileID: 21300000, guid: 367d5867911b14e51b7d841b689c3b03, type: 3}
+  - {fileID: 21300000, guid: a460f5e173bab43cda6b809fd5601acc, type: 3}
 --- !u!212 &1501442953
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4704,6 +5260,7 @@ MonoBehaviour:
   boxPos: {fileID: 0}
   diceCreated: 0
   myNumber: 0
+  clickMe: {fileID: 8300000, guid: af5473809f926409691f97ea573e3d0d, type: 3}
   currentDice: []
 --- !u!61 &1513563819
 BoxCollider2D:
@@ -4806,6 +5363,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   diceProfile: {fileID: 11400000, guid: 0486f4651bf5c40f6a00b34b7228c13a, type: 2}
   myFace: 0
+  rollingSprites:
+  - {fileID: 21300000, guid: 005ce8c7d385c4ba0be4eb1b66abd243, type: 3}
+  - {fileID: 21300000, guid: e605e8dd9cef044e8a522e28f81c71b2, type: 3}
+  - {fileID: 21300000, guid: 3ece0abd91a704bf68e1c146e01f5653, type: 3}
+  - {fileID: 21300000, guid: 69291b9caedba4dc8842cf2fb6be1bd0, type: 3}
+  - {fileID: 21300000, guid: a43daed7c096a4038b40dedfff5e8687, type: 3}
+  - {fileID: 21300000, guid: 907e288376a4d4228ab721b87155d36e, type: 3}
+  - {fileID: 21300000, guid: a442292b69a6b46b38e20e53c43643f3, type: 3}
+  - {fileID: 21300000, guid: 11b944d0746574c4898b9f8bdc2d13b9, type: 3}
+  - {fileID: 21300000, guid: d62430684fb0244f08f8f94494e1bd5d, type: 3}
+  - {fileID: 21300000, guid: 0497659426eaf43d89b86d66d3fc3191, type: 3}
+  - {fileID: 21300000, guid: ee1fe48c1a7534ecd945da279dfccff2, type: 3}
+  - {fileID: 21300000, guid: 367d5867911b14e51b7d841b689c3b03, type: 3}
+  - {fileID: 21300000, guid: a460f5e173bab43cda6b809fd5601acc, type: 3}
 --- !u!212 &1536224085
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5380,6 +5951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba416e8d9b79a4696aff3690184680aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  callMe: {fileID: 0}
 --- !u!1 &1701858474
 GameObject:
   m_ObjectHideFlags: 0
@@ -5662,6 +6234,21 @@ MonoBehaviour:
   diceProfile: {fileID: 11400000, guid: fe72824a747b3445098ffbe633b7a801, type: 2}
   myFace: 0
   shouldShow: 0
+  rollingSprites:
+  - {fileID: 21300000, guid: da772f33e9f3e460581f8dadae681fad, type: 3}
+  - {fileID: 21300000, guid: 1757533947e8e47f9b6d9e56812b9b88, type: 3}
+  - {fileID: 21300000, guid: dc0d5b444225d45278045823dd0b4a6f, type: 3}
+  - {fileID: 21300000, guid: 7207160501a4841d8add7a6d4b0e74ee, type: 3}
+  - {fileID: 21300000, guid: 31cb8e862fd0d4870b9af2035080c1bb, type: 3}
+  - {fileID: 21300000, guid: 38a322cd0f4204d4c826b31117470750, type: 3}
+  - {fileID: 21300000, guid: bfba661a20bba490c80ca8ae8c23cf43, type: 3}
+  - {fileID: 21300000, guid: 54964ccd0ce7f411191cf1532a57588e, type: 3}
+  - {fileID: 21300000, guid: bd898472e04ea4fe18c0c17373815a3a, type: 3}
+  - {fileID: 21300000, guid: 2744aa4b684544f43ace3d5958d4a4b4, type: 3}
+  - {fileID: 21300000, guid: c6e6efcfe7d804dc4b3dd95edc2abfa2, type: 3}
+  - {fileID: 21300000, guid: 862172e378f354d83a216f9a0deadc2a, type: 3}
+  - {fileID: 21300000, guid: 8b02570d680fd4807bcda2a3ec1bb271, type: 3}
+  baseSprite: {fileID: 0}
 --- !u!1 &1824063084
 GameObject:
   m_ObjectHideFlags: 0
@@ -5839,6 +6426,17 @@ MonoBehaviour:
   happyEnemy: {fileID: 21300000, guid: 3ff72359c3e0e40dd94e7a6dbe21bf4a, type: 3}
   sadEnemy: {fileID: 21300000, guid: 73b6f43961aa04c7a9aea1b1a1071096, type: 3}
   normalEnemy: {fileID: 21300000, guid: cbf958bad06dc4b6a8f75199f1df817a, type: 3}
+  blinkSprites:
+  - {fileID: 21300000, guid: 84030bed28b2a4551965e3e399a56d05, type: 3}
+  - {fileID: 21300000, guid: 91d611ec7ac7e4e129d01f89996a9a1b, type: 3}
+  - {fileID: 21300000, guid: 960b643a8229a497d8bf356d66d89ce1, type: 3}
+  - {fileID: 21300000, guid: 9d64ec0c0226b4789bb061f27e52ca8a, type: 3}
+  - {fileID: 21300000, guid: 9aa6868ea65bc4b5ab701c1dca801ac7, type: 3}
+  - {fileID: 21300000, guid: 8671b96ae970e41db95c3c93fe6102e5, type: 3}
+  - {fileID: 21300000, guid: f04c10d1ce5294b8a8f9f2e0cf9ffba1, type: 3}
+  - {fileID: 21300000, guid: 069d5df9836254c17bac53038b225640, type: 3}
+  - {fileID: 21300000, guid: 1f99823e627ca4c8cb6af914b7ed7ca4, type: 3}
+  - {fileID: 21300000, guid: db005581143df459d8906e666fa4a78b, type: 3}
   boxPos: {fileID: 0}
   happyReaction: {fileID: 8300000, guid: 13c072a3e15d24a8fba0f6968843cad6, type: 3}
   sadReaction: {fileID: 8300000, guid: 40c03d6013c7948dc862905087bd9b78, type: 3}
@@ -6744,3 +7342,18 @@ MonoBehaviour:
   diceProfile: {fileID: 11400000, guid: fe72824a747b3445098ffbe633b7a801, type: 2}
   myFace: 0
   shouldShow: 0
+  rollingSprites:
+  - {fileID: 21300000, guid: da772f33e9f3e460581f8dadae681fad, type: 3}
+  - {fileID: 21300000, guid: 1757533947e8e47f9b6d9e56812b9b88, type: 3}
+  - {fileID: 21300000, guid: dc0d5b444225d45278045823dd0b4a6f, type: 3}
+  - {fileID: 21300000, guid: 7207160501a4841d8add7a6d4b0e74ee, type: 3}
+  - {fileID: 21300000, guid: 31cb8e862fd0d4870b9af2035080c1bb, type: 3}
+  - {fileID: 21300000, guid: 38a322cd0f4204d4c826b31117470750, type: 3}
+  - {fileID: 21300000, guid: bfba661a20bba490c80ca8ae8c23cf43, type: 3}
+  - {fileID: 21300000, guid: 54964ccd0ce7f411191cf1532a57588e, type: 3}
+  - {fileID: 21300000, guid: bd898472e04ea4fe18c0c17373815a3a, type: 3}
+  - {fileID: 21300000, guid: 2744aa4b684544f43ace3d5958d4a4b4, type: 3}
+  - {fileID: 21300000, guid: c6e6efcfe7d804dc4b3dd95edc2abfa2, type: 3}
+  - {fileID: 21300000, guid: 862172e378f354d83a216f9a0deadc2a, type: 3}
+  - {fileID: 21300000, guid: 8b02570d680fd4807bcda2a3ec1bb271, type: 3}
+  baseSprite: {fileID: 0}

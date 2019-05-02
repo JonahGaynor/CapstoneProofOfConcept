@@ -7,6 +7,7 @@ public class ImportantChoicePlayer : MonoBehaviour {
     public bool animate = false;
     public Vector2 targetPos;
     PlayerMovementScript inUse;
+    public Sprite simonUp;
 
 	// Use this for initialization
 	void Start () {
@@ -39,6 +40,8 @@ public class ImportantChoicePlayer : MonoBehaviour {
                 {
                     animate = false;
                     this.GetComponent<SpriteRenderer>().sprite = inUse.leftSprites[0];
+                    GameObject.Find("Simon").GetComponent<SpriteRenderer>().sprite = simonUp;
+                    StartCoroutine(GameObject.Find("Core").GetComponent<CoreExplode>().Explode());
                 }
             }
 

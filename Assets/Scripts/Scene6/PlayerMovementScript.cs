@@ -57,6 +57,9 @@ public class PlayerMovementScript : MonoBehaviour {
     GameObject[] yellowBoxes;
     GameObject[] greenBoxes;
 
+    public Sprite blueSprite;
+    public Sprite redSprite;
+
     GameObject lastTile;
 
     bool moveToNext = false;
@@ -91,12 +94,20 @@ public class PlayerMovementScript : MonoBehaviour {
     {
         moveUp = true;
         //myAnimator.SetTrigger("MoveUp");
+
         upPos = new Vector2(transform.position.x, transform.position.y + 0.1f);
         targetPos += Vector2.up;
         if (drawingWires && !Physics2D.OverlapPoint(new Vector2 (transform.position.x, transform.position.y + 0.5f)))
         {
-            if (!steppedOn.Contains(new Vector2(targetPos.x, targetPos.y - 0.5f))){
+            if (!steppedOn.Contains(new Vector2(targetPos.x, targetPos.y - 0.5f)))
+            {
                 steppedOn.Add(new Vector2(targetPos.x, targetPos.y - 0.5f));
+                //Debug.Log("add");
+            }
+            else
+            {
+                //Debug.Log("remove");
+                steppedOn.Remove(steppedOn[steppedOn.Count - 1]);
             }
         }
         if (!myAudio.isPlaying)
@@ -120,11 +131,17 @@ public class PlayerMovementScript : MonoBehaviour {
         moveLeft = true;
         leftPos = new Vector2(transform.position.x - 0.1f, transform.position.y);
         targetPos += Vector2.left;
-        if (drawingWires && !Physics2D.OverlapPoint(new Vector2 (transform.position.x - 1, transform.position.y - 0.5f)))
+        if (drawingWires && !Physics2D.OverlapPoint(new Vector2(transform.position.x - 1, transform.position.y - 0.5f)))
         {
             if (!steppedOn.Contains(new Vector2(targetPos.x, targetPos.y - 0.5f)))
             {
                 steppedOn.Add(new Vector2(targetPos.x, targetPos.y - 0.5f));
+                //Debug.Log("add");
+            }
+            else
+            {
+                //Debug.Log("remove");
+                steppedOn.Remove(steppedOn[steppedOn.Count - 1]);
             }
         }
         if (!myAudio.isPlaying)
@@ -132,6 +149,7 @@ public class PlayerMovementScript : MonoBehaviour {
             int rand = Random.Range(0, 5);
             myAudio.PlayOneShot(footsteps[rand], 0.3f);
         }
+
     }
     public void MoveRight()
     {
@@ -153,6 +171,12 @@ public class PlayerMovementScript : MonoBehaviour {
             if (!steppedOn.Contains(new Vector2(targetPos.x, targetPos.y - 0.5f)))
             {
                 steppedOn.Add(new Vector2(targetPos.x, targetPos.y - 0.5f));
+                //Debug.Log("add");
+            }
+            else
+            {
+                //Debug.Log("remove");
+                steppedOn.Remove(steppedOn[steppedOn.Count - 1]);
             }
         }
         if (!myAudio.isPlaying)
@@ -160,6 +184,7 @@ public class PlayerMovementScript : MonoBehaviour {
             int rand = Random.Range(0, 5);
             myAudio.PlayOneShot(footsteps[rand], 0.3f);
         }
+
     }
     public void MoveDown()
     {
@@ -180,6 +205,12 @@ public class PlayerMovementScript : MonoBehaviour {
             if (!steppedOn.Contains(new Vector2(targetPos.x, targetPos.y - 0.5f)))
             {
                 steppedOn.Add(new Vector2(targetPos.x, targetPos.y - 0.5f));
+                //Debug.Log("add");
+            }
+            else
+            {
+                //Debug.Log("remove");
+                steppedOn.Remove(steppedOn[steppedOn.Count - 1]);
             }
         }
         if (!myAudio.isPlaying)
@@ -187,6 +218,7 @@ public class PlayerMovementScript : MonoBehaviour {
             int rand = Random.Range(0, 5);
             myAudio.PlayOneShot(footsteps[rand], 0.3f);
         }
+
     }
 
     // Update is called once per frame
@@ -298,11 +330,40 @@ public class PlayerMovementScript : MonoBehaviour {
                 upPos = new Vector2(transform.position.x, transform.position.y + 0.1f);
 
 
-
                 if (transform.position.y >= targetPos.y){
                     foreach (GameObject tile in normalTiles)
                     {
+                        if (steppedOn.Contains(tile.transform.position))
+                        {
+                            if (myColor == 1)
+                            {
+                                tile.GetComponent<SpriteRenderer>().sprite = blueSprite;
+                            }
+                            else
+                            {
+                                tile.GetComponent<SpriteRenderer>().sprite = redSprite;
+                            }
+                        }
+                    }
+                    foreach (GameObject tile in normalTiles)
+                    {
                         tile.GetComponent<BaseTileScript>().Check();
+                    }
+                    foreach (GameObject u in upTiles)
+                    {
+                        u.GetComponent<BaseTileScript>().Check();
+                    }
+                    foreach (GameObject r in rightTiles)
+                    {
+                        r.GetComponent<BaseTileScript>().Check();
+                    }
+                    foreach (GameObject d in downTiles)
+                    {
+                        d.GetComponent<BaseTileScript>().Check();
+                    }
+                    foreach (GameObject l in leftTiles)
+                    {
+                        l.GetComponent<BaseTileScript>().Check();
                     }
                     transform.position = new Vector3(targetPos.x, targetPos.y, 0);
                     moveUp = false;
@@ -340,6 +401,7 @@ public class PlayerMovementScript : MonoBehaviour {
                                     steppedOn.Add(new Vector2(transform.position.x, transform.position.y - 0.5f));
                                 }
                             }
+
                         }
                     }
                     foreach (GameObject r in redBoxes)
@@ -438,10 +500,40 @@ public class PlayerMovementScript : MonoBehaviour {
 
                 transform.position = leftPos;
                 leftPos = new Vector2(transform.position.x - 0.1f, transform.position.y);
+                foreach (GameObject tile in normalTiles)
+                {
+                    if (steppedOn.Contains(tile.transform.position))
+                    {
+                        if (myColor == 1)
+                        {
+                            tile.GetComponent<SpriteRenderer>().sprite = blueSprite;
+                        }
+                        else
+                        {
+                            tile.GetComponent<SpriteRenderer>().sprite = redSprite;
+                        }
+                    }
+                }
                 if (transform.position.x <= targetPos.x){
                     foreach (GameObject tile in normalTiles)
                     {
                         tile.GetComponent<BaseTileScript>().Check();
+                    }
+                    foreach (GameObject u in upTiles)
+                    {
+                        u.GetComponent<BaseTileScript>().Check();
+                    }
+                    foreach (GameObject r in rightTiles)
+                    {
+                        r.GetComponent<BaseTileScript>().Check();
+                    }
+                    foreach (GameObject d in downTiles)
+                    {
+                        d.GetComponent<BaseTileScript>().Check();
+                    }
+                    foreach (GameObject l in leftTiles)
+                    {
+                        l.GetComponent<BaseTileScript>().Check();
                     }
                     transform.position = new Vector3(targetPos.x, targetPos.y, 0);
                     moveUp = false;
@@ -584,10 +676,41 @@ public class PlayerMovementScript : MonoBehaviour {
 
                 transform.position = rightPos;
                 rightPos = new Vector2(transform.position.x + 0.1f, transform.position.y);
+
+                foreach (GameObject tile in normalTiles)
+                {
+                    if (steppedOn.Contains(tile.transform.position))
+                    {
+                        if (myColor == 1)
+                        {
+                            tile.GetComponent<SpriteRenderer>().sprite = blueSprite;
+                        }
+                        else
+                        {
+                            tile.GetComponent<SpriteRenderer>().sprite = redSprite;
+                        }
+                    }
+                }
                 if (transform.position.x >= targetPos.x){
                     foreach (GameObject tile in normalTiles)
                     {
                         tile.GetComponent<BaseTileScript>().Check();
+                    }
+                    foreach (GameObject u in upTiles)
+                    {
+                        u.GetComponent<BaseTileScript>().Check();
+                    }
+                    foreach (GameObject r in rightTiles)
+                    {
+                        r.GetComponent<BaseTileScript>().Check();
+                    }
+                    foreach (GameObject d in downTiles)
+                    {
+                        d.GetComponent<BaseTileScript>().Check();
+                    }
+                    foreach (GameObject l in leftTiles)
+                    {
+                        l.GetComponent<BaseTileScript>().Check();
                     }
                     transform.position = new Vector3(targetPos.x, targetPos.y, 0);
                     moveUp = false;
@@ -719,10 +842,40 @@ public class PlayerMovementScript : MonoBehaviour {
                 //Debug.Log(targetPos);
                 transform.position = downPos;
                 downPos = new Vector2(transform.position.x, transform.position.y - 0.1f);
+                foreach (GameObject tile in normalTiles)
+                {
+                    if (steppedOn.Contains(tile.transform.position))
+                    {
+                        if (myColor == 1)
+                        {
+                            tile.GetComponent<SpriteRenderer>().sprite = blueSprite;
+                        }
+                        else
+                        {
+                            tile.GetComponent<SpriteRenderer>().sprite = redSprite;
+                        }
+                    }
+                }
                 if (transform.position.y <= targetPos.y){
                     foreach (GameObject tile in normalTiles)
                     {
                         tile.GetComponent<BaseTileScript>().Check();
+                    }
+                    foreach (GameObject u in upTiles)
+                    {
+                        u.GetComponent<BaseTileScript>().Check();
+                    }
+                    foreach (GameObject r in rightTiles)
+                    {
+                        r.GetComponent<BaseTileScript>().Check();
+                    }
+                    foreach (GameObject d in downTiles)
+                    {
+                        d.GetComponent<BaseTileScript>().Check();
+                    }
+                    foreach (GameObject l in leftTiles)
+                    {
+                        l.GetComponent<BaseTileScript>().Check();
                     }
                     transform.position = new Vector3(targetPos.x, targetPos.y, 0);
                     moveUp = false;

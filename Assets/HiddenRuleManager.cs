@@ -41,7 +41,7 @@ public class HiddenRuleManager : MonoBehaviour {
         if (myPath.Count >= myNumb)
         {
             GameObject.Find("ScoreboardNumber").GetComponent<Image>().enabled = true;
-            GameObject.Find("ScoreboardBase").GetComponent<Image>().enabled = true;
+            //GameObject.Find("ScoreboardBase").GetComponent<Image>().enabled = true;
             GameObject.Find("ScoreboardNumberBase").GetComponent<Image>().enabled = true;
             lastMove = step;
             if (step == myPath[myNumb])
@@ -78,6 +78,7 @@ public class HiddenRuleManager : MonoBehaviour {
         myAudio.PlayOneShot(resetAudio);
         myNumb = 0;
         GameObject.Find("ScoreboardReset").GetComponent<Image>().enabled = true;
+        GameObject.Find("ScoreboardBase").GetComponent<Image>().enabled = true;
         ShootPlayer();
     }
 

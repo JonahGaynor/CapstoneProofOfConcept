@@ -29,7 +29,7 @@ public class EndTileScript : MonoBehaviour {
         }
     }
 
-    IEnumerator PauseToChangeLevel() {
+    public IEnumerator PauseToChangeLevel() {
         GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().enemyHit = myEnemy;
         GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().EnterBattle();
         yield return new WaitForSeconds(1f);

@@ -11,6 +11,7 @@ public class BidButtonScript : MonoBehaviour {
     int tempNumb;
 
     public AudioClip wrong;
+    public AudioClip illAllowIt;
     AudioSource myAudio;
 
 	// Use this for initialization
@@ -101,6 +102,8 @@ public class BidButtonScript : MonoBehaviour {
     }
 
     IEnumerator Pause(){
+        myAudio.Stop();
+        myAudio.PlayOneShot(illAllowIt);
         Debug.Log("THIS SHOULD WORK");
         GameObject.Find ("teacup").GetComponent<TeaCupScript>().myNumber = 0;
         GameObject.Find ("BattleManager").GetComponent<BattleManager>().myTurn = false;

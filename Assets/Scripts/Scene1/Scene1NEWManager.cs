@@ -14,14 +14,22 @@ public class Scene1NEWManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Cursor.visible = false;
         this.GetComponent<SpriteRenderer>().sprite = mySprites[0];
         myAudio = this.GetComponent<AudioSource>();
         StartCoroutine(TheBigOne());
 	}
 
+    void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Return))
+        {
+            StartCoroutine(PhaseOut());
+        }
+    }
 
     IEnumerator TheBigOne (){
-        yield return new WaitForSeconds (1f);
+        yield return new WaitForSeconds(1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[1];
         yield return new WaitForSeconds(1f);
         this.GetComponent<SpriteRenderer>().sprite = mySprites[2];
@@ -71,6 +79,13 @@ public class Scene1NEWManager : MonoBehaviour {
         GameObject.Find("TitleCard").GetComponent<SpriteRenderer>().enabled = true;
         GameObject.Find("TitleCard").GetComponent<AudioSource>().PlayOneShot(titleBoom);
         yield return new WaitForSeconds(2f);
+        GameObject.Find("TitleCard").GetComponent<SpriteRenderer>().sprite = mySprites[23];
+        GameObject.Find("TitleCard").transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+        //this.GetComponent<SpriteRenderer>().sprite = mySprites[22];
+    }
+
+    IEnumerator PhaseOut()
+    {
         this.GetComponent<SpriteRenderer>().sprite = mySprites[22];
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene("ProofofConcept_Scene2");

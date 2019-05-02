@@ -1,60 +1,71 @@
 ﻿<Properties StartupConfiguration="{2A4404BB-6BE6-6815-107E-F87E7093CAF3}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BattleScene/BidButtonScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/CoreExplode.cs">
     <Files>
       <File FileName="Assets/Scripts/BattleScene/TeaCupScript.cs" Line="78" Column="26" />
       <File FileName="Assets/Scripts/BattleScene/CurrentBidSlotScript.cs" Line="40" Column="22" />
-      <File FileName="Assets/Scripts/Scene1/Scene1NEWManager.cs" Line="45" Column="24" />
-      <File FileName="Assets/Scripts/BattleScene/GrabNPlaceScript.cs" Line="116" Column="1" />
-      <File FileName="Assets/Scripts/BattleScene/BidButtonScript.cs" Line="92" Column="48" />
-      <File FileName="Assets/Scripts/BattleScene/BaseAiEnemy.cs" Line="46" Column="1" />
+      <File FileName="Assets/Scripts/Scene1/Scene1NEWManager.cs" Line="83" Column="85" />
+      <File FileName="Assets/Scripts/BattleScene/GrabNPlaceScript.cs" Line="122" Column="42" />
+      <File FileName="Assets/Scripts/BattleScene/BidButtonScript.cs" Line="106" Column="41" />
+      <File FileName="Assets/Scripts/BattleScene/BaseAiEnemy.cs" Line="4600" Column="28" />
       <File FileName="Assets/Scripts/Scene3/MayaIDCardScript.cs" Line="47" Column="43" />
       <File FileName="Assets/Scene3WallaceHandScript.cs" Line="17" Column="107" />
       <File FileName="Assets/Scene42Button.cs" Line="23" Column="79" />
-      <File FileName="Assets/DoorSprites.cs" Line="33" Column="25" />
+      <File FileName="Assets/DoorSprites.cs" Line="50" Column="33" />
       <File FileName="Assets/RPGCamera.cs" Line="17" Column="46" />
       <File FileName="Assets/RPGBackground.cs" Line="12" Column="127" />
       <File FileName="Assets/Scripts/BattleScene/CurrentBidText.cs" Line="15" Column="1" />
       <File FileName="Assets/SpeechBubbleScript.cs" Line="17" Column="61" />
-      <File FileName="Assets/EndTileScript.cs" Line="33" Column="1" />
+      <File FileName="Assets/EndTileScript.cs" Line="32" Column="12" />
       <File FileName="Assets/SparkScript.cs" Line="23" Column="12" />
-      <File FileName="Assets/Scripts/BattleScene/CallButtonScript.cs" Line="17" Column="10" />
+      <File FileName="Assets/Scripts/BattleScene/CallButtonScript.cs" Line="22" Column="41" />
       <File FileName="Assets/Dialogue.cs" Line="4" Column="22" />
       <File FileName="Assets/Scripts/BattleScene/BattleManager_v3.cs" Line="32" Column="20" />
-      <File FileName="Assets/DialogueTrigger.cs" Line="10" Column="6" />
+      <File FileName="Assets/DialogueTrigger.cs" Line="11" Column="41" />
       <File FileName="Assets/DialogueContinue.cs" Line="20" Column="1" />
       <File FileName="Assets/Scripts/BattleScene/RollForPlay.cs" Line="232" Column="25" />
-      <File FileName="Assets/Scene5Manager.cs" Line="26" Column="25" />
-      <File FileName="Assets/DialogueStart.cs" Line="16" Column="2" />
+      <File FileName="Assets/Scene5Manager.cs" Line="14" Column="32" />
+      <File FileName="Assets/DialogueStart.cs" Line="13" Column="20" />
       <File FileName="Assets/Scene6DialogueTrigger.cs" Line="22" Column="1" />
-      <File FileName="Assets/ImportantChoiceBattleButton.cs" Line="13" Column="9" />
-      <File FileName="Assets/Scripts/Scene6/PlayerMovementScript.cs" Line="271" Column="20" />
-      <File FileName="Assets/ImportantChoicePlayer.cs" Line="41" Column="87" />
+      <File FileName="Assets/ImportantChoiceBattleButton.cs" Line="26" Column="103" />
+      <File FileName="Assets/Scripts/Scene6/PlayerMovementScript.cs" Line="98" Column="14" />
+      <File FileName="Assets/ImportantChoicePlayer.cs" Line="44" Column="99" />
       <File FileName="Assets/ImportantChoiceJoinButton.cs" Line="24" Column="39" />
-      <File FileName="Assets/BaseTileScript.cs" Line="55" Column="23" />
+      <File FileName="Assets/BaseTileScript.cs" Line="44" Column="12" />
       <File FileName="Assets/MouseScript.cs" Line="13" Column="72" />
-      <File FileName="Assets/SceneTransitionScript.cs" Line="203" Column="10" />
+      <File FileName="Assets/SceneTransitionScript.cs" Line="216" Column="61" />
       <File FileName="Assets/TransitionDiceScript.cs" Line="6" Column="1" />
       <File FileName="Assets/SceneTransitionDice.cs" Line="13" Column="1" />
       <File FileName="Assets/ScreenBorders.cs" Line="13" Column="80" />
-      <File FileName="Assets/Scripts/BattleScene/BattleManager.cs" Line="42" Column="34" />
-      <File FileName="Assets/ScoreboardNumberScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BattleScene/BattleManager.cs" Line="50" Column="24" />
+      <File FileName="Assets/ScoreboardNumberScript.cs" Line="105" Column="30" />
       <File FileName="Assets/Scene3Petty.cs" Line="44" Column="71" />
       <File FileName="Assets/Scene2ElevatorScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/BattleScene/BaseDiceScript.cs" Line="31" Column="1" />
-      <File FileName="Assets/Scripts/Scene6/PlayerStatsTracker.cs" Line="13" Column="34" />
+      <File FileName="Assets/Scripts/BattleScene/BaseDiceScript.cs" Line="37" Column="1" />
+      <File FileName="Assets/Scripts/Scene6/PlayerStatsTracker.cs" Line="44" Column="1" />
       <File FileName="Assets/TeleportScript.cs" Line="1" Column="1" />
       <File FileName="Assets/CheckSparkScript.cs" Line="20" Column="34" />
-      <File FileName="Assets/TutorialManager.cs" Line="70" Column="40" />
+      <File FileName="Assets/TutorialManager.cs" Line="36" Column="31" />
       <File FileName="Assets/Scripts/Scene4/Scene4TextScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/DialogueManager.cs" Line="26" Column="1" />
+      <File FileName="Assets/DialogueManager.cs" Line="33" Column="22" />
       <File FileName="Assets/Scripts/Scene4/Scene4BidButtonScript.cs" Line="44" Column="1" />
       <File FileName="Assets/TutorialBidButton.cs" Line="36" Column="50" />
       <File FileName="Assets/Scripts/BattleScene/DiceGensScript.cs" Line="15" Column="20" />
       <File FileName="Assets/Scripts/Scene4/Scene4Pulse.cs" Line="40" Column="1" />
       <File FileName="Assets/Scene4SecondPulse.cs" Line="45" Column="73" />
-      <File FileName="Assets/PlayerOutAnimation.cs" Line="26" Column="38" />
-      <File FileName="Assets/HiddenRuleManager.cs" Line="78" Column="41" />
-      <File FileName="Assets/BattleScenePackage.cs" Line="12" Column="29" />
+      <File FileName="Assets/PlayerOutAnimation.cs" Line="59" Column="65" />
+      <File FileName="Assets/HiddenRuleManager.cs" Line="81" Column="9" />
+      <File FileName="Assets/BattleScenePackage.cs" Line="13" Column="34" />
+      <File FileName="Assets/WireBoxScript.cs" Line="100" Column="1" />
+      <File FileName="Assets/GlitchDiceScript.cs" Line="21" Column="47" />
+      <File FileName="Assets/ResetButton.cs" Line="150" Column="90" />
+      <File FileName="Assets/SilhouettesScript.cs" Line="8" Column="20" />
+      <File FileName="Assets/Scripts/BattleScene/EnemyDiceScript.cs" Line="39" Column="49" />
+      <File FileName="Assets/CreditsScript.cs" Line="30" Column="10" />
+      <File FileName="Assets/GlitchTileScript.cs" Line="51" Column="32" />
+      <File FileName="Assets/PhysicsDiceSound.cs" Line="7" Column="22" />
+      <File FileName="Assets/CoreExplode.cs" Line="28" Column="11" />
+      <File FileName="Assets/FightMeFinalSceneManager.cs" Line="4" Column="35" />
+      <File FileName="Assets/PickupDialogueTrigger.cs" Line="40" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

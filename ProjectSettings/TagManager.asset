@@ -33,6 +33,7 @@ TagManager:
   - AgentThree
   - AgentFour
   - Simon
+  - WhiteOut
   layers:
   - Default
   - TransparentFX

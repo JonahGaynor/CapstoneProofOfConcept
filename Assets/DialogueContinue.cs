@@ -9,7 +9,7 @@ public class DialogueContinue : MonoBehaviour {
     public Sprite upSprite;
     GameObject TextBox;
 
-    void Start()
+    void Awake()
     {
         TextBox = GameObject.FindGameObjectWithTag("TextBox");
     }

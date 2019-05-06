@@ -540,7 +540,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 569049906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c1ce3cb9ec714d6f9c89a401531f782, type: 3}
+  m_Script: {fileID: 11500000, guid: 92bf3c957e7934e579e655e3c78cffca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &593379888
@@ -2332,10 +2332,10 @@ RectTransform:
   m_Father: {fileID: 7399419}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -110, y: -255}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0.17262502, y: 0}
+  m_AnchorMax: {x: 0.64825004, y: 0.29044655}
+  m_AnchoredPosition: {x: 4.5, y: 0.5}
+  m_SizeDelta: {x: -509, y: -109}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1721033781
 Animator:
@@ -2433,6 +2433,8 @@ MonoBehaviour:
   spriteCounter: 0
   targetPos: {x: 0, y: 0}
   steppedOn: []
+  blueSprite: {fileID: 0}
+  redSprite: {fileID: 0}
   drawingWires: 0
 --- !u!4 &2125947669
 Transform:

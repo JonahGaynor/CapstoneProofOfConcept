@@ -11,12 +11,17 @@ public class HiddenRuleManager : MonoBehaviour {
     public int myNumb;
     public int lastMove;
 
+    bool done = false;
+
     static int _playerDir;
 
     public AudioClip resetAudio;
     AudioSource myAudio;
 
     public Sprite[] teleportSprites;
+
+    GameObject[] tiles;
+    //public Sprite tileSprite;
 
     GameObject player;
 
@@ -25,6 +30,7 @@ public class HiddenRuleManager : MonoBehaviour {
         _instance = this;
         player = GameObject.Find("Player");
         myAudio = GetComponent<AudioSource>();
+        tiles = GameObject.FindGameObjectsWithTag("BaseTile");
     }
 
     public static int playerDir
@@ -38,7 +44,7 @@ public class HiddenRuleManager : MonoBehaviour {
 
     public void Check(int step)
     {
-        if (myPath.Count >= myNumb)
+        if (myPath.Count >= myNumb && !done)
         {
             GameObject.Find("ScoreboardNumber").GetComponent<Image>().enabled = true;
             //GameObject.Find("ScoreboardBase").GetComponent<Image>().enabled = true;
@@ -70,6 +76,7 @@ public class HiddenRuleManager : MonoBehaviour {
         GameObject.Find("ScoreboardNumberBase").SetActive(false);
         GameObject.Find("ScoreboardBase").SetActive(false);
         GameObject.Find("ScoreboardReset").SetActive(false);
+        done = true;
     }
 
     void Reset()
@@ -104,6 +111,10 @@ public class HiddenRuleManager : MonoBehaviour {
         player.GetComponent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(0.2f);
         player.transform.position = new Vector2(-1, -0.5f);
+        foreach (GameObject tile in tiles)
+        {
+            tile.GetComponent<BaseTileScript>().Check();
+        }
         player.GetComponent<PlayerMovementScript>().targetPos = player.transform.position;
         yield return new WaitForSeconds(0.1f);
         player.GetComponent<SpriteRenderer>().enabled = true;

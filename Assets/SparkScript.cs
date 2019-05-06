@@ -102,10 +102,18 @@ public class SparkScript : MonoBehaviour {
         }
 
     }
+    IEnumerator FadeMusic()
+    {
+        for (int i = 0; i < 8; i++)
+        {
+            GameObject.Find("MusicPlayer").GetComponent<AudioSource>().volume -= 0.02f;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
 
     public IEnumerator SparkMe() {
         //Debug.Log("Sparking now");
-
+        StartCoroutine(FadeMusic());
         this.GetComponent<SpriteRenderer>().enabled = true;
         moveDown = true;
         yield return new WaitUntil(haveMovedDown);
@@ -119,9 +127,10 @@ public class SparkScript : MonoBehaviour {
         if (diceToSpark < 1)
         {
             enemiesDefeated++;
-            yield return new WaitForSeconds(1f);
-            //GameObject borders = GameObject.FindGameObjectWithTag("ScreenBorders");
-            //StartCoroutine(borders.GetComponent<SceneTransitionScript>().FadeToBlack());
+            //yield return new WaitForSeconds(1f);
+            GameObject borders = GameObject.Find("DiceMaker");
+            Debug.Log(borders);
+            StartCoroutine(borders.GetComponent<SceneTransitionScript>().FadeToBlack());
             finishedSparking = true;
             //if (enemiesDefeated == 1)
             //{

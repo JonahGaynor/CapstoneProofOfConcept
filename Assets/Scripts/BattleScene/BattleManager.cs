@@ -17,6 +17,8 @@ public class BattleManager : MonoBehaviour {
     bool playerLose = false;
     public int turnCount = 0;
 
+    public string lastScene;
+
     int enemyType;
 
     public Dialogue happyDialogue;
@@ -43,11 +45,15 @@ public class BattleManager : MonoBehaviour {
 
     public Transform boxPos;
 
-    bool glitchMe = false;
+    public bool glitchMe = false;
 
     public AudioClip happyReaction;
     public AudioClip sadReaction;
     AudioSource myAudio;
+    public AudioClip bidNoise;
+    public AudioClip callNoise;
+    AudioSource callAudio;
+    AudioSource bidAudio;
 
     public void BeginBattlePlz()
     {
@@ -59,10 +65,11 @@ public class BattleManager : MonoBehaviour {
         //TODO: THESE ARE NOT NECESARILY TRUE // figure out how to get that info
         myDice = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().myDice;
         enemyDice = 5;
+        callAudio = GameObject.Find("CallButton").GetComponent<AudioSource>();
+        bidAudio = GameObject.Find("BidButton").GetComponent<AudioSource>();
 
         battleDice = GameObject.FindGameObjectsWithTag("Dice");
         enemyBattleDice = GameObject.FindGameObjectsWithTag("EnemyDice");
-
 
         //TODO: This naming sucks
         boxPos = GameObject.Find("teacup").GetComponent<Transform>();
@@ -72,136 +79,171 @@ public class BattleManager : MonoBehaviour {
         Debug.Log(GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().enemyNumber);
 
         enemyType = GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().enemyNumber;
+        GameObject statsTracker = GameObject.Find("StatsTracker");
+        lastScene = statsTracker.GetComponent<PlayerStatsTracker>().sceneName;
         if (enemyType == 1)
         {
+            Debug.Log("we are enemytype 1");
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 0;
-            normalEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai1.enemySprites[0];
-            happyEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai1.enemySprites[1];
-            sadEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai1.enemySprites[2];
-            blinkSprites = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai1.blinkSprites;
+            normalEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.enemySprites[0];
+            happyEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.enemySprites[1];
+            sadEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.enemySprites[2];
+            blinkSprites = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.blinkSprites;
+            happyDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.happyText;
+            sadDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.sadText;
         }
         else if (enemyType == 2)
         {
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 1;
-            normalEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai2.enemySprites[0];
-            happyEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai2.enemySprites[1];
-            sadEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai2.enemySprites[2];
-            blinkSprites = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai2.blinkSprites;
+            normalEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.enemySprites[0];
+            happyEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.enemySprites[1];
+            sadEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.enemySprites[2];
+            blinkSprites = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.blinkSprites;
+            happyDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.happyText;
+            sadDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.sadText;
         }
         else if (enemyType == 3)
         {
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 2;
-            normalEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai3.enemySprites[0];
-            happyEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai3.enemySprites[1];
-            sadEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai3.enemySprites[2];
-            blinkSprites = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai3.blinkSprites;
+            normalEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.enemySprites[0];
+            happyEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.enemySprites[1];
+            sadEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.enemySprites[2];
+            blinkSprites = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.blinkSprites;
+            happyDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.happyText;
+            sadDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.sadText;
         }
         else if (enemyType == 4)
         {
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 3;
-            normalEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Julia.enemySprites[0];
-            happyEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Julia.enemySprites[1];
-            sadEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Julia.enemySprites[2];
-            blinkSprites = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Julia.blinkSprites;
+            normalEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Julia.enemySprites[0];
+            happyEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Julia.enemySprites[1];
+            sadEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Julia.enemySprites[2];
+            blinkSprites = statsTracker.GetComponent<PlayerStatsTracker>().Julia.blinkSprites;
+            happyDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Julia.happyText;
+            sadDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Julia.sadText;
         }
         else if (enemyType == 5)
         {
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 4;
-            normalEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai1.enemySprites[0];
-            happyEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai1.enemySprites[1];
-            sadEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai1.enemySprites[2];
-            blinkSprites = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai1.blinkSprites;
+            normalEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.enemySprites[0];
+            happyEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.enemySprites[1];
+            sadEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.enemySprites[2];
+            blinkSprites = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.blinkSprites;
+            happyDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.happyText;
+            sadDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.sadText;
         }
         else if (enemyType == 6)
         {
             glitchMe = true;
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 5;
-            normalEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai2.enemySprites[0];
-            happyEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai2.enemySprites[1];
-            sadEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai2.enemySprites[2];
-            blinkSprites = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai2.blinkSprites;
+            normalEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.enemySprites[0];
+            happyEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.enemySprites[1];
+            sadEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.enemySprites[2];
+            blinkSprites = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.blinkSprites;
+            happyDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.happyText;
+            sadDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.sadText;
         }
         else if (enemyType == 7)
         {
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 6;
-            normalEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai3.enemySprites[0];
-            happyEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai3.enemySprites[1];
-            sadEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai3.enemySprites[2];
-            blinkSprites = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai3.blinkSprites;
+            normalEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.enemySprites[0];
+            happyEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.enemySprites[1];
+            sadEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.enemySprites[2];
+            blinkSprites = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.blinkSprites;
+            happyDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.happyText;
+            sadDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.sadText;
         }
         else if (enemyType == 8)
         {
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 7;
-            normalEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Jacob.enemySprites[0];
-            happyEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Jacob.enemySprites[1];
-            sadEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Jacob.enemySprites[2];
-            blinkSprites = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Jacob.blinkSprites;
+            normalEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Jacob.enemySprites[0];
+            happyEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Jacob.enemySprites[1];
+            sadEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Jacob.enemySprites[2];
+            blinkSprites = statsTracker.GetComponent<PlayerStatsTracker>().Jacob.blinkSprites;
+            happyDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Jacob.happyText;
+            sadDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Jacob.sadText;
         }
         else if (enemyType == 9)
         {
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 8;
-            normalEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai1.enemySprites[0];
-            happyEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai1.enemySprites[1];
-            sadEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai1.enemySprites[2];
-            blinkSprites = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai1.blinkSprites;
+            normalEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.enemySprites[0];
+            happyEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.enemySprites[1];
+            sadEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.enemySprites[2];
+            blinkSprites = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.blinkSprites;
+            happyDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.happyText;
+            sadDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.sadText;
         }
         else if (enemyType == 10)
         {
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 9;
-            normalEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai2.enemySprites[0];
-            happyEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai2.enemySprites[1];
-            sadEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai2.enemySprites[2];
-            blinkSprites = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai2.blinkSprites;
+            normalEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.enemySprites[0];
+            happyEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.enemySprites[1];
+            sadEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.enemySprites[2];
+            blinkSprites = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.blinkSprites;
+            happyDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.happyText;
+            sadDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.sadText;
         }
         else if (enemyType == 11)
         {
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 10;
-            normalEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai3.enemySprites[0];
-            happyEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai3.enemySprites[1];
-            sadEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai3.enemySprites[2];
-            blinkSprites = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai3.blinkSprites;
+            normalEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.enemySprites[0];
+            happyEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.enemySprites[1];
+            sadEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.enemySprites[2];
+            blinkSprites = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.blinkSprites;
+            happyDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.happyText;
+            sadDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.sadText;
         }
         else if (enemyType == 12)
         {
             glitchMe = true;
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 11;
-            normalEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Amelia.enemySprites[0];
-            happyEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Amelia.enemySprites[1];
-            sadEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Amelia.enemySprites[2];
-            blinkSprites = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Amelia.blinkSprites;
+            normalEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Amelia.enemySprites[0];
+            happyEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Amelia.enemySprites[1];
+            sadEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Amelia.enemySprites[2];
+            blinkSprites = statsTracker.GetComponent<PlayerStatsTracker>().Amelia.blinkSprites;
+            happyDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Amelia.happyText;
+            sadDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Amelia.sadText;
         }
         else if (enemyType == 13)
         {
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 12;
-            normalEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai1.enemySprites[0];
-            happyEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai1.enemySprites[1];
-            sadEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai1.enemySprites[2];
-            blinkSprites = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai1.blinkSprites;
+            normalEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.enemySprites[0];
+            happyEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.enemySprites[1];
+            sadEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.enemySprites[2];
+            blinkSprites = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.blinkSprites;
+            happyDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.happyText;
+            sadDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.sadText;
         }
         else if (enemyType == 14)
         {
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 13;
-            normalEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai2.enemySprites[0];
-            happyEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai2.enemySprites[1];
-            sadEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai2.enemySprites[2];
-            blinkSprites = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai2.blinkSprites;
+            normalEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.enemySprites[0];
+            happyEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.enemySprites[1];
+            sadEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.enemySprites[2];
+            blinkSprites = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.blinkSprites;
+            happyDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.happyText;
+            sadDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.sadText;
         }
         else if (enemyType == 15)
         {
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 14;
-            normalEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai3.enemySprites[0];
-            happyEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai3.enemySprites[1];
-            sadEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai3.enemySprites[2];
-            blinkSprites = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Ai3.blinkSprites;
+            normalEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.enemySprites[0];
+            happyEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.enemySprites[1];
+            sadEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.enemySprites[2];
+            blinkSprites = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.blinkSprites;
+            happyDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.happyText;
+            sadDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.sadText;
         }
         else if (enemyType == 16)
         {
             glitchMe = true;
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 15;
-            normalEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Simon.enemySprites[0];
-            happyEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Simon.enemySprites[1];
-            sadEnemy = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Simon.enemySprites[2];
-            blinkSprites = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().Simon.blinkSprites;
+            normalEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Simon.enemySprites[0];
+            happyEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Simon.enemySprites[1];
+            sadEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Simon.enemySprites[2];
+            blinkSprites = statsTracker.GetComponent<PlayerStatsTracker>().Simon.blinkSprites;
+            happyDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Simon.happyText;
+            sadDialogue = statsTracker.GetComponent<PlayerStatsTracker>().Simon.sadText;
         }
 
         //GameObject.Find("enemyPortrait").GetComponent<SpriteRenderer>().sprite = GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().enemySprites[enemyType];
@@ -296,6 +338,54 @@ public class BattleManager : MonoBehaviour {
         {
             GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().TurnJulia();
         }
+        else if (enemyType == 5)
+        {
+            GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().TurnAi4();
+        }
+        else if (enemyType == 6)
+        {
+            GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().TurnAi5();
+        }
+        else if (enemyType == 7)
+        {
+            GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().TurnAi6();
+        }
+        else if (enemyType == 8)
+        {
+            GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().TurnJacob();
+        }
+        else if (enemyType == 9)
+        {
+            GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().TurnAi7();
+        }
+        else if (enemyType == 10)
+        {
+            GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().TurnAi8();
+        }
+        else if (enemyType == 11)
+        {
+            GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().TurnAi9();
+        }
+        else if (enemyType == 12)
+        {
+            GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().TurnAmelia();
+        }
+        else if (enemyType == 13)
+        {
+            GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().TurnAi10();
+        }
+        else if (enemyType == 14)
+        {
+            GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().TurnAi11();
+        }
+        else if (enemyType == 15)
+        {
+            GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().TurnAi12();
+        }
+        else if (enemyType == 16)
+        {
+            GameObject.Find("Enemy").GetComponent<BaseAiEnemy>().TurnSimon();
+        }
         //myTurn = true;
         //StartCoroutine(DestroyOpponentFirstBid());
     }
@@ -372,6 +462,8 @@ public class BattleManager : MonoBehaviour {
     }
 
     public void EnemyCall () {
+        callAudio.PlayOneShot(callNoise);
+
         foreach (GameObject e in enemyBattleDice) {
             e.GetComponent<EnemyDiceScript>().shouldShow = true;
         }
@@ -398,7 +490,7 @@ public class BattleManager : MonoBehaviour {
     }
 
     public void EnemyBid (int amount, int number) {
-
+        bidAudio.PlayOneShot(bidNoise);
         //TODO: This work should be done in enemy script
         if (number > 6){
             number = 1;
@@ -525,7 +617,10 @@ public class BattleManager : MonoBehaviour {
     }
 
     void GameOver () {
-        GameObject.Find("StatTracker").GetComponent<PlayerStatsTracker>().myDice = myDice;
+        //GameObject.Find("StatTracker").GetComponent<PlayerStatsTracker>().myDice = myDice;
+        GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().weLost = true;
+        GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().lastScene = lastScene;
+        StartCoroutine(GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().FadeToBlack());
     }
 
     void EnemyGameOver () {

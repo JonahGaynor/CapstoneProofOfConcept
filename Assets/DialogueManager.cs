@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour {
 
@@ -50,8 +51,8 @@ public class DialogueManager : MonoBehaviour {
 
     public void NextSentence()
     {
-
-        if (!finishedSentence)
+        GameObject.Find("Player").GetComponent<PlayerMovementScript>().canMove = false;
+        if (!finishedSentence && (SceneManager.GetActiveScene().name != "Production_Scene4New" && SceneManager.GetActiveScene().name != "ProofofConcept_Scene3" && SceneManager.GetActiveScene().name != "ProofofConcept_Scene5"))
         {
             StopAllCoroutines();
             dialogueText.text = holdSentence;

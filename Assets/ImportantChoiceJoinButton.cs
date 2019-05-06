@@ -10,12 +10,8 @@ public class ImportantChoiceJoinButton : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         myAnim = GetComponentInParent<Animator>();
+        Debug.Log(myAnim);
         player = GameObject.Find("Player");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
     public void OnClick()
@@ -26,15 +22,15 @@ public class ImportantChoiceJoinButton : MonoBehaviour {
 
     IEnumerator PauseToMove()
     {
-        GameObject.Find("MusicPlayer").GetComponent<AudioSource>().volume -= 0.01f;
+        GameObject.Find("AudioManager").GetComponent<AudioSource>().volume -= 0.02f;
         yield return new WaitForSeconds(.1f);
-        GameObject.Find("MusicPlayer").GetComponent<AudioSource>().volume -= 0.01f;
+        GameObject.Find("AudioManager").GetComponent<AudioSource>().volume -= 0.02f;
         yield return new WaitForSeconds(.1f);
-        GameObject.Find("MusicPlayer").GetComponent<AudioSource>().volume -= 0.01f;
+        GameObject.Find("AudioManager").GetComponent<AudioSource>().volume -= 0.02f;
         yield return new WaitForSeconds(.1f);
-        GameObject.Find("MusicPlayer").GetComponent<AudioSource>().volume -= 0.01f;
+        GameObject.Find("AudioManager").GetComponent<AudioSource>().volume -= 0.02f;
         yield return new WaitForSeconds(.1f);
-        GameObject.Find("MusicPlayer").GetComponent<AudioSource>().volume -= 0.01f;
+        GameObject.Find("AudioManager").GetComponent<AudioSource>().volume -= 0.02f;
         yield return new WaitForSeconds(1.1f);
         player.GetComponent<ImportantChoicePlayer>().animate = true;
 

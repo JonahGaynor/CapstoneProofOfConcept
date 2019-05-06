@@ -15,6 +15,8 @@ public class PlayerOutAnimation : MonoBehaviour {
 
     GameObject[] tiles;
 
+    public bool ShouldAnimate = true;
+
 	// Use this for initialization
 	void Start () {
         //StartCoroutine(GetIn());
@@ -23,33 +25,38 @@ public class PlayerOutAnimation : MonoBehaviour {
 	
     public IEnumerator GetIn()
     {
-        this.GetComponentInParent<PlayerMovementScript>().canMove = false;
         myAudio = GetComponentInParent<AudioSource>();
-        this.GetComponentInParent<SpriteRenderer>().enabled = false;
-        yield return new WaitForSeconds(0.3f);
-        this.GetComponentInParent<SpriteRenderer>().enabled = true;
-        myAudio.PlayOneShot(inAudio);
-        this.GetComponentInParent<SpriteRenderer>().sprite = outSprites[4];
-        yield return new WaitForSeconds(0.1f);
-        this.GetComponentInParent<SpriteRenderer>().sprite = outSprites[3];
-        yield return new WaitForSeconds(0.1f);
-        this.GetComponentInParent<SpriteRenderer>().sprite = outSprites[2];
-        yield return new WaitForSeconds(0.1f);
-        tiles = GameObject.FindGameObjectsWithTag("BaseTile");
-        foreach (GameObject tile in tiles)
+        this.GetComponentInParent<PlayerMovementScript>().canMove = false;
+        //audioPlayer = GameObject.Find("MusicPlayer");
+        if (ShouldAnimate)
         {
-            tile.GetComponent<BaseTileScript>().Check();
+            this.GetComponentInParent<SpriteRenderer>().enabled = false;
+            yield return new WaitForSeconds(0.3f);
+            this.GetComponentInParent<SpriteRenderer>().enabled = true;
+            myAudio.PlayOneShot(inAudio);
+            this.GetComponentInParent<SpriteRenderer>().sprite = outSprites[4];
+            yield return new WaitForSeconds(0.1f);
+            this.GetComponentInParent<SpriteRenderer>().sprite = outSprites[3];
+            yield return new WaitForSeconds(0.1f);
+            this.GetComponentInParent<SpriteRenderer>().sprite = outSprites[2];
+            yield return new WaitForSeconds(0.1f);
+            tiles = GameObject.FindGameObjectsWithTag("BaseTile");
+            foreach (GameObject tile in tiles)
+            {
+                tile.GetComponent<BaseTileScript>().Check();
+            }
+            this.GetComponentInParent<SpriteRenderer>().sprite = outSprites[1];
+            yield return new WaitForSeconds(0.1f);
+            this.GetComponentInParent<SpriteRenderer>().sprite = outSprites[0];
+            yield return new WaitForSeconds(0.1f);
+            this.GetComponentInParent<SpriteRenderer>().sprite = normalForward;
         }
-        this.GetComponentInParent<SpriteRenderer>().sprite = outSprites[1];
-        yield return new WaitForSeconds(0.1f);
-        this.GetComponentInParent<SpriteRenderer>().sprite = outSprites[0];
-        yield return new WaitForSeconds(0.1f);
-        this.GetComponentInParent<SpriteRenderer>().sprite = normalForward;
-        this.GetComponentInParent<PlayerMovementScript>().canMove = true;
+        //this.GetComponentInParent<PlayerMovementScript>().canMove = true;
     }
 
     public IEnumerator GetOut()
     {
+        audioPlayer = GameObject.Find("AudioManager");
         this.GetComponentInParent<PlayerMovementScript>().canMove = false;
         yield return new WaitForSeconds(0.1f);
         audioPlayer.GetComponent<AudioSource>().volume -= 0.02f;

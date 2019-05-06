@@ -184,27 +184,27 @@ public class FightMeFinalSceneManager : MonoBehaviour {
     {
         GameObject.Find("Player").GetComponent<PlayerMovementScript>().canMove = false;
         yield return new WaitForSeconds(0.1f);
-        GameObject.Find("MusicPlayer").GetComponent<AudioSource>().volume -= 0.01f;
+        GameObject.Find("AudioManager").GetComponent<AudioSource>().volume -= 0.02f;
         upPos = new Vector3(transform.position.x, transform.position.y + 0.1f, 0);
         up = true;
         targetPos = transform.position + Vector3.up;
         yield return new WaitWhile(() => up);
-        GameObject.Find("MusicPlayer").GetComponent<AudioSource>().volume -= 0.01f;
+        GameObject.Find("AudioManager").GetComponent<AudioSource>().volume -= 0.02f;
         upPos = new Vector3(transform.position.x, transform.position.y + 0.1f, 0);
         up = true;
         targetPos = transform.position + Vector3.up;
         yield return new WaitWhile(() => up);
-        GameObject.Find("MusicPlayer").GetComponent<AudioSource>().volume -= 0.01f;
+        GameObject.Find("AudioManager").GetComponent<AudioSource>().volume -= 0.02f;
         upPos = new Vector3(transform.position.x, transform.position.y + 0.1f, 0);
         up = true;
         targetPos = transform.position + Vector3.up;
         yield return new WaitWhile(() => up);
-        GameObject.Find("MusicPlayer").GetComponent<AudioSource>().volume -= 0.01f;
+        GameObject.Find("AudioManager").GetComponent<AudioSource>().volume -= 0.02f;
         upPos = new Vector3(transform.position.x, transform.position.y + 0.1f, 0);
         up = true;
         targetPos = transform.position + Vector3.up;
         yield return new WaitWhile(() => up);
-        GameObject.Find("MusicPlayer").GetComponent<AudioSource>().volume -= 0.01f;
+        GameObject.Find("AudioManager").GetComponent<AudioSource>().volume -= 0.02f;
         upPos = new Vector3(transform.position.x, transform.position.y + 0.1f, 0);
         up = true;
         targetPos = transform.position + Vector3.up;
@@ -411,12 +411,15 @@ public class FightMeFinalSceneManager : MonoBehaviour {
         targetPos = transform.position + Vector3.down;
         yield return new WaitWhile(() => down);
         float a = 0.1f;
+        //GameObject.Find("WhiteOut").GetComponent<SpriteRenderer>().color = new Color(100, 100, 100, 1);
+        GameObject whiteOut = GameObject.FindGameObjectWithTag("WhiteOut");
         for (int i = 0; i < 10; i++)
         {
-            GameObject.Find("WhiteOut").GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, a);
+            whiteOut.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, a);
             a += 0.1f;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.18f);
             Debug.Log(i);
+            Debug.Log(a);
         }
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("Production_Credits");

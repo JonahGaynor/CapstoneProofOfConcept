@@ -6,11 +6,18 @@ public class DialogueStart : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        this.GetComponent<DialogueTrigger>().TriggerDialogue();
+        StartCoroutine(Wait());
 	}
-	
-	//// Update is called once per frame
-	//void Update () {
-		
-	//}
+
+    //// Update is called once per frame
+    //void Update () {
+
+    //}
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(3.76f);
+        this.GetComponent<DialogueTrigger>().TriggerDialogue();
+
+    }
 }

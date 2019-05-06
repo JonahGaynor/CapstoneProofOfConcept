@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class TeleportScript : MonoBehaviour {
 
     public Transform player;
+    bool haveTriggered = false;
 
     //public int myEnemy;
 
@@ -20,7 +21,7 @@ public class TeleportScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (player.position.y >= this.transform.position.y + 0.4f)
+        if (player.position.y >= this.transform.position.y + 0.4f && !haveTriggered)
         {
             //GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().enemyHit = myEnemy;
             //GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().myPos = player.position;
@@ -31,7 +32,10 @@ public class TeleportScript : MonoBehaviour {
     IEnumerator PauseToChangeLevel()
     {
         //GameObject.Find("StatsTracker").GetComponent<PlayerStatsTracker>().EnterBattle();
+        haveTriggered = true;
+        Debug.Log("pause to change level");
+        StartCoroutine(GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().FadeToBlack());
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

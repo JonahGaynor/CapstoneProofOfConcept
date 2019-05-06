@@ -15,5 +15,6 @@ public class CancelButtonScript : MonoBehaviour {
         {
             Destroy(dice);
         }
+        GameObject.Find("EventSystem").GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
     }
 }

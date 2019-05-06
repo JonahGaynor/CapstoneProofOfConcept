@@ -653,6 +653,11 @@ public class BaseAiEnemy : MonoBehaviour {
             }
         }
 
+        else if (currentBidAmount >= 4)
+        {
+            GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyCall();
+        }
+
         //Calls: If you increase number
         else if (currentBidAmountDifference > 0 && currentBidNumberDifference > 0 && turnNumber > 2)
         {
@@ -1134,7 +1139,7 @@ public class BaseAiEnemy : MonoBehaviour {
         //Bids: on randomly selected bluffing numb and sticks to it
         else
         {
-            if (bluffingNumb >= currentBidNumber)
+            if (bluffingNumb <= currentBidNumber)
             {
                 GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, bluffingNumb);
                 for (int i = 0; i < currentBidAmount + 1; i++)
@@ -1171,27 +1176,27 @@ public class BaseAiEnemy : MonoBehaviour {
 
         foreach (GameObject d in GameObject.Find("BattleManager").GetComponent<BattleManager>().battleDice)
         {
-            if (d.GetComponent<EnemyDiceScript>().myFace == 1)
+            if (d.GetComponent<BaseDiceScript>().myFace == 1)
             {
                 MayaOnes++;
             }
-            else if (d.GetComponent<EnemyDiceScript>().myFace == 2)
+            else if (d.GetComponent<BaseDiceScript>().myFace == 2)
             {
                 MayaTwos++;
             }
-            else if (d.GetComponent<EnemyDiceScript>().myFace == 3)
+            else if (d.GetComponent<BaseDiceScript>().myFace == 3)
             {
                 MayaThrees++;
             }
-            else if (d.GetComponent<EnemyDiceScript>().myFace == 4)
+            else if (d.GetComponent<BaseDiceScript>().myFace == 4)
             {
                 MayaFours++;
             }
-            else if (d.GetComponent<EnemyDiceScript>().myFace == 5)
+            else if (d.GetComponent<BaseDiceScript>().myFace == 5)
             {
                 MayaFives++;
             }
-            else if (d.GetComponent<EnemyDiceScript>().myFace == 6)
+            else if (d.GetComponent<BaseDiceScript>().myFace == 6)
             {
                 MayaSixes++;
             }
@@ -1666,52 +1671,161 @@ public class BaseAiEnemy : MonoBehaviour {
             int temp4 = MayaFours + myFours;
             int temp5 = MayaFives + myFives;
             int temp6 = MayaSixes + mySixes;
+
+            //ok sunday jonah here's the issue here: so basically we need to add in a clause that says "only if that bid is legal"
+
             if (temp6 >= temp5 && temp6 >= temp4 && temp6 >= temp3 && temp6 >= temp2 && temp6 >= temp1)
             {
-                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(temp6, 6);
-                for (int i = 0; i < temp6; i++)
+                if (temp6 > currentBidAmount)
                 {
-                    Instantiate(myDice[5], boxPos.position, Quaternion.identity);
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(temp6, 6);
+                    for (int i = 0; i < temp6; i++)
+                    {
+                        Instantiate(myDice[5], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else if (currentBidNumber == 6)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 6);
+                    for (int i = 0; i < currentBidAmount + 1; i++)
+                    {
+                        Instantiate(myDice[5], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 6);
+                    for (int i = 0; i < currentBidAmount; i++)
+                    {
+                        Instantiate(myDice[5], boxPos.position, Quaternion.identity);
+                    }
                 }
             }
             else if (temp5 >= temp6 && temp5 >= temp4 && temp5 >= temp3 && temp5 >= temp2 && temp5 >= temp1)
             {
-                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(temp5, 5);
-                for (int i = 0; i < temp5; i++)
+                if (temp5 > currentBidAmount)
                 {
-                    Instantiate(myDice[4], boxPos.position, Quaternion.identity);
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(temp5, 5);
+                    for (int i = 0; i < temp5; i++)
+                    {
+                        Instantiate(myDice[4], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else if (currentBidNumber == 5 || currentBidNumber == 6)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 5);
+                    for (int i = 0; i < currentBidAmount + 1; i++)
+                    {
+                        Instantiate(myDice[4], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 5);
+                    for (int i = 0; i < currentBidAmount; i++)
+                    {
+                        Instantiate(myDice[4], boxPos.position, Quaternion.identity);
+                    }
                 }
             }
             else if (temp4 >= temp6 && temp4 >= temp5 && temp4 >= temp3 && temp4 >= temp2 && temp4 >= temp1)
             {
-                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(temp4, 4);
-                for (int i = 0; i < temp4; i++)
+                if (temp4 > currentBidAmount)
                 {
-                    Instantiate(myDice[3], boxPos.position, Quaternion.identity);
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(temp4, 4);
+                    for (int i = 0; i < temp4; i++)
+                    {
+                        Instantiate(myDice[3], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else if (currentBidNumber >= 4)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 4);
+                    for (int i = 0; i < currentBidAmount + 1; i++)
+                    {
+                        Instantiate(myDice[3], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 4);
+                    for (int i = 0; i < currentBidAmount; i++)
+                    {
+                        Instantiate(myDice[3], boxPos.position, Quaternion.identity);
+                    }
                 }
             }
             else if (temp3 >= temp6 && temp3 >= temp5 && temp3 >= temp4 && temp3 >= temp2 && temp3 >= temp1)
             {
-                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(temp3, 3);
-                for (int i = 0; i < temp3; i++)
+                if (temp3 > currentBidAmount)
                 {
-                    Instantiate(myDice[2], boxPos.position, Quaternion.identity);
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(temp3, 3);
+                    for (int i = 0; i < temp3; i++)
+                    {
+                        Instantiate(myDice[2], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else if (currentBidNumber >= 3)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 3);
+                    for (int i = 0; i < currentBidAmount + 1; i++)
+                    {
+                        Instantiate(myDice[2], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 3);
+                    for (int i = 0; i < currentBidAmount; i++)
+                    {
+                        Instantiate(myDice[2], boxPos.position, Quaternion.identity);
+                    }
                 }
             }
             else if (temp2 >= temp6 && temp2 >= temp5 && temp2 >= temp4 && temp2 >= temp3 && temp2 >= temp1)
             {
-                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(temp2, 2);
-                for (int i = 0; i < temp2; i++)
+                if (temp2 > currentBidAmount)
                 {
-                    Instantiate(myDice[1], boxPos.position, Quaternion.identity);
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(temp2, 2);
+                    for (int i = 0; i < temp2; i++)
+                    {
+                        Instantiate(myDice[1], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else if (currentBidNumber >= 2)
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 2);
+                    for (int i = 0; i < currentBidAmount + 1; i++)
+                    {
+                        Instantiate(myDice[1], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount, 2);
+                    for (int i = 0; i < currentBidAmount; i++)
+                    {
+                        Instantiate(myDice[1], boxPos.position, Quaternion.identity);
+                    }
                 }
             }
             else
             {
-                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(temp1, 1);
-                for (int i = 0; i < temp1; i++)
+                if (temp1 > currentBidAmount)
                 {
-                    Instantiate(myDice[0], boxPos.position, Quaternion.identity);
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(temp1, 1);
+                    for (int i = 0; i < temp1; i++)
+                    {
+                        Instantiate(myDice[0], boxPos.position, Quaternion.identity);
+                    }
+                }
+                else
+                {
+                    GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, 2);
+                    for (int i = 0; i < currentBidAmount + 1; i++)
+                    {
+                        Instantiate(myDice[1], boxPos.position, Quaternion.identity);
+                    }
                 }
             }
         }
@@ -1720,7 +1834,7 @@ public class BaseAiEnemy : MonoBehaviour {
         {
             if (randSwitcher)
             {
-                if (rand1 >= currentBidNumber)
+                if (rand1 <= currentBidNumber)
                 {
                     GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, rand1);
                     for (int i = 0; i < currentBidAmount + 1; i++)
@@ -1740,7 +1854,7 @@ public class BaseAiEnemy : MonoBehaviour {
             }
             else
             {
-                if (rand2 >= currentBidNumber)
+                if (rand2 <= currentBidNumber)
                 {
                     GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(currentBidAmount + 1, rand2);
                     for (int i = 0; i < currentBidAmount + 1; i++)
@@ -3136,27 +3250,27 @@ public class BaseAiEnemy : MonoBehaviour {
 
         foreach (GameObject d in GameObject.Find("BattleManager").GetComponent<BattleManager>().battleDice)
         {
-            if (d.GetComponent<EnemyDiceScript>().myFace == 1)
+            if (d.GetComponent<BaseDiceScript>().myFace == 1)
             {
                 MayaOnes++;
             }
-            else if (d.GetComponent<EnemyDiceScript>().myFace == 2)
+            else if (d.GetComponent<BaseDiceScript>().myFace == 2)
             {
                 MayaTwos++;
             }
-            else if (d.GetComponent<EnemyDiceScript>().myFace == 3)
+            else if (d.GetComponent<BaseDiceScript>().myFace == 3)
             {
                 MayaThrees++;
             }
-            else if (d.GetComponent<EnemyDiceScript>().myFace == 4)
+            else if (d.GetComponent<BaseDiceScript>().myFace == 4)
             {
                 MayaFours++;
             }
-            else if (d.GetComponent<EnemyDiceScript>().myFace == 5)
+            else if (d.GetComponent<BaseDiceScript>().myFace == 5)
             {
                 MayaFives++;
             }
-            else if (d.GetComponent<EnemyDiceScript>().myFace == 6)
+            else if (d.GetComponent<BaseDiceScript>().myFace == 6)
             {
                 MayaSixes++;
             }
@@ -4142,8 +4256,8 @@ public class BaseAiEnemy : MonoBehaviour {
         {
             if (mySixes >= myFives && mySixes >= myFours && mySixes >= myThrees && mySixes >= myTwos && mySixes >= myOnes)
             {
-                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(mySixes, 6);
-                for (int i = 0; i < mySixes; i++)
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(2, 6);
+                for (int i = 0; i < 2; i++)
                 {
                     Instantiate(myDice[5], boxPos.position, Quaternion.identity);
                 }
@@ -4151,8 +4265,8 @@ public class BaseAiEnemy : MonoBehaviour {
             }
             else if (myFives >= mySixes && myFives >= myFours && myFives >= myThrees && myFives >= myTwos && myFives >= myOnes)
             {
-                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(myFives, 5);
-                for (int i = 0; i < myFives; i++)
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(2, 5);
+                for (int i = 0; i < 2; i++)
                 {
                     Instantiate(myDice[4], boxPos.position, Quaternion.identity);
                 }
@@ -4160,8 +4274,8 @@ public class BaseAiEnemy : MonoBehaviour {
             }
             else if (myFours >= mySixes && myFours >= myFives && myFours >= myThrees && myFours >= myTwos && myFours >= myOnes)
             {
-                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(myFours, 4);
-                for (int i = 0; i < myFours; i++)
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(2, 4);
+                for (int i = 0; i < 2; i++)
                 {
                     Instantiate(myDice[3], boxPos.position, Quaternion.identity);
                 }
@@ -4169,8 +4283,8 @@ public class BaseAiEnemy : MonoBehaviour {
             }
             else if (myThrees >= mySixes && myThrees >= myFives && myThrees >= myFours && myThrees >= myTwos && myThrees >= myOnes)
             {
-                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(myThrees, 3);
-                for (int i = 0; i < myThrees; i++)
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(2, 3);
+                for (int i = 0; i < 2; i++)
                 {
                     Instantiate(myDice[2], boxPos.position, Quaternion.identity);
                 }
@@ -4178,8 +4292,8 @@ public class BaseAiEnemy : MonoBehaviour {
             }
             else if (myTwos >= mySixes && myTwos >= myFives && myTwos >= myFours && myTwos >= myThrees && myTwos >= myOnes)
             {
-                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(myTwos, 2);
-                for (int i = 0; i < myTwos; i++)
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(2, 2);
+                for (int i = 0; i < 2; i++)
                 {
                     Instantiate(myDice[1], boxPos.position, Quaternion.identity);
                 }
@@ -4187,8 +4301,8 @@ public class BaseAiEnemy : MonoBehaviour {
             }
             else
             {
-                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(myOnes, 1);
-                for (int i = 0; i < myOnes; i++)
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(2, 1);
+                for (int i = 0; i < 2; i++)
                 {
                     Instantiate(myDice[0], boxPos.position, Quaternion.identity);
                 }
@@ -4609,27 +4723,27 @@ public class BaseAiEnemy : MonoBehaviour {
 
         foreach (GameObject d in GameObject.Find("BattleManager").GetComponent<BattleManager>().battleDice)
         {
-            if (d.GetComponent<EnemyDiceScript>().myFace == 1)
+            if (d.GetComponent<BaseDiceScript>().myFace == 1)
             {
                 MayaOnes++;
             }
-            else if (d.GetComponent<EnemyDiceScript>().myFace == 2)
+            else if (d.GetComponent<BaseDiceScript>().myFace == 2)
             {
                 MayaTwos++;
             }
-            else if (d.GetComponent<EnemyDiceScript>().myFace == 3)
+            else if (d.GetComponent<BaseDiceScript>().myFace == 3)
             {
                 MayaThrees++;
             }
-            else if (d.GetComponent<EnemyDiceScript>().myFace == 4)
+            else if (d.GetComponent<BaseDiceScript>().myFace == 4)
             {
                 MayaFours++;
             }
-            else if (d.GetComponent<EnemyDiceScript>().myFace == 5)
+            else if (d.GetComponent<BaseDiceScript>().myFace == 5)
             {
                 MayaFives++;
             }
-            else if (d.GetComponent<EnemyDiceScript>().myFace == 6)
+            else if (d.GetComponent<BaseDiceScript>().myFace == 6)
             {
                 MayaSixes++;
             }

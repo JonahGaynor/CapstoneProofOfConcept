@@ -18,11 +18,13 @@ public class ResetButton3 : MonoBehaviour {
     public Sprite redSprite;
     GameObject[] doors;
     int numberForDoors;
-
+    GameObject[] tiles;
+    public Sprite tileSprite;
 
     void Start()
     {
         player = GameObject.Find("Player");
+        tiles = GameObject.FindGameObjectsWithTag("BaseTile");
     }
 
     public void OnClick()
@@ -141,6 +143,11 @@ public class ResetButton3 : MonoBehaviour {
         //        door.GetComponent<DoorSprites>().Open(door.GetComponent<DoorSprites>().myNumber);
         //    }
         //}
+        foreach (GameObject tile in tiles)
+        {
+            tile.GetComponent<BaseTileScript>().Check();
+            tile.GetComponent<SpriteRenderer>().sprite = tileSprite;
+        }
         yield return new WaitForSeconds(0.1f);
         player.GetComponent<SpriteRenderer>().enabled = true;
         yield return new WaitForSeconds(0.1f);

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CoreExplode : MonoBehaviour {
 
@@ -60,5 +61,7 @@ public class CoreExplode : MonoBehaviour {
             yield return new WaitForSeconds(0.03f);
             GameObject.Find("WhiteOut").GetComponent<SpriteRenderer>().sprite = whiteOutSprites[i];
         }
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("Production_Credits");
     }
 }

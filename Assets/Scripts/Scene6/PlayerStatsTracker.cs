@@ -31,7 +31,7 @@ public class PlayerStatsTracker : MonoBehaviour {
     public Vector2 myPos;
 
     Scene lastScene;
-    string sceneName;
+    public string sceneName;
 
 	// Use this for initialization
 	void Start () {

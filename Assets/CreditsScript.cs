@@ -6,7 +6,7 @@ public class CreditsScript : MonoBehaviour {
 
     public float yVal;
 
-    float scrollSpeed = 0.2f;
+    float scrollSpeed = 0.02f;
 
     bool zoomOut = false;
 
@@ -19,6 +19,8 @@ public class CreditsScript : MonoBehaviour {
             if (scrollSpeed < 0)
             {
                 scrollSpeed = 0;
+                Debug.Log("quit");
+                Application.Quit();
             }
 
         }
@@ -31,8 +33,7 @@ public class CreditsScript : MonoBehaviour {
             Camera.main.orthographicSize = Camera.main.orthographicSize * 1.05f;
             if (Camera.main.orthographicSize >= 300)
             {
-                Debug.Log("quit");
-                Application.Quit();
+
             }
         }
 	}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class RollForPlay : MonoBehaviour {
 
     public bool turn;
+    bool isGlitching = false;
 
     float turnTime = 0.02f;
 
@@ -400,6 +401,7 @@ public class RollForPlay : MonoBehaviour {
         yield return new WaitForSeconds(turnTime * 8);
         this.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 180);
         yield return new WaitForSeconds(turnTime * 8);
+        isGlitching = GameObject.Find("BattleManager").GetComponent<BattleManager>().glitchMe;
         this.transform.localScale = new Vector3(transform.localScale.x * 1.3f, transform.localScale.y * 1.3f);
         yield return new WaitForSeconds(0.2f);
         this.transform.localScale = new Vector3(transform.localScale.x * 0.77f, transform.localScale.y * 0.77f);
@@ -407,7 +409,11 @@ public class RollForPlay : MonoBehaviour {
         yield return new WaitForSeconds(0.2f);
         this.GetComponent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(1.5f);
+        if (isGlitching)
+        {
+            yield return new WaitForSeconds(2.5f);
+        }
         GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyTurn();
-
+        isGlitching = false;
     }
 }

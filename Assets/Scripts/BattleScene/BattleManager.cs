@@ -413,18 +413,6 @@ public class BattleManager : MonoBehaviour {
         foreach (GameObject b in currentBidDice){
             Destroy(b);
         }
-        //TODO: necessary?
-        //GameObject.Find ("CurrentBidSlot").GetComponent<CurrentBidSlotScript>().shouldDestroy = true;
-
-        //TODO: this stuff useless now?
-        for (int i = 0; i < myDice; i++){
-            int temp = Random.Range(0, 6);
-          //  myCurrentDice.Add(temp);
-        }
-        for (int j = 0; j < enemyDice; j++){
-            int temp = Random.Range(0, 6);
-            //enemyCurrentDice.Add(temp);
-        }
 
         //TODO: name sucks
         GameObject.Find("playerPortrait").GetComponent<SpriteRenderer>().sprite = normalMaya;
@@ -522,6 +510,7 @@ public class BattleManager : MonoBehaviour {
             StartCoroutine(EndDialogue());
             //Roll();
         }
+        Debug.Log("my turn because i lost");
         myTurn = true;
     }
 
@@ -549,6 +538,7 @@ public class BattleManager : MonoBehaviour {
             StartCoroutine(EndDialogue());
             //  Roll ();
         }
+        Debug.Log("enemy's turn because enemy lost");
         myTurn = false;
     }
     IEnumerator DestroyOpponentFirstBid()
@@ -560,6 +550,7 @@ public class BattleManager : MonoBehaviour {
     IEnumerator WaitToSwitchTurn()
     {
         yield return new WaitForSeconds(0.8f);
+        Debug.Log("my turn because enemy is finished with their turn");
         myTurn = true;
     }
     
@@ -609,7 +600,8 @@ public class BattleManager : MonoBehaviour {
         enemyBattleDice = GameObject.FindGameObjectsWithTag("EnemyDice");
         playerLose = false;
         Roll();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2.5f);
+        //TODO: could it be that the enemy takes their turn and then turn switches back so fast? (nah don't think so)
         if (!myTurn)
         {
             EnemyTurn();

@@ -5623,10 +5623,10 @@ RectTransform:
   m_Father: {fileID: 1877186446}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.17865627, y: 0.33581516}
-  m_AnchorMax: {x: 0.7173438, y: 0.73773557}
-  m_AnchoredPosition: {x: -43.500008, y: -23.294662}
-  m_SizeDelta: {x: -589, y: -189}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -110.5, y: 3.2053223}
+  m_SizeDelta: {x: -1179, y: -620}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2066513082
 Animator:

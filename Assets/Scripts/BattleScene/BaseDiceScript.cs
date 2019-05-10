@@ -61,12 +61,12 @@ public class BaseDiceScript : MonoBehaviour {
     IEnumerator Juice()
     {
         int rollNumb = 0;
-        for (int i = 0; i < 52; i++)
+        for (int i = 0; i < 73; i++)
         {
             yield return new WaitForSeconds(0.01f);
             this.GetComponent<SpriteRenderer>().sprite = rollingSprites[rollNumb];
             rollNumb++;
-            if (rollNumb == 13)
+            if (rollNumb == 36)
             {
                 rollNumb = 0;
             }

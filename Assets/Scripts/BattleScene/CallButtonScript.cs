@@ -19,6 +19,7 @@ public class CallButtonScript : MonoBehaviour {
     public void OnClick () {
         if (GameObject.Find("BattleManager").GetComponent<BattleManager>().myTurn)
         {
+            Debug.Log("I CALLED YOU PLEASE ANSWER ME");
             myAudio.PlayOneShot(callMe);
             GameObject.Find("BattleManager").GetComponent<BattleManager>().PlayerCall();
             GameObject.Find("teacup").GetComponent<TeaCupScript>().destroyOthers = true;

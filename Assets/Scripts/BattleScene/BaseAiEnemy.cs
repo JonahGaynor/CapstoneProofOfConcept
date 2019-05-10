@@ -5509,7 +5509,7 @@ public class BaseAiEnemy : MonoBehaviour {
         GameObject.Find("CurrentBidSlot").GetComponent<CurrentBidSlotScript>().shouldDestroy = true;
         yield return new WaitForSeconds (1f);
         GameObject.Find ("teacup").GetComponent<TeaCupScript>().destroyOthers = true;
-        GameObject.Find ("BattleManager").GetComponent<BattleManager>().myTurn = true;
+        //GameObject.Find ("BattleManager").GetComponent<BattleManager>().myTurn = true;
         yield return new WaitForSeconds (1f);
         GameObject.Find ("teacup").GetComponent<TeaCupScript>().destroyOthers = false;
     }

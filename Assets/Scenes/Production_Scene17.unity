@@ -16788,11 +16788,17 @@ MonoBehaviour:
   dialogue:
     speakerSprite: {fileID: 21300000, guid: 960bba01b353849ab9140320e442cb33, type: 3}
     sentences:
-    - 07/28/2085
-    - Simon is forcing us to get completely off the grid.
-    - "I understand why we need to, but I\u2019m afraid that it may lead to us failing
-      before we\u2019ve even begun."
-    - I still hold out faith.
+    - 08/14/2491
+    - The insides of the Central Computer is a lot different than I expected.
+    - "For one, it\u2019s cold in here, even though it\u2019s hot outside. And every
+      step you take echoes."
+    - "Each room we enter has a new problem for us to solve, although that hasn\u2019t
+      been much of an issue for Simon."
+    - After we got deep enough, Simon ordered Julia to stay behind and protect against
+      anybody who comes in after us.
+    - A little ways after, Simon ordered Jacob to do the same.
+    - "Now only Simon and I remain, and I\u2019m beginning to question if Simon knows
+      what he's doing."
     - '- Amelia'
 --- !u!4 &1661084736
 Transform:

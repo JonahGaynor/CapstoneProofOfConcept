@@ -7143,7 +7143,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4752283717936520, guid: 7cce5d52850244da1b960637f2193363, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -5.3125
+      value: -5.298
       objectReference: {fileID: 0}
     - target: {fileID: 4752283717936520, guid: 7cce5d52850244da1b960637f2193363, type: 2}
       propertyPath: m_LocalPosition.z
@@ -18232,7 +18232,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 780
   m_Sprite: {fileID: 21300000, guid: f462d262344324bf2ac7695ff587940b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

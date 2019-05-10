@@ -543,9 +543,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7872f117e92b345899a45391cc0071a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speakerSprite: {fileID: 0}
-  dialogueText: {fileID: 0}
-  myAnim: {fileID: 0}
+  speakerSprite: {fileID: 1261996153}
+  dialogueText: {fileID: 2038748336}
+  myAnim: {fileID: 1499449496}
   done: 0
   typewriter: {fileID: 8300000, guid: 6ad0c87c633d6429b8d310ea243b61be, type: 3}
 --- !u!4 &525133023
@@ -1563,7 +1563,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1927396697}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2424,6 +2425,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1927396696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1927396697}
+  - component: {fileID: 1927396698}
+  m_Layer: 0
+  m_Name: PlayerAnimator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1927396697
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1927396696}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1053899739}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1927396698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1927396696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be53960c506b64609804f776635b6db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outSprites: []
+  normalForward: {fileID: 0}
+  inAudio: {fileID: 0}
+  outAudio: {fileID: 0}
+  ShouldAnimate: 1
 --- !u!1 &1987088679
 GameObject:
   m_ObjectHideFlags: 0

@@ -263,6 +263,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &108857632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 108857634}
+  - component: {fileID: 108857633}
+  m_Layer: 0
+  m_Name: AutoLetterbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &108857633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 108857632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e188ee899633d0b49870a5ae38b7359d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ratio: {x: 16, y: 9}
+  forceRatioOnAwake: 1
+  listenForWindowChanges: 1
+  createCameraForLetterBoxRendering: 1
+  findCamerasAutomatically: 1
+  letterBoxCameraColor: {r: 0, g: 0, b: 0, a: 1}
+  cameras: []
+  letterBoxCamera: {fileID: 0}
+--- !u!4 &108857634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 108857632}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 294.97766, y: 78.47438, z: -6.248361}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &212355081
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,8 +770,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 392529652}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.257, y: -3.951, z: 0}
-  m_LocalScale: {x: 54.97425, y: 12.56526, z: 2.3380888}
+  m_LocalPosition: {x: -0.36, y: -3.97, z: 0}
+  m_LocalScale: {x: 8.848001, y: 1.476308, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 21
@@ -818,6 +866,7 @@ MonoBehaviour:
   diceProfile: {fileID: 11400000, guid: 0486f4651bf5c40f6a00b34b7228c13a, type: 2}
   myFace: 0
   rollingSprites: []
+  rollSound: {fileID: 0}
 --- !u!1 &456918170
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,6 +1024,8 @@ MonoBehaviour:
   - {fileID: 1209423176905112, guid: 8fc4fa09a90094035a0ee7b980b80215, type: 2}
   - {fileID: 1117623063705776, guid: a8807ea9a8c614836b7a319498557e11, type: 2}
   - {fileID: 1322773164128334, guid: 5b929cc78f8e24803af816b7db323946, type: 2}
+  myBidDice: []
+  mayasDice: []
   boxPos: {fileID: 0}
   enemyNumber: 0
   MayaBids: 
@@ -1136,6 +1187,7 @@ MonoBehaviour:
   diceProfile: {fileID: 11400000, guid: 0486f4651bf5c40f6a00b34b7228c13a, type: 2}
   myFace: 0
   rollingSprites: []
+  rollSound: {fileID: 0}
 --- !u!1 &523060206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,7 +1263,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 1
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -1225,8 +1277,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 523060206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
-  m_LocalScale: {x: 14, y: 12.565258, z: 0}
+  m_LocalPosition: {x: -0.36, y: -3.97, z: 0}
+  m_LocalScale: {x: 8.848001, y: 1.4763077, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 14
@@ -1263,8 +1315,9 @@ MonoBehaviour:
     speakerSprite: {fileID: 21300000, guid: 1d0addd444d0c4f7dadf9cbf5b07f655, type: 3}
     sentences:
     - Perfect! You could have BID ~ ~ , or three or more of any dice face!
-    - You CALL when you believe that the total dice do not have at least the amount
-      of the relevant dice face.
+    - An incorrect bid is one where there are not AT LEAST that amount of that dice
+      face among our 10 dice. If your opponent makes a bid that you think is incorrect,
+      you CALL.
     - If you CALL a bid of > > > > , you would be correct if there are three or fewer
       > . You would be incorrect if there are four or more > .
     - If you correctly CALL, the opponent loses one of their dice. If you incorrectly
@@ -1344,13 +1397,12 @@ MonoBehaviour:
     - These are your dice.
     - And these are my dice.
     - When we play, you won't see my dice and I won't see your dice.
-    - 'You can do 2 things in this game: BID and CALL.'
-    - You BID based on how many of a certain dice face you believe to be among our
-      combined 10 dice.
-    - Every BID must be higher than the opponent's. You can increase either the amount
-      of the BID or the dice face.
-    - You may not decrease the amount of dice being BID, but you can decrease the
-      dice face if you increase the amount.
+    - You win when the opponent runs out of dice.
+    - We alternate bidding based on what we believe to be in our 10 combined dice.
+    - You must always increase the "value" of the bid. < is the lowest bid in this
+      game, > is the next lowest, etc. However, quantity always trumps value. So <
+      < is a higher bid than ~ .
+    - Let's try it out.
     - If I were to BID ] ] , what could you BID? Try bidding using the bidding area.
 --- !u!4 &557261872
 Transform:
@@ -1387,8 +1439,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 568875124}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.34, y: -2.19, z: 0}
-  m_LocalScale: {x: 63.62437, y: 12.7408, z: 1}
+  m_LocalPosition: {x: -0.36, y: -2.19, z: 0}
+  m_LocalScale: {x: 8.848001, y: 2.010441, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 16
@@ -1697,6 +1749,7 @@ MonoBehaviour:
   diceProfile: {fileID: 11400000, guid: 0486f4651bf5c40f6a00b34b7228c13a, type: 2}
   myFace: 0
   rollingSprites: []
+  rollSound: {fileID: 0}
 --- !u!1 &731462375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,10 +1783,10 @@ RectTransform:
   m_Father: {fileID: 1877186446}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.48212504, y: 0.113776736}
-  m_AnchorMax: {x: 0.62368745, y: 0.20433019}
-  m_AnchoredPosition: {x: -2.4048157, y: -1.2445984}
-  m_SizeDelta: {x: -21, y: -35}
+  m_AnchorMin: {x: 0.5487813, y: 0.5}
+  m_AnchorMax: {x: 0.5487813, y: 0.5}
+  m_AnchoredPosition: {x: 3.0951843, y: -246.7446}
+  m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &731462377
 MonoBehaviour:
@@ -2688,10 +2741,10 @@ RectTransform:
   m_Father: {fileID: 1877186446}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.32943755, y: 0.113776736}
-  m_AnchorMax: {x: 0.46100003, y: 0.20433019}
-  m_AnchoredPosition: {x: -1.8528442, y: -1.2447205}
-  m_SizeDelta: {x: -8, y: -35}
+  m_AnchorMin: {x: 0.3932188, y: 0.5}
+  m_AnchorMax: {x: 0.3932188, y: 0.5}
+  m_AnchoredPosition: {x: 1.1471558, y: -246.74472}
+  m_SizeDelta: {x: 158, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1011228826
 MonoBehaviour:
@@ -3299,8 +3352,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1126301683}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.34, y: 3.15, z: 0}
-  m_LocalScale: {x: 63.62437, y: 12.7408, z: 2.3380888}
+  m_LocalPosition: {x: -0.36, y: 3.18, z: 0}
+  m_LocalScale: {x: 8.848001, y: 2.010441, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 17
@@ -3482,7 +3535,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 1
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -3496,8 +3549,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1218149492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.34, y: 3.15, z: 0}
-  m_LocalScale: {x: 63.62437, y: 12.7408, z: 0}
+  m_LocalPosition: {x: -0.36, y: 3.18, z: 0}
+  m_LocalScale: {x: 8.848001, y: 2.010441, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 15
@@ -3644,7 +3697,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 120606eb016af45199ab7607bd991476, type: 3}
-    m_FontSize: 200
+    m_FontSize: 150
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -4477,6 +4530,7 @@ MonoBehaviour:
   diceProfile: {fileID: 11400000, guid: 0486f4651bf5c40f6a00b34b7228c13a, type: 2}
   myFace: 0
   rollingSprites: []
+  rollSound: {fileID: 0}
 --- !u!1 &1805356782
 GameObject:
   m_ObjectHideFlags: 0
@@ -4642,6 +4696,7 @@ MonoBehaviour:
   diceProfile: {fileID: 11400000, guid: 0486f4651bf5c40f6a00b34b7228c13a, type: 2}
   myFace: 0
   rollingSprites: []
+  rollSound: {fileID: 0}
 --- !u!1 &1829122932
 GameObject:
   m_ObjectHideFlags: 0
@@ -5623,10 +5678,10 @@ RectTransform:
   m_Father: {fileID: 1877186446}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -110.5, y: 3.2053223}
-  m_SizeDelta: {x: -1179, y: -620}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -111, y: 3.2053223}
+  m_SizeDelta: {x: -1178, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2066513082
 Animator:

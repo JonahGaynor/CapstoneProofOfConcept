@@ -206,6 +206,7 @@ public class BattleManager : MonoBehaviour {
         }
         else if (enemyType == 13)
         {
+            glitchMe = true;
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 12;
             normalEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.enemySprites[0];
             happyEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai1.enemySprites[1];
@@ -216,6 +217,7 @@ public class BattleManager : MonoBehaviour {
         }
         else if (enemyType == 14)
         {
+            glitchMe = true;
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 13;
             normalEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.enemySprites[0];
             happyEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai2.enemySprites[1];
@@ -226,6 +228,7 @@ public class BattleManager : MonoBehaviour {
         }
         else if (enemyType == 15)
         {
+            glitchMe = true;
             GameObject.Find("DiceMaker").GetComponent<SceneTransitionScript>().sceneChangeNumb = 14;
             normalEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.enemySprites[0];
             happyEnemy = statsTracker.GetComponent<PlayerStatsTracker>().Ai3.enemySprites[1];

@@ -8,14 +8,18 @@ public class GlitchDiceScript : MonoBehaviour {
     public Sprite newSprite;
     public GenDiceScript newDice;
     SpriteRenderer sr;
+    public AudioClip glitchy;
+    AudioSource myAudio;
 
 	// Use this for initialization
 	void Start () {
         sr = this.GetComponent<SpriteRenderer>();
+        myAudio = this.GetComponent<AudioSource>();
 	}
 
     public IEnumerator GlitchMe()
     {
+        myAudio.PlayOneShot(glitchy);
         yield return new WaitForSeconds(0.1f);
         sr.sprite = newSprite;
         yield return new WaitForSeconds(0.5f);

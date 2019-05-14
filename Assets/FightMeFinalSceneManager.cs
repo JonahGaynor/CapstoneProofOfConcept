@@ -37,6 +37,7 @@ public class FightMeFinalSceneManager : MonoBehaviour {
     public Dialogue pettyDialogue;
 
     public AudioClip bang;
+    public AudioClip whiteOutSound;
     AudioSource myAudio;
 
 	// Use this for initialization
@@ -413,6 +414,7 @@ public class FightMeFinalSceneManager : MonoBehaviour {
         float a = 0.1f;
         //GameObject.Find("WhiteOut").GetComponent<SpriteRenderer>().color = new Color(100, 100, 100, 1);
         GameObject whiteOut = GameObject.FindGameObjectWithTag("WhiteOut");
+        myAudio.PlayOneShot(whiteOutSound, 0.3f);
         for (int i = 0; i < 10; i++)
         {
             whiteOut.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, a);
@@ -510,6 +512,8 @@ public class FightMeFinalSceneManager : MonoBehaviour {
 
     IEnumerator AgentThree2()
     {
+        GameObject.Find("Simon").GetComponent<SpriteRenderer>().sortingOrder = 74;
+        GameObject.Find("Player").GetComponent<SpriteRenderer>().sortingOrder = 75;
         yield return new WaitForSeconds(0.4f);
         rightPos = new Vector3(transform.position.x + 0.1f, transform.position.y, 0);
         right = true;

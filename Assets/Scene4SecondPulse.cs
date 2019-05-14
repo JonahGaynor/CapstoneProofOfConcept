@@ -24,11 +24,11 @@ public class Scene4SecondPulse : MonoBehaviour {
 	void Update () {
         if (grow)
         {
-            transform.localScale = new Vector3(transform.localScale.x + 0.1f, transform.localScale.y + 0.1f, 0);
+            transform.localScale = new Vector3(transform.localScale.x + 0.02f, transform.localScale.y + 0.02f, 0);
         }
         else
         {
-            transform.localScale = new Vector3(transform.localScale.x - 0.1f, transform.localScale.y - 0.1f, 0);
+            transform.localScale = new Vector3(transform.localScale.x - 0.02f, transform.localScale.y - 0.02f, 0);
         }
         if (transform.localScale.x >= targetXScale || transform.localScale.y >= targetYScale)
         {

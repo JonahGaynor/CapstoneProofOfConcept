@@ -8,9 +8,13 @@ public class BaseDiceScript : MonoBehaviour {
     int myNumb;
     Vector3 myScale;
     public Sprite[] rollingSprites;
+    public AudioClip rollSound;
+    AudioSource myAudio;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+        myAudio = this.GetComponent<AudioSource>();
+
         myScale = transform.localScale;
         if (this.name == "PlayerDice0")
         {
@@ -47,6 +51,7 @@ public class BaseDiceScript : MonoBehaviour {
 	//}
 
     public void Roll () {
+        StartCoroutine(RollNoise());
         StartCoroutine(Juice());
         int temp = Random.Range(0, 6);
         myFace = diceProfile.faces[temp];
@@ -58,22 +63,63 @@ public class BaseDiceScript : MonoBehaviour {
 
     }
 
+    IEnumerator RollNoise()
+    {
+        if (myNumb == 1)
+        {
+            yield return new WaitForSeconds(0.02f);
+        }
+        else if (myNumb == 2)
+        {
+            yield return new WaitForSeconds(0.04f);
+        }
+        else if (myNumb == 3)
+        {
+            yield return new WaitForSeconds(0.06f);
+        }
+        else if (myNumb == 4)
+        {
+            yield return new WaitForSeconds(0.08f);
+        }
+        myAudio.PlayOneShot(rollSound);
+        yield return new WaitForSeconds(0.15f);
+        myAudio.PlayOneShot(rollSound);
+        yield return new WaitForSeconds(0.15f);
+        myAudio.PlayOneShot(rollSound);
+        yield return new WaitForSeconds(0.15f);
+        myAudio.PlayOneShot(rollSound);
+        yield return new WaitForSeconds(0.15f);
+        myAudio.PlayOneShot(rollSound);
+        yield return new WaitForSeconds(0.15f);
+        myAudio.PlayOneShot(rollSound);
+        yield return new WaitForSeconds(0.15f);
+        myAudio.PlayOneShot(rollSound);
+        yield return new WaitForSeconds(0.15f);
+        myAudio.PlayOneShot(rollSound);
+        yield return new WaitForSeconds(0.15f);
+    }
+
     IEnumerator Juice()
     {
         int rollNumb = 0;
-        for (int i = 0; i < 73; i++)
+        for (int i = 0; i < 93; i++)
         {
             yield return new WaitForSeconds(0.01f);
             this.GetComponent<SpriteRenderer>().sprite = rollingSprites[rollNumb];
+            //if (rollNumb == 0)
+            //{
+            //    Debug.Log(i);
+            //}
             rollNumb++;
-            if (rollNumb == 36)
+            if (rollNumb == 23)
             {
                 rollNumb = 0;
             }
         }
         yield return new WaitForSeconds(0.3f);
         this.GetComponent<SpriteRenderer>().sprite = diceProfile.mySprites[myFace - 1];
-
+        myAudio.Stop();
+        StopAllCoroutines();
         //yield return new WaitForSeconds(myNumb/5f);
         //transform.localScale = myScale * 1.1f;
         //yield return new WaitForSeconds(0.5f);

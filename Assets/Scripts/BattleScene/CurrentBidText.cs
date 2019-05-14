@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class CurrentBidText : MonoBehaviour {
 
+    GameObject header;
+
 	// Use this for initialization
 	void Start () {
-		
+        header = GameObject.Find("CurrentBidHeader");
 	}
 	
 	// Update is called once per frame
@@ -21,7 +23,7 @@ public class CurrentBidText : MonoBehaviour {
 
     public void ChangeText(int amount, int number)
     {
-        this.GetComponent<Text>().text = "CURRENT BID: ";
+        this.GetComponent<Text>().text = "";
         for (int i = 0; i < amount; i++)
         {
             if (number == 1)
@@ -49,6 +51,10 @@ public class CurrentBidText : MonoBehaviour {
             {
                 this.GetComponent<Text>().text += ("~ ");
             }
+        }
+        if (!header.GetComponent<Text>().enabled && this.GetComponent<Text>().text != "")
+        {
+            GameObject.Find("CurrentBidHeader").GetComponent<Text>().enabled = true;
         }
     }
 }

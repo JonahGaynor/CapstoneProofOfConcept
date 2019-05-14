@@ -16,13 +16,19 @@ public class ScoreboardNumberScript : MonoBehaviour {
     public Sprite[] puzzle3Sprites;
     public int puzzle3Counter = 0;
 
+    public int completedPuzzles;
+
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "Production_Scene18")
+        if (completedPuzzles < 1)
+        {
+            completedPuzzles = 0;
+        }
+        if (completedPuzzles == 2)
         {
             puzzleNumber = 3;
         }
-        else if (SceneManager.GetActiveScene().name == "Production_Scene23")
+        else if (completedPuzzles == 3)
         {
             puzzleNumber = 4;
         }

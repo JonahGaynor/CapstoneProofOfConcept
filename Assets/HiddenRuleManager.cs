@@ -31,6 +31,7 @@ public class HiddenRuleManager : MonoBehaviour {
         player = GameObject.Find("Player");
         myAudio = GetComponent<AudioSource>();
         tiles = GameObject.FindGameObjectsWithTag("BaseTile");
+        Cursor.visible = false;
     }
 
     public static int playerDir
@@ -71,6 +72,7 @@ public class HiddenRuleManager : MonoBehaviour {
 
     public void Victory()
     {
+        GameObject.Find("ScoreboardNumber").GetComponent<ScoreboardNumberScript>().completedPuzzles++;
         GameObject.Find("Door").GetComponent<DoorSprites>().Open(0);
         GameObject.Find("ScoreboardNumber").SetActive(false);
         GameObject.Find("ScoreboardNumberBase").SetActive(false);

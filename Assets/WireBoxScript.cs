@@ -48,6 +48,7 @@ public class WireBoxScript : MonoBehaviour
         allTiles = GameObject.FindGameObjectsWithTag("BaseTile");
         this.GetComponent<SpriteRenderer>().sortingOrder -= (int)transform.position.y;
         completedPuzzles = 0;
+        Cursor.visible = true;
     }
 
     void Update()

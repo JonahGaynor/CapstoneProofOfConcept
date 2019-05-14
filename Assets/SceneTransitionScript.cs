@@ -105,6 +105,7 @@ public class SceneTransitionScript : MonoBehaviour {
     public IEnumerator FadeToBlack()
     {
         Debug.Log("in fade to black");
+        Time.timeScale = 2;
         //screenBorders.GetComponent<ScreenBorders>().player = GameObject.Find("Player");
         //screenBorders.GetComponent<ScreenBorders>().Check();
         a = 0;

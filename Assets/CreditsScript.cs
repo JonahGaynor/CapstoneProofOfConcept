@@ -10,6 +10,8 @@ public class CreditsScript : MonoBehaviour {
 
     bool zoomOut = false;
 
+    public GameObject musica;
+
 	// Update is called once per frame
 	void Update () {
         this.transform.position = new Vector2(0, transform.position.y + scrollSpeed);
@@ -19,8 +21,7 @@ public class CreditsScript : MonoBehaviour {
             if (scrollSpeed < 0)
             {
                 scrollSpeed = 0;
-                Debug.Log("quit");
-                Application.Quit();
+
             }
 
         }
@@ -33,7 +34,8 @@ public class CreditsScript : MonoBehaviour {
             Camera.main.orthographicSize = Camera.main.orthographicSize * 1.05f;
             if (Camera.main.orthographicSize >= 300)
             {
-
+                Debug.Log("quit");
+                Application.Quit();
             }
         }
 	}
@@ -42,5 +44,24 @@ public class CreditsScript : MonoBehaviour {
     {
         yield return new WaitForSeconds(0.1f);
         zoomOut = true;
+        musica.GetComponent<AudioSource>().volume -= 0.1f;
+        yield return new WaitForSeconds(0.05f);
+        musica.GetComponent<AudioSource>().volume -= 0.1f;
+        yield return new WaitForSeconds(0.05f);
+        musica.GetComponent<AudioSource>().volume -= 0.1f;
+        yield return new WaitForSeconds(0.05f);
+        musica.GetComponent<AudioSource>().volume -= 0.1f;
+        yield return new WaitForSeconds(0.05f);
+        musica.GetComponent<AudioSource>().volume -= 0.1f;
+        yield return new WaitForSeconds(0.05f);
+        musica.GetComponent<AudioSource>().volume -= 0.1f;
+        yield return new WaitForSeconds(0.05f);
+        musica.GetComponent<AudioSource>().volume -= 0.1f;
+        yield return new WaitForSeconds(0.05f);
+        musica.GetComponent<AudioSource>().volume -= 0.1f;
+        yield return new WaitForSeconds(0.05f);
+        musica.GetComponent<AudioSource>().volume -= 0.1f;
+        yield return new WaitForSeconds(0.05f);
+        musica.GetComponent<AudioSource>().volume -= 0.1f;
     }
 }

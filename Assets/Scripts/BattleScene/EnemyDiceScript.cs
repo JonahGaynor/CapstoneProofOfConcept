@@ -9,8 +9,9 @@ public class EnemyDiceScript : MonoBehaviour {
     public Sprite[] rollingSprites;
     public Sprite baseSprite;
 
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         if (shouldShow){
             this.GetComponent<SpriteRenderer>().sprite = diceProfile.mySprites[myFace - 1];
         }
@@ -30,16 +31,15 @@ public class EnemyDiceScript : MonoBehaviour {
             GameObject.Find("BattleManager").GetComponent<BattleManager>().enemyCurrentDice.Add(myFace);
         }
     }
-
     IEnumerator Juice()
     {
         int rollNumb = 0;
-        for (int i = 0; i < 73; i++)
+        for (int i = 0; i < 93; i++)
         {
             yield return new WaitForSeconds(0.01f);
             this.GetComponent<SpriteRenderer>().sprite = rollingSprites[rollNumb];
             rollNumb++;
-            if (rollNumb == 36)
+            if (rollNumb == 23)
             {
                 rollNumb = 0;
             }

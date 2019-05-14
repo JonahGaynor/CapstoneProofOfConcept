@@ -25,6 +25,7 @@ public class TutorialBidButton : MonoBehaviour {
     {
         if (biddingCounter.GetComponent<DiceGensScript>().amountBid > 2)
         {
+            tutorialManager.GetComponent<TutorialManager>().enterCounter++;
             tutorialManager.GetComponent<TutorialManager>().Clear();
             this.gameObject.SetActive(false);
         }
@@ -32,6 +33,7 @@ public class TutorialBidButton : MonoBehaviour {
         {
             if (teacup.GetComponent<TeaCupScript>().myNumber > 5)
             {
+                tutorialManager.GetComponent<TutorialManager>().enterCounter++;
                 tutorialManager.GetComponent<TutorialManager>().Clear();
                 this.gameObject.SetActive(false);
             }

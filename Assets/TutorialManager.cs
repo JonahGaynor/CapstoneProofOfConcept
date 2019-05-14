@@ -43,34 +43,37 @@ public class TutorialManager : MonoBehaviour {
     void Update () {
         if (Input.GetKeyUp(KeyCode.Return))
         {
-            enterCounter++;
-            if (enterCounter == 1)
+            if (enterCounter != 7)
             {
-                TheseAreMyDice();
-            }
-            else if (enterCounter == 2)
-            {
-                HideDice();
-            }
-            else if (enterCounter == 4)
-            {
-                Between10Dice();
-            }
-            else if (enterCounter == 5)
-            {
-                NotClear();
-            }
-            else if (enterCounter == 7)
-            {
-                BiddingArea();
-            }
-            else if (enterCounter == 9)
-            {
-                LoseDice();
-            }
-            else if (enterCounter == 12)
-            {
-                End();
+                enterCounter++;
+                if (enterCounter == 1)
+                {
+                    TheseAreMyDice();
+                }
+                else if (enterCounter == 2)
+                {
+                    HideDice();
+                }
+                else if (enterCounter == 4)
+                {
+                    Between10Dice();
+                }
+                else if (enterCounter == 5)
+                {
+                    NotClear();
+                }
+                else if (enterCounter == 7)
+                {
+                    BiddingArea();
+                }
+                else if (enterCounter == 10)
+                {
+                    LoseDice();
+                }
+                else if (enterCounter == 13)
+                {
+                    End();
+                }
             }
         }
 	}

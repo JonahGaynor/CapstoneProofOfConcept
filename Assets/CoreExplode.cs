@@ -10,9 +10,14 @@ public class CoreExplode : MonoBehaviour {
     public Sprite ogSprite;
     SpriteRenderer sr;
 
+    public AudioClip bang;
+    public AudioClip whiteOut;
+    AudioSource myAudio;
+
 	// Use this for initialization
 	void Start () {
         sr = this.GetComponent<SpriteRenderer>();
+        myAudio = this.GetComponent<AudioSource>();
 	}
 
     void Update()
@@ -26,6 +31,7 @@ public class CoreExplode : MonoBehaviour {
     public IEnumerator Explode()
     {
         sr.sprite = ogSprite;
+        GameObject.Find("Player").GetComponent<SpriteRenderer>().sortingOrder = 45;
         //this.GetComponent<SpriteRenderer>().sortingOrder = 109;
         //GameObject.Find("WhiteOut").GetComponent<SpriteRenderer>().sprite = whiteOutSprites[0];
         yield return new WaitForEndOfFrame();
@@ -56,12 +62,14 @@ public class CoreExplode : MonoBehaviour {
             yield return new WaitForSeconds(0.1f);
             sr.sprite = mySprites[i];
         }
+        myAudio.PlayOneShot(bang, 0.3f);
         for (int i = 0; i < whiteOutSprites.Length; i++)
         {
             yield return new WaitForSeconds(0.03f);
             GameObject.Find("WhiteOut").GetComponent<SpriteRenderer>().sprite = whiteOutSprites[i];
         }
-        yield return new WaitForSeconds(3f);
+        myAudio.PlayOneShot(whiteOut);
+        yield return new WaitForSeconds(5f);
         SceneManager.LoadScene("Production_Credits");
     }
 }

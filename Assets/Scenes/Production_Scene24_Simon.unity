@@ -2912,6 +2912,7 @@ GameObject:
   m_Component:
   - component: {fileID: 430728620}
   - component: {fileID: 430728621}
+  - component: {fileID: 430728622}
   m_Layer: 0
   m_Name: ImportantChoiceButtons
   m_TagString: Untagged
@@ -2952,6 +2953,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &430728622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 430728619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bae567e9a98d4c3e96021c9375084f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &446915230
 GameObject:
   m_ObjectHideFlags: 0

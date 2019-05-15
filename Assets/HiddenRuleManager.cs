@@ -72,7 +72,7 @@ public class HiddenRuleManager : MonoBehaviour {
 
     public void Victory()
     {
-        GameObject.Find("ScoreboardNumber").GetComponent<ScoreboardNumberScript>().completedPuzzles++;
+        ScoreboardNumberScript.completedPuzzles++;
         GameObject.Find("Door").GetComponent<DoorSprites>().Open(0);
         GameObject.Find("ScoreboardNumber").SetActive(false);
         GameObject.Find("ScoreboardNumberBase").SetActive(false);

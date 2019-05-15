@@ -3388,7 +3388,7 @@ public class BaseAiEnemy : MonoBehaviour {
                 else
                 {
                     GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(myFives, 5);
-                    for (int i = 0; i < mySixes; i++)
+                    for (int i = 0; i < myFives; i++)
                     {
                         Instantiate(myDice[4], boxPos.position, Quaternion.identity);
                     }
@@ -3407,7 +3407,7 @@ public class BaseAiEnemy : MonoBehaviour {
                 else
                 {
                     GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(myFours, 4);
-                    for (int i = 0; i < mySixes; i++)
+                    for (int i = 0; i < myFours; i++)
                     {
                         Instantiate(myDice[3], boxPos.position, Quaternion.identity);
                     }
@@ -3426,7 +3426,7 @@ public class BaseAiEnemy : MonoBehaviour {
                 else
                 {
                     GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(myThrees, 3);
-                    for (int i = 0; i < mySixes; i++)
+                    for (int i = 0; i < myThrees; i++)
                     {
                         Instantiate(myDice[2], boxPos.position, Quaternion.identity);
                     }
@@ -3445,7 +3445,7 @@ public class BaseAiEnemy : MonoBehaviour {
                 else
                 {
                     GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(myTwos, 2);
-                    for (int i = 0; i < mySixes; i++)
+                    for (int i = 0; i < myTwos; i++)
                     {
                         Instantiate(myDice[1], boxPos.position, Quaternion.identity);
                     }
@@ -3464,7 +3464,7 @@ public class BaseAiEnemy : MonoBehaviour {
                 else
                 {
                     GameObject.Find("BattleManager").GetComponent<BattleManager>().EnemyBid(myOnes, 1);
-                    for (int i = 0; i < mySixes; i++)
+                    for (int i = 0; i < myOnes; i++)
                     {
                         Instantiate(myDice[0], boxPos.position, Quaternion.identity);
                     }

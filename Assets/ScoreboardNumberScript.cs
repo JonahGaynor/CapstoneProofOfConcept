@@ -16,7 +16,7 @@ public class ScoreboardNumberScript : MonoBehaviour {
     public Sprite[] puzzle3Sprites;
     public int puzzle3Counter = 0;
 
-    public int completedPuzzles;
+    public static int completedPuzzles;
 
     void Start()
     {

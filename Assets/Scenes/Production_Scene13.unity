@@ -3377,15 +3377,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mySprites:
-  - {fileID: 21300000, guid: 3d3ee9b9181974924b94fdf1f6c2c3f4, type: 3}
-  - {fileID: 21300000, guid: 3d3ee9b9181974924b94fdf1f6c2c3f4, type: 3}
-  - {fileID: 21300000, guid: 3d3ee9b9181974924b94fdf1f6c2c3f4, type: 3}
-  - {fileID: 21300000, guid: 055d8b1698f344fe693d6ed991ee6765, type: 3}
-  - {fileID: 21300000, guid: 055d8b1698f344fe693d6ed991ee6765, type: 3}
-  - {fileID: 21300000, guid: ed2245830323748aab9eab461229d0a6, type: 3}
-  - {fileID: 21300000, guid: ed2245830323748aab9eab461229d0a6, type: 3}
   - {fileID: 21300000, guid: 83dca523ff7984dce926ccfaa1a57b5a, type: 3}
-  - {fileID: 21300000, guid: 83dca523ff7984dce926ccfaa1a57b5a, type: 3}
+  - {fileID: 21300000, guid: a82924272326844f294be8717868f15a, type: 3}
+  - {fileID: 21300000, guid: 198c052cd143b465587375a60443637d, type: 3}
+  - {fileID: 21300000, guid: 744e96681bfaa49f29d6fbec9f02aaab, type: 3}
+  - {fileID: 21300000, guid: b1a7d4793249a4c5987410842edfeb05, type: 3}
+  - {fileID: 21300000, guid: 3d3ee9b9181974924b94fdf1f6c2c3f4, type: 3}
+  - {fileID: 21300000, guid: b1666ae23e23048a08ad2dce79fd4dfb, type: 3}
+  - {fileID: 21300000, guid: ed2245830323748aab9eab461229d0a6, type: 3}
+  - {fileID: 21300000, guid: 950e661616a6b45f9ab0986903da0d2b, type: 3}
   myNumber: 0
   puzzle3Sprites: []
   puzzle3Counter: 0

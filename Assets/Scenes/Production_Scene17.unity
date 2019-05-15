@@ -16962,7 +16962,7 @@ MonoBehaviour:
     speakerSprite: {fileID: 21300000, guid: 960bba01b353849ab9140320e442cb33, type: 3}
     sentences:
     - 08/14/2491
-    - The insides of the Central Computer is a lot different than I expected.
+    - The inside of the Central Computer is a lot different than I expected.
     - "For one, it\u2019s cold in here, even though it\u2019s hot outside. And every
       step you take echoes."
     - "Each room we enter has a new problem for us to solve, although that hasn\u2019t
